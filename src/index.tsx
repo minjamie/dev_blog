@@ -1,15 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import * as serviceWorkerRegistration from './serviceWorkerRegistration';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import store from './Stores/store-config';
-import 'bootstrap/dist/css/bootstrap.css';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import * as serviceWorkerRegistration from "./serviceWorkerRegistration";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./Stores/store-config";
+import "bootstrap/dist/css/bootstrap.css";
+import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+const root = ReactDOM.createRoot(
+    document.getElementById("root") as HTMLElement
+);
 root.render(
     <Provider store={store}>
         <React.StrictMode>
@@ -17,7 +19,7 @@ root.render(
                 <App />
             </BrowserRouter>
         </React.StrictMode>
-    </Provider>,
+    </Provider>
 );
 
 // If you want your app to work offline and load faster, you can change
