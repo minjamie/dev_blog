@@ -3,16 +3,17 @@ import { media } from "Styles/media.styles";
 
 const NavBar = styled.div`
     background: white;
+    margin: 0 auto;
+    max-width: 100vw;
     height: 80px;
     padding: 0;
     position: sticky;
     top: 0;
     display: flex;
     justify-content: space-around;
-    flex-direction: row-reverses;
     align-items: center;
     font-size: 1.3rem;
-    z-index: 999;
+    z-index: 2;
 `;
 
 const NavBarContainer = styled.div<{ shadow: boolean }>`
@@ -104,7 +105,6 @@ const NavBarMenuLink = styled.a`
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5rem 1rem;
     height: 100%;
     ${media.laptopS`  
         text-align: center;

@@ -1,12 +1,7 @@
 import "./Icon.css";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faMagnifyingGlass,
-    faTimes,
-    faBars,
-    faX,
-} from "@fortawesome/free-solid-svg-icons";
+import { faTimes, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "Components/Button/Button";
 import {
     NavBar,
@@ -20,15 +15,16 @@ import {
     NavBarMenuMobileLink,
 } from "./Nav.styles";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
-import { FaBars } from "react-icons/fa";
+import { TfiClose, TfiSearch } from "react-icons/tfi";
+import { SearchInput } from "Components/Search/Search.styles";
+import { Search } from "Components/Search/Search";
 
 function Navbar() {
     const [click, setClick] = useState(false);
-    const [clickSearch, setSearchClick] = useState(true);
+    const [clickSearch, setSearchClick] = useState(false);
     const [button, setButton] = useState(true);
     const [scroll, setScroll] = useState(false);
 
-    console.log(clickSearch);
     const handleClick = () => setClick(!click);
     const handleSearchClick = () => setSearchClick(!clickSearch);
     const closeMobileMenu = () => setClick(false);
@@ -98,13 +94,23 @@ function Navbar() {
                     </NavBarMenuItem>
                 </NavBarMenuList>
                 {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
-                {/* <FontAwesomeIcon
-                    className="Menu-Search"
-                    icon={clickSearch ? faMagnifyingGlass : faX}
+                {clickSearch == true ? (
+                    <TfiClose
+                        className="Menu-Search"
+                        onClick={handleSearchClick}
+                    />
+                ) : (
+                    <TfiSearch
+                        className="Menu-Search"
+                        onClick={handleSearchClick}
+                    />
+                )}
+                <Search
+                    type="text"
+                    placeholder="search.."
                     onClick={handleSearchClick}
-                    size="10x"
-                /> */}
-                <FaBars />
+                    expand={clickSearch}
+                />
             </NavBarContainer>
         </NavBar>
     );
