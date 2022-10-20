@@ -8,7 +8,7 @@ const SearchContainer = styled.div<{
     padding: 10px;
     background-color: white;
     position: fixed;
-    width: 100%;
+    width: 100vw;
     height: 100px;
     top: 80px;
     z-index: 1;
@@ -47,9 +47,7 @@ const FadeDown = keyframes`
 
 const SearchFrom = styled.form`
     display: flex;
-    align-items: center;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
 `;
 
 const SearchInput = styled.input<{
@@ -57,7 +55,7 @@ const SearchInput = styled.input<{
     placeholder: string;
     expand: boolean;
 }>`
-    width: 1170px;
+    width: 1s0px;
     height: 80px;
     border: none;
     outline: none;

@@ -16,7 +16,6 @@ import {
 } from "./Nav.styles";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { TfiClose, TfiSearch } from "react-icons/tfi";
-import { SearchInput } from "Components/Search/Search.styles";
 import { Search } from "Components/Search/Search";
 
 function Navbar() {

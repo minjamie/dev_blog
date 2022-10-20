@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
-const NavBar = styled.div`
+const NavBar = styled.nav`
     background: white;
     margin: 0 auto;
     max-width: 100vw;
-    height: 80px;
+    height: 15vh;
     padding: 0;
     position: sticky;
     top: 0;
@@ -21,7 +21,7 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px;
+    height: 15vh;
     border-bottom: ${(props) =>
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
@@ -109,7 +109,7 @@ const NavBarMenuLink = styled.a`
     ${media.laptopS`  
         text-align: center;
         padding: 2rem;
-        width: 100%;
+        /* width: 100%; */
         display: table;
     `}
     &:hover {
