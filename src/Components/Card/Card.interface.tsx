@@ -1,7 +1,7 @@
 export interface CardProp {
     data: {
         img: string;
-        text: string;
+        content: string;
         title: string;
         path: string;
     };

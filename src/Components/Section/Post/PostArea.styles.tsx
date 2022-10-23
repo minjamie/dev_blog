@@ -18,16 +18,18 @@ const PostContainer = styled.div`
 `;
 
 const PostWrapper = styled.div`
-    position: relative;
-    margin: 50px 0 45px;
+    width: 100%;
+    height: auto;
+    padding: 50px 0 100px;
 `;
 const PostList = styled.div`
-    margin-bottom: 24px;
-    display: flex;
-    flex: 1;
-    margin: 0 1rem;
-    border-radius: 10px;
-    padding-bottom: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    column-gap: 30px;
+    row-gap: 30px;
+    grid-gap: 20px;
+    margin: 0 auto;
 `;
 
 export { PostArea, PostContainer, PostWrapper, PostList };

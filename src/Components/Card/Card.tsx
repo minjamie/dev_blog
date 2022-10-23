@@ -11,16 +11,16 @@ import {
 } from "./Card.styles";
 
 const Card: FC<any> = (props: CardProp) => {
-    const { text, img, title } = props.data;
+    const { content, img, title } = props.data;
 
     return (
         <CardItem>
-            <CardLink>
+            <CardLink href="abc">
                 <CardFigure title={title}>
                     <CardImage src={img} />
                 </CardFigure>
                 <CardDesc>
-                    <CardText>{text}</CardText>
+                    <CardText>{content}</CardText>
                 </CardDesc>
             </CardLink>
         </CardItem>

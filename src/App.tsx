@@ -1,7 +1,7 @@
 import NavBar from "./Components/Nav/Nav";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Main from "Pages/Main/Main";
+import Main from "Pages/Main/Menu";
 
 function App() {
     return (
