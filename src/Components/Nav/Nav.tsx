@@ -1,5 +1,5 @@
 import "./Icon.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "Components/Button/Button";
@@ -17,24 +17,17 @@ import {
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { TfiClose, TfiSearch } from "react-icons/tfi";
 import { Search } from "Components/Search/Search";
+import { useDispatch, useSelector } from "react-redux";
+import { NavProps } from "./Nav.interface";
 
-function Navbar() {
+const Navbar: FC<any> = (props) => {
     const [click, setClick] = useState(false);
     const [clickSearch, setSearchClick] = useState(false);
-    const [button, setButton] = useState(true);
     const [scroll, setScroll] = useState(false);
 
     const handleClick = () => setClick(!click);
     const handleSearchClick = () => setSearchClick(!clickSearch);
     const closeMobileMenu = () => setClick(false);
-
-    const showButton = () => {
-        if (window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
 
     useEffect(() => {
         window.onscroll = function () {
@@ -45,12 +38,6 @@ function Navbar() {
             }
         };
     });
-
-    useEffect(() => {
-        showButton();
-    }, []);
-
-    window.addEventListener("resize", showButton);
 
     return (
         <NavBar>
@@ -65,34 +52,19 @@ function Navbar() {
                     />
                 </NavBarMenuIcon>
                 <NavBarMenuList active={click}>
-                    <NavBarMenuItem>
-                        <NavBarMenuLink href="/Stroy" onClick={closeMobileMenu}>
-                            Stroy
-                        </NavBarMenuLink>
-                    </NavBarMenuItem>
-                    <NavBarMenuItem>
-                        <NavBarMenuLink href="/Tech" onClick={closeMobileMenu}>
-                            Tech
-                        </NavBarMenuLink>
-                    </NavBarMenuItem>
-                    <NavBarMenuItem>
-                        <NavBarMenuLink
-                            href="/Culture"
-                            onClick={closeMobileMenu}
-                        >
-                            Culture
-                        </NavBarMenuLink>
-                    </NavBarMenuItem>
-                    <NavBarMenuItem>
-                        <NavBarMenuMobileLink
-                            href="/sign-up"
-                            onClick={closeMobileMenu}
-                        >
-                            Sign Up
-                        </NavBarMenuMobileLink>
-                    </NavBarMenuItem>
+                    {props.category.map((a: any, index: any) => {
+                        return (
+                            <NavBarMenuItem key={index}>
+                                <NavBarMenuLink
+                                    href={`${props.category[index].name}`}
+                                    onClick={closeMobileMenu}
+                                >
+                                    {props.category[index].name}
+                                </NavBarMenuLink>
+                            </NavBarMenuItem>
+                        );
+                    })}
                 </NavBarMenuList>
-                {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
                 {clickSearch == true ? (
                     <TfiClose
                         className="Menu-Search"
@@ -113,6 +85,6 @@ function Navbar() {
             </NavBarContainer>
         </NavBar>
     );
-}
+};
 
 export default Navbar;

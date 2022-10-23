@@ -1,6 +1,5 @@
 import Card from "Components/Card/Card";
 import feature from "Assets/dummy/Feature";
-import fature from "Assets/dummy/Feature";
 import React, { useState } from "react";
 import {
     FeatureArea,
@@ -23,7 +22,7 @@ export default function Feature() {
                         <FeatureTapButton>Popular</FeatureTapButton>
                     </FeatureTaps>
                     <FeatureList>
-                        {fature.map((a, index) => {
+                        {feature.map((a: any, index: any) => {
                             return <Card key={index} data={feature[index]} />;
                         })}
                     </FeatureList>
