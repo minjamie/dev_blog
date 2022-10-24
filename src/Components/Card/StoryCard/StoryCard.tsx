@@ -1,6 +1,6 @@
 import path from "path";
 import React, { FC } from "react";
-import { StoryProp } from "./Story.interface";
+import { StoryProp } from "./StoryCard.interface";
 import {
     StoryItem,
     StoryTitle,
@@ -8,9 +8,9 @@ import {
     StoryImage,
     StoryLink,
     StoryText,
-} from "./Story.styles";
+} from "./StoryCard.styles";
 
-const Story: FC<any> = (props: StoryProp) => {
+const StoryCard: FC<any> = (props: StoryProp) => {
     const { content, img, title } = props.data;
 
     return (
@@ -26,4 +26,4 @@ const Story: FC<any> = (props: StoryProp) => {
     );
 };
 
-export default Story;
+export default StoryCard;

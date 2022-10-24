@@ -10,7 +10,7 @@ function App() {
         { id: 0, name: "Story" },
         { id: 1, name: "Tech" },
         { id: 2, name: "Culture" },
-        { id: 3, name: "Sign-Up" },
+        { id: 4, name: "Sign-Up" },
     ]);
 
     return (
@@ -20,19 +20,19 @@ function App() {
                 <Route path="/" element={<Main />} />
                 <Route
                     path={`${category[0].name}`}
-                    element={<Menu category={category[0].name} />}
+                    element={<Menu category={category[0]} />}
                 />
                 <Route
                     path={`${category[1].name}`}
-                    element={<Menu category={category[1].name} />}
+                    element={<Menu category={category[1]} />}
                 />
                 <Route
                     path={`${category[2].name}`}
-                    element={<Menu category={category[2].name} />}
+                    element={<Menu category={category[2]} />}
                 />
                 <Route
                     path={`${category[3].name}`}
-                    element={<Menu category={category[3].name} />}
+                    element={<Menu category={category[3]} />}
                 />
             </Routes>
         </div>

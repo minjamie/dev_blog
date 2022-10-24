@@ -1,28 +1,29 @@
+import { useState } from "react";
+import { CultureList, MenuPage, TechList } from "./Menu.styles";
 import MenuBar from "Components/MenuBar/MenuBar";
 import "App.css";
-import { MenuPage, StoryList, TechList } from "./Menu.styles";
 import Card from "Components/Card/Card";
 import posts from "Assets/dummy/Post";
-import { useState } from "react";
-import Story from "Components/Story/Story";
+import CategoryBar from "Components/CategoryBar/CategoryBar";
+import Story from "Pages/Story/Story";
+import Culture from "Pages/Culture/Culture";
+import Tech from "Pages/Tech/Tech";
 
 export default function Menu(props: any) {
     const [data, setData] = useState(posts);
     return (
         <MenuPage>
-            <MenuBar category={props.category}></MenuBar>
-            {props.category === "Story" ? (
-                <StoryList>
-                    {posts.map((a: any, index: any) => {
-                        return <Story key={index} data={data[index]} />;
-                    })}
-                </StoryList>
+            {props.category.id !== 2 ? (
+                <MenuBar category={props.category.name} />
             ) : (
-                <TechList>
-                    {posts.map((a: any, index: any) => {
-                        return <Card key={index} data={data[index]} />;
-                    })}
-                </TechList>
+                <CategoryBar category={props.category.name} />
+            )}
+            {props.category.name === "Story" ? (
+                <Story></Story>
+            ) : props.category.name === "Tech" ? (
+                <Tech></Tech>
+            ) : (
+                <Culture></Culture>
             )}
         </MenuPage>
     );
