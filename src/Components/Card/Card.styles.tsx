@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const CardItem = styled.li`
     margin-bottom: 24px;

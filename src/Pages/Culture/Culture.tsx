@@ -1,17 +1,25 @@
-import MenuBar from "Components/MenuBar/MenuBar";
 import "App.css";
 import { CultureList, CulturePage } from "./Culture.styles";
-import posts from "Assets/dummy/Post";
 import { useState } from "react";
 import CultureCard from "Components/Card/CultureCard/CultureCard";
+import cultures from "Assets/dummy/Culture";
+import { Link } from "react-router-dom";
 
 export default function Culture(props: any) {
-    const [data, setData] = useState(posts);
+    const [data, setData] = useState(cultures);
     return (
         <CulturePage>
             <CultureList>
-                {posts.map((a: any, index: any) => {
-                    return <CultureCard key={index} data={data[index]} />;
+                {cultures.map((a: any, index: any) => {
+                    return (
+                        <Link
+                            style={{ textDecoration: "none" }}
+                            key={index}
+                            to={`/Culture/${index}`}
+                        >
+                            <CultureCard data={data[index]} />;
+                        </Link>
+                    );
                 })}
             </CultureList>
         </CulturePage>

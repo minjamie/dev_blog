@@ -1,69 +1,83 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const CultureItem = styled.li`
     display: flex;
-    justify-content: space-between;
-    margin-bottom: 24px;
-    margin: 0 1rem;
+    margin: 0 1.4rem;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-    -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     @media only screen and (max-width: 1024px) {
         margin-bottom: 2rem;
     }
-    height: 250px;
+    height: auto;
 `;
+
 const CultureLink = styled.a`
     display: flex;
-    flex-flow: column;
-    width: 65%;
-    border-radius: 10px;
-    overflow: hidden;
+    flex-flow: row;
     text-decoration: none;
     padding: 30px;
 `;
 
-const CultureTitle = styled.h1`
-    position: relative;
-    width: 100%;
-    padding-top: 67%;
-    overflow: hidden;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: black;
-    box-sizing: border-box;
-    font-size: 50px;
-`;
-const CultureImage = styled.img<{ src: string }>`
-    left: 0;
-    object-fit: contain;
-    width: 30%;
-    max-width: 100%;
-    height: 100%;
-    max-height: 100%;
-    src: src;
-    padding: 30px 60px;
+const CultureInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
 `;
 
-const CultureDesc = styled.div`
-    padding: 20px 30px 30px;
+const CultureTitle = styled.h1`
+    font-weight: 900;
+    font-size: 35px;
 `;
-const CultureText = styled.h5`
+const CultureImage = styled.img<{ src: string }>`
+    margin: auto;
+    width: 30vw;
+    height: 15vh;
+    src: src;
+`;
+
+const CultureText = styled.h1`
     color: #252e48;
     font-size: 18px;
     line-height: 24px;
+    padding: 20px 0;
+`;
+
+const CultureMeta = styled.ul`
+    color: gray;
+    padding: 0;
+`;
+
+const CultureEmail = styled.span`
+    padding-right: 10px;
+`;
+const CultureDate = styled.span`
+    padding-right: 10px;
+`;
+const CultureCount = styled.span``;
+
+const CultureTags = styled.div``;
+const CultureTag = styled.span`
+    text-decoration: none;
+    display: inline;
+    border: 1px solid #ddd;
+    padding: 2px 10px;
+    margin: 0px 5px;
+    color: #222;
+    font-weight: 300;
 `;
 
 export {
     CultureItem,
     CultureLink,
     CultureTitle,
+    CultureInfo,
     CultureImage,
-    CultureDesc,
     CultureText,
+    CultureMeta,
+    CultureEmail,
+    CultureDate,
+    CultureCount,
+    CultureTags,
+    CultureTag,
 };

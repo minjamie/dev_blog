@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 
 const FeatureArea = styled.section`
     width: 100vw;

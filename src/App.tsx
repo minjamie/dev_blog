@@ -4,6 +4,7 @@ import "./App.css";
 import { useState } from "react";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
+import People from "Pages/Culture/People/People";
 
 function App() {
     const [category, setCategory] = useState([
@@ -30,6 +31,7 @@ function App() {
                     path={`${category[2].name}`}
                     element={<Menu category={category[2]} />}
                 />
+                <Route path={`${category[2].name}/:id`} element={<People />} />
                 <Route
                     path={`${category[3].name}`}
                     element={<Menu category={category[3]} />}

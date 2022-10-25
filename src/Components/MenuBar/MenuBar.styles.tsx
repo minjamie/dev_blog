@@ -27,7 +27,6 @@ const MenuBarCategoryLeft = styled.div`
 
 const CategoryTitle = styled.h5`
     font-size: 35px;
-    width: 200px;
     height: 50px;
 `;
 

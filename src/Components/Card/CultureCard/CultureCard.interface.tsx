@@ -3,6 +3,9 @@ export interface CultureProp {
         img: string;
         content: string;
         title: string;
-        path: string;
+        email: string;
+        count: number;
+        date: string;
+        tags: string[];
     };
 }

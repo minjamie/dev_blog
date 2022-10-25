@@ -2,7 +2,6 @@ import "./Icon.css";
 import { useState, useEffect, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes, faBars, faX } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "Components/Button/Button";
 import {
     NavBar,
     NavBarContainer,
@@ -12,13 +11,10 @@ import {
     NavBarMenuItem,
     NavBarMenuLink,
     NavBarMenuList,
-    NavBarMenuMobileLink,
 } from "./Nav.styles";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { TfiClose, TfiSearch } from "react-icons/tfi";
 import { Search } from "Components/Search/Search";
-import { useDispatch, useSelector } from "react-redux";
-import { NavProps } from "./Nav.interface";
 
 const Navbar: FC<any> = (props) => {
     const [click, setClick] = useState(false);
