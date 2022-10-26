@@ -3,17 +3,20 @@ import { Link } from "react-router-dom";
 
 const HighlightArea = styled.section`
     padding: 4rem;
-    background: #fff;
+    background-color: #f4f6f8;
 `;
 
 const HighlightContainer = styled.div`
-    max-width: 1120px;
-    width: 90%;
+    max-width: 1260px;
+    width: 100%;
     margin: 0 auto;
-    width: 75vw;
 `;
 
-const HighlightWrapper = styled.div``;
+const HighlightWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
 
 const HighlightMain = styled.article``;
 
@@ -39,7 +42,7 @@ const MainImage = styled.img`
 const MainContent = styled.div`
     width: 30vw;
     height: 40vh;
-    background-color: aliceblue;
+    background-color: white;
     text-align: left;
     padding: 54px 24px;
 `;

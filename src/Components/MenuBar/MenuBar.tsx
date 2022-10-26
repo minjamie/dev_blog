@@ -6,6 +6,7 @@ import {
     MenuBarCategoryRight,
     CategoryTitle,
     Category,
+    MenuBarCategoryCenter,
 } from "./MenuBar.styles";
 
 export default function MenuBar(props: any) {
@@ -17,6 +18,7 @@ export default function MenuBar(props: any) {
                     <CategoryTitle>{meta.category}</CategoryTitle>
                     <Category>Category</Category>
                 </MenuBarCategoryLeft>
+                <MenuBarCategoryCenter />
                 <MenuBarCategoryRight>
                     <CategoryTitle>{meta.number}</CategoryTitle>
                     <Category>Article</Category>

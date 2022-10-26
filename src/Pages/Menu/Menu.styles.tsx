@@ -1,16 +1,8 @@
 import styled from "styled-components";
 
-const MenuPage = styled.main`
-    height: 100vh;
-    width: 100%;
-`;
+const MenuPage = styled.main``;
 
-const StoryList = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 0 150px;
-`;
+const StoryList = styled.div``;
 
 const TechList = styled.div`
     display: grid;
@@ -19,8 +11,6 @@ const TechList = styled.div`
     column-gap: 30px;
     row-gap: 30px;
     grid-gap: 20px;
-    margin: 0 auto;
-    padding: 0 150px;
 `;
 
 const CultureList = styled.div`

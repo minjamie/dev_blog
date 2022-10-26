@@ -2,17 +2,10 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const NavBar = styled.nav`
-    background: white;
-    margin: 0 auto;
-    max-width: 100vw;
-    height: 15vh;
-    padding: 0;
+    background: #ffffff;
     position: sticky;
     top: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     z-index: 2;
 `;
 
@@ -21,34 +14,31 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 15vh;
+    padding: 15px 0px;
     border-bottom: ${(props) =>
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
         props.shadow ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
-    ${media.laptopS`  
-        padding: 0 30px;
+    ${media.laptop`  
+        padding: 15px 50px;
     `}
 `;
 
 const NavBarLogoLink = styled.a`
-    display: flex;
-    align-items: center;
-    height: 35px;
     cursor: pointer;
-    ${media.laptopS`  
-        cursor: pointer;
+    ${media.laptop`  
         flex-grow: 0.9;
         display: inline-flex;
         order: 2;
     `}
 `;
 
-const NavBarLogo = styled.div<{ src: string }>`
-    background-image: url(${(props) => props.src});
-    background-size: cover;
-    width: 200px;
-    height: 50px;
+const NavBarLogo = styled.img<{ src: string }>`
+    src: src;
+    width: 100%;
+    display: block;
+    height: auto;
+    max-width: 200px;
 `;
 
 const NavBarMenuIcon = styled.div`
@@ -57,7 +47,7 @@ const NavBarMenuIcon = styled.div`
     display: none;
     height: 30px;
     cursor: pointer;
-    ${media.laptopS`  
+    ${media.laptop`  
         flex-grow: 0.9;
         display: inline-flex;
         font-size: 1.8rem;
@@ -72,13 +62,11 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     grid-gap: 10px;
     list-style: none;
     text-align: center;
-    width: 60vw;
+    width: 38vw;
     justify-content: end;
-    margin-right: 2rem;
-    height: 60px;
-    margin-right: 0;
+    margin: 0;
     padding: 0;
-    ${media.laptopS`  
+    ${media.laptop`  
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -96,9 +84,7 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     `}
 `;
 
-const NavBarMenuItem = styled.li`
-    height: 80px;
-`;
+const NavBarMenuItem = styled.li``;
 
 const NavBarMenuLink = styled.a`
     color: black;
@@ -106,10 +92,10 @@ const NavBarMenuLink = styled.a`
     align-items: center;
     text-decoration: none;
     height: 100%;
-    ${media.laptopS`  
+    ${media.laptop`  
         text-align: center;
         padding: 2rem;
-        /* width: 100%; */
+        width: 100%;
         display: table;
     `}
     &:hover {
@@ -117,24 +103,6 @@ const NavBarMenuLink = styled.a`
         border-bottom: 4px solid orange;
         transition: all 0.2s ease-out;
     }
-`;
-
-const NavBarMenuMobileLink = styled.a`
-    display: none;
-    ${media.laptopS`  
-        display: block;
-        text-align: center;
-        margin: 2rem auto;
-        border-radius: 4px;
-        width: 80%;
-        text-decoration: none;
-        font-size: 1.5rem;
-        background-color: transparent;
-        color: #fff;
-        padding: 14px 20px;
-        border: 1px solid #fff;
-        transition: all 0.3s ease-out;
-    `}
 `;
 
 export {
@@ -146,5 +114,4 @@ export {
     NavBarMenuList,
     NavBarMenuItem,
     NavBarMenuLink,
-    NavBarMenuMobileLink,
 };

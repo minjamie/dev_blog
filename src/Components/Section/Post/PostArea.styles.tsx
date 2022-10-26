@@ -2,25 +2,21 @@ import styled from "styled-components";
 
 const PostArea = styled.section`
     padding: 4rem;
-    background: #fff;
-    @media only screen and (min-width: 1024px) {
-        display: flex;
-    }
+    background-color: #f4f6f8;
 `;
 
 const PostContainer = styled.div`
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 1120px;
-    width: 90%;
+    max-width: 1260px;
+    width: 100%;
     margin: 0 auto;
 `;
 
 const PostWrapper = styled.div`
     width: 100%;
     height: auto;
-    padding: 50px 0 100px;
 `;
 const PostList = styled.div`
     display: grid;

@@ -2,18 +2,18 @@ import styled from "styled-components";
 
 const FeatureArea = styled.section`
     width: 100vw;
-    height: 50vh;
+    height: auto;
     background: aliceblue;
-    margin-right: auto;
     margin-left: auto;
-    padding-right: 24px;
-    padding-left: 24px;
+    padding-top: 0.5rem;
+    padding-bottom: 4rem;
 `;
 
 const FeatureContainer = styled.div`
-    max-width: 1120px;
+    max-width: 1260px;
+    width: 100%;
     margin: 0 auto;
-    width: 85vw;
+    width: 70vw;
 `;
 
 const FeatureWrapper = styled.div``;

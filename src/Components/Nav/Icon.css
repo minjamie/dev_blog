@@ -8,10 +8,9 @@
     cursor: pointer;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 1024px) {
     .Menu-Search {
-        margin: 0;
-        font-size: 22px;
+        font-size: 30px;
         color: black;
         order: 3;
     }

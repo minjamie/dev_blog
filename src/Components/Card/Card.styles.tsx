@@ -67,6 +67,13 @@ const CardText = styled.h5`
     color: #252e48;
     font-size: 18px;
     line-height: 24px;
+    display: inline; /* or in-line block according to your requirement */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: brek-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 `;
 
 export { CardItem, CardLink, CardFigure, CardImage, CardDesc, CardText };

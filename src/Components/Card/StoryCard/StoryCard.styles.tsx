@@ -3,16 +3,10 @@ import styled from "styled-components";
 const StoryItem = styled.li`
     display: flex;
     justify-content: space-between;
-    margin-bottom: 24px;
-    margin: 0 1rem;
     border-radius: 10px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    @media only screen and (max-width: 1024px) {
-        margin-bottom: 2rem;
-    }
-    height: 250px;
 `;
 const StoryLink = styled.a`
     display: flex;
@@ -28,7 +22,6 @@ const StoryTitle = styled.h1`
     position: relative;
     width: 100%;
     padding-top: 67%;
-    overflow: hidden;
     bottom: 0;
     margin-left: 10px;
     padding: 6px 8px;
@@ -40,9 +33,8 @@ const StoryTitle = styled.h1`
     font-size: 50px;
 `;
 const StoryImage = styled.img<{ src: string }>`
-    left: 0;
     object-fit: contain;
-    width: 30%;
+    width: 300px;
     max-width: 100%;
     height: 100%;
     max-height: 100%;
@@ -57,6 +49,13 @@ const StoryText = styled.h5`
     color: #252e48;
     font-size: 18px;
     line-height: 24px;
+    display: inline; /* or in-line block according to your requirement */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: brek-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
 `;
 
 export { StoryItem, StoryLink, StoryTitle, StoryImage, StoryDesc, StoryText };

@@ -15,6 +15,7 @@ import {
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { TfiClose, TfiSearch } from "react-icons/tfi";
 import { Search } from "Components/Search/Search";
+import { media } from "Styles/media.styles";
 
 const Navbar: FC<any> = (props) => {
     const [click, setClick] = useState(false);
@@ -70,6 +71,7 @@ const Navbar: FC<any> = (props) => {
                     <TfiSearch
                         className="Menu-Search"
                         onClick={handleSearchClick}
+                        style={{}}
                     />
                 )}
                 <Search
