@@ -2,10 +2,8 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const CardItem = styled.li`
-    margin-bottom: 24px;
-    display: flex;
-    flex: 1;
-    border-radius: 10px;
+    width: 30vw;
+    height: 30vh;
 `;
 const CardLink = styled.a`
     display: flex;
@@ -19,13 +17,8 @@ const CardLink = styled.a`
     text-decoration: none;
 `;
 
-const CardFigure = styled.figure<{ title: string }>`
-    position: relative;
-    width: 100%;
-    padding-top: 67%;
-    overflow: hidden;
+const CardFigure = styled.figure`
     ::after {
-        content: attr(title);
         position: absolute;
         bottom: 0;
         margin-left: 10px;
@@ -34,7 +27,6 @@ const CardFigure = styled.figure<{ title: string }>`
         font-size: 12px;
         font-weight: 700;
         color: #fff;
-        background-color: #1f98f4;
         box-sizing: border-box;
     }
 `;
@@ -57,9 +49,10 @@ const CardImage = styled.img<{ src: string }>`
     }
 `;
 
-const CardDesc = styled.div`
-    padding: 20px 30px 30px;
-`;
+const CardDesc = styled.div``;
+const CardTitle = styled.h5``;
+const CardCategory = styled.h5``;
+const CardInfo = styled.h5``;
 const CardText = styled.h5`
     color: #252e48;
     font-size: 18px;
@@ -73,4 +66,14 @@ const CardText = styled.h5`
     -webkit-box-orient: vertical;
 `;
 
-export { CardItem, CardLink, CardFigure, CardImage, CardDesc, CardText };
+export {
+    CardItem,
+    CardLink,
+    CardFigure,
+    CardImage,
+    CardDesc,
+    CardTitle,
+    CardCategory,
+    CardInfo,
+    CardText,
+};

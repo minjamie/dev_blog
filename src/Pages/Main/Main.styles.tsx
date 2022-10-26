@@ -3,7 +3,8 @@ import styled from "styled-components";
 const MainPage = styled.main`
     height: 100vh;
     width: 100%;
-    max-width: 1360px;
+    padding-top: 8rem;
+    background-color: #f4f6f8;
 `;
 
 export { MainPage };

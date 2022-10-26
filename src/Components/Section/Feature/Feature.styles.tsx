@@ -10,10 +10,9 @@ const FeatureArea = styled.section`
 `;
 
 const FeatureContainer = styled.div`
-    max-width: 1260px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
-    width: 70vw;
 `;
 
 const FeatureWrapper = styled.div``;

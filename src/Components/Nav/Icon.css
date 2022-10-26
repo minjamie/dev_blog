@@ -3,14 +3,14 @@
 }
 
 .Menu-Search {
-    margin: 0 8px 0 16px;
+    margin: 0;
     font-size: 22px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 @media screen and (max-width: 1024px) {
     .Menu-Search {
-        font-size: 30px;
         color: black;
         order: 3;
     }

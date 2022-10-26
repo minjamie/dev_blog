@@ -2,15 +2,14 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const NavBar = styled.nav`
+    width: 100%;
     background: #ffffff;
-    position: sticky;
+    position: fixed;
     top: 0;
-    font-size: 1.1rem;
     z-index: 2;
 `;
 
 const NavBarContainer = styled.div<{ shadow: boolean }>`
-    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,6 +25,8 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
 
 const NavBarLogoLink = styled.a`
     cursor: pointer;
+    flex-basis: 200px;
+    flex-shrink: 0;
     ${media.laptop`  
         flex-grow: 0.9;
         display: inline-flex;
@@ -57,15 +58,17 @@ const NavBarMenuIcon = styled.div`
 `;
 
 const NavBarMenuList = styled.ul<{ active: boolean }>`
+    flex-shrink: 4;
     display: grid;
+    flex-shrink: 1;
     grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
+    grid-gap: 1.5rem;
     list-style: none;
-    text-align: center;
-    width: 38vw;
+    width: 55vw;
     justify-content: end;
     margin: 0;
     padding: 0;
+    margin-right: 1.5rem;
     ${media.laptop`  
         display: flex;
         flex-direction: column;
@@ -99,8 +102,7 @@ const NavBarMenuLink = styled.a`
         display: table;
     `}
     &:hover {
-        color: orange;
-        border-bottom: 4px solid orange;
+        color: #1f98f4;
         transition: all 0.2s ease-out;
     }
 `;

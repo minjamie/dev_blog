@@ -1,10 +1,9 @@
+import Card from "Components/Card/HighlightCard/Card";
 import highlight from "Assets/dummy/highlight";
-import Card from "Components/Card/Card";
 import React, { useState } from "react";
 import {
     HighlightArea,
     HighlightContainer,
-    HighlightMain,
     MainLink,
     MainImage,
     MainContent,
@@ -26,30 +25,26 @@ export default function Highlight() {
         <HighlightArea>
             <HighlightContainer>
                 <HighlightWrapper>
-                    <HighlightMain>
-                        <MainLink to={mainData.path}>
-                            <MainImage src={mainData.img} />
-                            <MainContent>
-                                <MainCategory>{mainData.category}</MainCategory>
-                                <MainTitle> 🤍 {mainData.title}</MainTitle>
-                                <MainInfo>
-                                    <MainWriteDate>
-                                        {mainData.githubFolks} Folks /
-                                    </MainWriteDate>
-                                    <MainViewCount>
-                                        {mainData.githubStars} Ratings
-                                    </MainViewCount>
-                                </MainInfo>
-                            </MainContent>
-                        </MainLink>
-                        <HighlightList>
-                            {subData.map((a, index) => {
-                                return (
-                                    <Card key={index} data={subData[index]} />
-                                );
-                            })}
-                        </HighlightList>
-                    </HighlightMain>
+                    <MainLink>
+                        <MainImage src={mainData.img} />
+                        <MainContent>
+                            <MainCategory>{mainData.category}</MainCategory>
+                            <MainTitle> {mainData.title}</MainTitle>
+                            <MainInfo>
+                                <MainWriteDate>
+                                    {mainData.githubFolks} Folks /
+                                </MainWriteDate>
+                                <MainViewCount>
+                                    {mainData.githubStars} Ratings
+                                </MainViewCount>
+                            </MainInfo>
+                        </MainContent>
+                    </MainLink>
+                    <HighlightList>
+                        {subData.map((a, index) => {
+                            return <Card key={index} data={subData[index]} />;
+                        })}
+                    </HighlightList>
                 </HighlightWrapper>
             </HighlightContainer>
         </HighlightArea>

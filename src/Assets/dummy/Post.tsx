@@ -120,7 +120,6 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
         id: 7,
         title: "React Virtualized",
         content: `Building a frontend that’s data heavy? React Virtualized may be the library you need to dip into. It includes numerous components for efficiently rendering large lists, tables and grids. For example, you’ll find masonry, columns, autosizers, direction sorters, window scrollers and more. Further, you can customize the tables by configuring the row heights and display placeholders in the cells.
-
             React Virtualized has very few dependencies and supports standard browsers, including recent mobile browsers for iOS and Android. It has thousands of stars on GitHub.`,
         img: "https://cloud.githubusercontent.com/assets/29597/11737732/0ca1e55e-9f91-11e5-97f3-098f2f8ed866.png",
         githubStars: "20.7k",
@@ -142,9 +141,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
         id: 9,
         title: "Fluent UI",
         content: `Fluent UI React Components is a set of UI components and utilities resulting from an effort to converge the set of React based component libraries in production today: @fluentui/react and @fluentui/react-northstar.
-
            Each component is designed to adhere to the following standards:
-           
            Customizable: Fluent-styled components by default, but easy to integrate your own brand and theme
            Performance: Optimized for render performance
            Bundle size: Refactored and slimmed down components that allow you to include the packages and dependencies you need

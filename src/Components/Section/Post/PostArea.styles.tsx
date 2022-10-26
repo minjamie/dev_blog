@@ -9,7 +9,7 @@ const PostContainer = styled.div`
     display: flex;
     flex-flow: column;
     align-items: center;
-    max-width: 1260px;
+    max-width: 1200px;
     width: 100%;
     margin: 0 auto;
 `;
