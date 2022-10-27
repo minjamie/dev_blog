@@ -1,27 +1,33 @@
 import styled from "styled-components";
+import { media } from "Styles/media.styles";
 
 const FeatureArea = styled.section`
-    width: 100vw;
-    height: auto;
-    background: aliceblue;
-    margin-left: auto;
-    padding-top: 0.5rem;
-    padding-bottom: 4rem;
+    padding: 4rem;
 `;
 
 const FeatureContainer = styled.div`
     max-width: 1200px;
     width: 100%;
+    height: auto;
     margin: 0 auto;
 `;
 
-const FeatureWrapper = styled.div``;
+const FeatureWrapper = styled.div`
+    width: 100%;
+    height: auto;
+`;
 
 const FeatureTaps = styled.div`
     width: 90%;
     display: flex;
     font-size: 0;
     padding: 44px 0 24px 15px;
+    ${media.laptop`  
+        padding-left: 4rem;
+    `}
+    ${media.mobile`  
+        padding: 2em;
+    `}
 `;
 const FeatureTapButton = styled.button`
     z-index: 1;
@@ -42,7 +48,13 @@ const FeatureTapButton = styled.button`
 
 const FeatureList = styled.div`
     display: flex;
-    flex-direction: row;
+    justify-content: center;
+    ${media.laptop`  
+        flex-flow: row wrap;
+    `}
+    ${media.mobile`  
+padding-left: 3rem;
+`}
 `;
 
 export {

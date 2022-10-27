@@ -2,28 +2,30 @@ import path from "path";
 import React, { FC } from "react";
 import { CardProp } from "./Card.interface";
 import {
-    CardItem,
-    CardDesc,
-    CardFigure,
     CardImage,
     CardLink,
-    CardText,
+    CardContent,
+    CardTitle,
+    CardInfo,
+    CardCategory,
+    CardWriteDate,
+    CardViewCount,
 } from "./Card.styles";
 
 const Card: FC<any> = (props: CardProp) => {
-    const { content, img, title } = props.data;
-
+    const { githubFolks, githubStars, img, title, category } = props.data;
     return (
-        <CardItem>
-            <CardLink href="abc">
-                <CardFigure title={title}>
-                    <CardImage src={img} />
-                </CardFigure>
-                <CardDesc>
-                    <CardText>{content}</CardText>
-                </CardDesc>
-            </CardLink>
-        </CardItem>
+        <CardLink sectionCategory={props.sectionCategory}>
+            <CardImage sectionCategory={props.sectionCategory} src={img} />
+            <CardContent>
+                <CardCategory>{category}</CardCategory>
+                <CardTitle> {title}</CardTitle>
+                <CardInfo>
+                    <CardWriteDate>{githubFolks} Folks /</CardWriteDate>
+                    <CardViewCount>{githubStars} Ratings</CardViewCount>
+                </CardInfo>
+            </CardContent>
+        </CardLink>
     );
 };
 

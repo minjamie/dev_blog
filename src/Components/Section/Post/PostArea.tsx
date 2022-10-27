@@ -8,15 +8,22 @@ import {
     PostWrapper,
 } from "./PostArea.styles";
 
-export default function Post() {
+export default function Post(props: any) {
     const [data, setData] = useState(posts);
+    console.log(props.sectionCategory);
     return (
         <PostArea>
             <PostContainer>
                 <PostWrapper>
                     <PostList>
                         {posts.map((a: any, index: any) => {
-                            return <Card key={index} data={data[index]} />;
+                            return (
+                                <Card
+                                    key={index}
+                                    data={data[index]}
+                                    sectionCategory={props.sectionCategory}
+                                />
+                            );
                         })}
                     </PostList>
                 </PostWrapper>

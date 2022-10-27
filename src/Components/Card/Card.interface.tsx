@@ -4,5 +4,8 @@ export interface CardProp {
         content: string;
         title: string;
         category: string;
+        githubStars: string;
+        githubFolks: string;
     };
+    sectionCategory: string;
 }

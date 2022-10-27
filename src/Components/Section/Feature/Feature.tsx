@@ -10,7 +10,7 @@ import {
     FeatureTapButton,
 } from "./Feature.styles";
 
-export default function Feature() {
+export default function Feature(props: any) {
     const [data, setData] = useState(feature);
     return (
         <FeatureArea>
@@ -23,7 +23,13 @@ export default function Feature() {
                     </FeatureTaps>
                     <FeatureList>
                         {feature.map((a: any, index: any) => {
-                            return <Card key={index} data={feature[index]} />;
+                            return (
+                                <Card
+                                    key={index}
+                                    data={feature[index]}
+                                    sectionCategory={props.sectionCategory}
+                                />
+                            );
                         })}
                     </FeatureList>
                 </FeatureWrapper>

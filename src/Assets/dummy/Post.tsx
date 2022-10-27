@@ -1,6 +1,7 @@
 const posts = [
     {
         id: 0,
+        category: "Category",
         title: "React BootStrap",
         content: `Used by 605,000+ projects on GitHub, React-Bootstrap is one of the oldest React UI component libraries out there. In a nutshell, it’s the popular frontend framework Bootstrap completely rebuilt in React. The library consists of ready-made components that are fully responsive and accessible. All the design elements are also highly customizable.
 
@@ -18,6 +19,7 @@ In the end, React-Bootstrap’s popularity is a clear sign that it’s a great c
     },
     {
         id: 1,
+        category: "Category",
         title: "Semantic UI React",
         content: `Used by more than 132,000 projects on GitHub, Semantic UI React is a frontend component library for ready-made, mobile-responsive solutions. As the name suggests, it’s the official React integration of the Semantic UI development framework, known for its responsive, human-friendly HTML code. Semantic UI React is built on 99.9% JavaScript and 0.1% TypeScript.
 
@@ -37,6 +39,7 @@ In the end, React-Bootstrap’s popularity is a clear sign that it’s a great c
     },
     {
         id: 2,
+        category: "Category",
         title: "Material-UI",
         content: `Used by more than 745,000 projects on GitHub, MUI is a straightforward and customizable React components library based on Google’s Material Design. So, MUI is not simply a component library, but an entire design system. It features a wholesome system of guidelines, design principles, and best practices of UI design. MUI is built on 63.9% JavaScript and 36.1% TypeScript.
 
@@ -54,6 +57,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 3,
+        category: "Category",
         title: "Ant Design",
         content: `Used by over 255,000 projects on GitHub, Ant Design describes itself as a React UI library and design system for enterprise-level users, meaning that the elements are designed for business use. It was created by Alibaba, the Chinese tech giant.
 
@@ -73,6 +77,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 4,
+        category: "Category",
         title: "Chakra UI",
         content: `Used by over 20,000 projects on GitHub, Chakra UI offers straightforward, modular, and customizable React components to support application and web development. All elements are also optimized for dark mode, and unlike some other UI component libraries, Chakra UI is fully compatible with the WAI-ARIA accessibility standard. Chakra UI is built on 97.5% TypeScript, 1.9% JavaScript, and 0.6% unspecified code.
 
@@ -88,6 +93,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 5,
+        category: "Category",
         title: "Rebass",
         content: `Used by 10,000+ projects on GitHub, Rebass features primitive React UI components with a straightforward system for further designing. The components are responsive, minimalistic, and flexible. On top of that, it’s a really lightweight library, with only a 43kB bundle size. Rebass is 100% built on JavaScript.
 
@@ -105,6 +111,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 6,
+        category: "Category",
         title: "React Admin",
         content: `This React UI component framework is suitable for building business-to-business (B2B) admin applications on top of REST/GraphQL APIs and is customizable by design. It’s built with a number of well known projects in addition to React: Material UI, React Router, Redux, and React Final Form. The latter is a popular form state management solution.
 
@@ -118,6 +125,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 7,
+        category: "Category",
         title: "React Virtualized",
         content: `Building a frontend that’s data heavy? React Virtualized may be the library you need to dip into. It includes numerous components for efficiently rendering large lists, tables and grids. For example, you’ll find masonry, columns, autosizers, direction sorters, window scrollers and more. Further, you can customize the tables by configuring the row heights and display placeholders in the cells.
             React Virtualized has very few dependencies and supports standard browsers, including recent mobile browsers for iOS and Android. It has thousands of stars on GitHub.`,
@@ -128,6 +136,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 8,
+        category: "Category",
         title: "Evergreen",
         content: `Evergreen contains a set of React components that’s suitable for enterprise-grade web applications. Since it uses React Primitive, it’s highly flexible. At the same time, it works just as easily right out of the box.
 
@@ -139,6 +148,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 9,
+        category: "Category",
         title: "Fluent UI",
         content: `Fluent UI React Components is a set of UI components and utilities resulting from an effort to converge the set of React based component libraries in production today: @fluentui/react and @fluentui/react-northstar.
            Each component is designed to adhere to the following standards:
@@ -154,6 +164,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 10,
+        category: "Category",
         title: "React Toolbox",
         content: `Another React UI components library that you can use to implement Google’s Material Design principles in your project is React Toolbox. React Toolbox relies on CSS modules for this purpose. Though you can use any module bundler, it integrates neatly with webpack workflow. Thoughtfully, the team at React Toolbox provides visitors with an in-browser editor where you can experiment with the components in real-time.
 
@@ -165,6 +176,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 11,
+        category: "Category",
         title: "Onsen UI",
         content: `In case you’re into creating cross platform mobile apps, you’ll be interested in this offering on our list of React UI component libraries. Onsen UI is a mobile app development framework that uses HTML5 and JavaScript and provides integration with Angular, Vue.js, and React. All the components are auto-styled based on the platform, and so it supports both iOS and Android using the same source code.
 
@@ -176,6 +188,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 12,
+        category: "Category",
         title: "React Desktop",
         content: `Our next components library, React Desktop uses macOS, Sierra, and Windows 10 components with the aim of bringing a native desktop experience to the web.
 
@@ -187,6 +200,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
     {
         id: 13,
+        category: "Category",
         title: "Grommet",
         content: `Grommet has a wide library of components in its kit and counts big names like Netflix and Boeing among its users. Whether your app is for phones or for wider screens displays, you’ll be able to design layouts. Accessibility is via keyboard or screen reader.
 
@@ -201,6 +215,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
 
     {
         id: 16,
+        category: "Category",
         title: "React Materialize",
         content: `You should use React Materialize if you want to use materialize-css components in your react application.
         This is only a wrapper around materialize-css for ease of use.

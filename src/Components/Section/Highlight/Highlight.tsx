@@ -1,8 +1,7 @@
-import Card from "Components/Card/HighlightCard/Card";
+import Card from "Components/Card/Card";
 import highlight from "Assets/dummy/highlight";
 import React, { useState } from "react";
 import {
-    HighlightArea,
     HighlightContainer,
     MainLink,
     MainImage,
@@ -11,28 +10,32 @@ import {
     MainTitle,
     MainInfo,
     HighlightList,
-    HighlightWrapper,
     MainWriteDate,
     MainViewCount,
+    HighlightWrapper,
 } from "./Highlight.styles";
+import { GlobalStyle } from "Styles/global.styles";
+import HighlightCard from "Components/Card/HighlightCard/HighlightCard.";
 
-export default function Highlight() {
+export default function Highlight(props: any) {
     const [mainData, setMainData] = useState(highlight[0]);
     const restData = highlight.slice(1, 4);
     const [subData] = useState(restData);
 
     return (
-        <HighlightArea>
-            <HighlightContainer>
-                <HighlightWrapper>
+        <section>
+            <GlobalStyle />
+
+            <HighlightWrapper>
+                <HighlightContainer>
                     <MainLink>
                         <MainImage src={mainData.img} />
                         <MainContent>
-                            <MainCategory>{mainData.category}</MainCategory>
-                            <MainTitle> {mainData.title}</MainTitle>
+                            <MainCategory> {mainData.category}</MainCategory>
+                            <MainTitle> 🤍&nbsp;{mainData.title}</MainTitle>
                             <MainInfo>
                                 <MainWriteDate>
-                                    {mainData.githubFolks} Folks /
+                                    {mainData.githubFolks} Folks /&nbsp;
                                 </MainWriteDate>
                                 <MainViewCount>
                                     {mainData.githubStars} Ratings
@@ -42,11 +45,17 @@ export default function Highlight() {
                     </MainLink>
                     <HighlightList>
                         {subData.map((a, index) => {
-                            return <Card key={index} data={subData[index]} />;
+                            return (
+                                <HighlightCard
+                                    key={index}
+                                    data={subData[index]}
+                                    sectionCategory={props.sectionCategory}
+                                />
+                            );
                         })}
                     </HighlightList>
-                </HighlightWrapper>
-            </HighlightContainer>
-        </HighlightArea>
+                </HighlightContainer>
+            </HighlightWrapper>
+        </section>
     );
 }

@@ -10,9 +10,12 @@ const NavBar = styled.nav`
 `;
 
 const NavBarContainer = styled.div<{ shadow: boolean }>`
+    flex-shrink: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: auto;
+    margin-left: auto;
     padding: 15px 0px;
     border-bottom: ${(props) =>
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
@@ -25,8 +28,6 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
 
 const NavBarLogoLink = styled.a`
     cursor: pointer;
-    flex-basis: 200px;
-    flex-shrink: 0;
     ${media.laptop`  
         flex-grow: 0.9;
         display: inline-flex;
@@ -58,17 +59,15 @@ const NavBarMenuIcon = styled.div`
 `;
 
 const NavBarMenuList = styled.ul<{ active: boolean }>`
-    flex-shrink: 4;
-    display: grid;
-    flex-shrink: 1;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 1.5rem;
+    flex-shrink: 5;
+    display: flex;
     list-style: none;
-    width: 55vw;
     justify-content: end;
     margin: 0;
     padding: 0;
-    margin-right: 1.5rem;
+    max-width: 800px;
+    margin-left: 45.5rem;
+    margin-right: 1rem;
     ${media.laptop`  
         display: flex;
         flex-direction: column;
@@ -87,7 +86,13 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     `}
 `;
 
-const NavBarMenuItem = styled.li``;
+const NavBarMenuItem = styled.li`
+    font-size: var(--font-size-navTitle);
+    padding-left: 1rem;
+    ${media.laptop`  
+        opacity: ${(props: any) => (props.active ? 1 : 0)};
+    `}
+`;
 
 const NavBarMenuLink = styled.a`
     color: black;

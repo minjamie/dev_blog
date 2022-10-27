@@ -2,56 +2,59 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { media } from "Styles/media.styles";
 
-const HighlightArea = styled.section`
-    background-color: #f4f6f8;
-    display: flex;
-    justify-content: center;
-`;
-
 const HighlightContainer = styled.div`
-    width: 71.5%;
+    max-width: 1200px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
     ${media.laptop`  
-        width: 95%;
+        padding: 3.8rem;
     `}
 `;
 
 const HighlightWrapper = styled.div`
     width: 100%;
-    margin: 0 auto;
+    height: auto;
 `;
 
 const MainLink = styled.a`
     display: flex;
-    padding-bottom: 30px;
-    border-radius: 30px;
+    padding-bottom: 2rem;
     text-decoration: none;
-    ${media.laptop`  
-        width: 95%;
-    justify-content: center;
+    ${media.tablet`  
+    flex-direction: column;
     `}
 `;
+
 const MainImage = styled.img`
-    display: block;
+    border-radius: 20px;
     object-fit: contain;
-    width: 35vw;
-    height: auto;
+    max-width: calc(66.66667% - 10px);
+    height: 459px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    ${media.laptop`  
+    `}
+    ${media.tablet`  
+    max-width: calc(99.66667% - 10px);
+    `}
 `;
 const MainContent = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 30vw;
-    height: 40vh;
-    background-color: white;
+    margin: 0;
+    max-width: 480px;
+    width: 100%;
+    max-height: 569px;
+    height: auto;
     text-align: left;
-    padding: 20px 40px;
+    padding: 20px 10px 20px 20px;
 `;
 const MainCategory = styled.h1`
-    font-size: 20px;
-    margin: 0;
+    font-size: var(--font-size-subTitle);
+    color: var(--font-color-subTitle);
     padding-bottom: 20px;
     ${media.laptop`  
         font-size: 15px;
@@ -59,8 +62,9 @@ const MainCategory = styled.h1`
     `}
 `;
 const MainTitle = styled.h1`
-    font-size: 30px;
-    margin: 0;
+    font-size: var(--font-size-title);
+    color: var(--font-color-title);
+    font-weight: bolder;
     padding-bottom: 20px;
     ${media.laptop`  
     font-size: 25px;
@@ -68,6 +72,8 @@ const MainTitle = styled.h1`
     `}
 `;
 const MainInfo = styled.div`
+    font-size: var(--font-size-info);
+    color: var(--font-color-subTitle);
     margin: 0;
 `;
 const MainWriteDate = styled.span`
@@ -78,17 +84,17 @@ const MainViewCount = styled.span`
 `;
 
 const HighlightList = styled.ul`
-    margin: 0;
-    padding: 0;
-    width: 100%;
     display: flex;
-    ${media.tablet`  
-        flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    ${media.laptop`  
+        flex-flow: row wrap;
+        justify-content: start ;
     `}
 `;
 
 export {
-    HighlightArea,
     HighlightContainer,
     HighlightWrapper,
     MainLink,
