@@ -5,7 +5,7 @@ const highlight = [
         category: "Category",
         content: `Building a frontend that’s data heavy? React Virtualized may be the library you need to dip into. It includes numerous components for efficiently rendering large lists, tables and grids. For example, you’ll find masonry, columns, autosizers, direction sorters, window scrollers and more. Further, you can customize the tables by configuring the row heights and display placeholders in the cells.
             React Virtualized has very few dependencies and supports standard browsers, including recent mobile browsers for iOS and Android. It has thousands of stars on GitHub.`,
-        img: "https://cloud.githubusercontent.com/assets/29597/11737732/0ca1e55e-9f91-11e5-97f3-098f2f8ed866.png",
+        img: "https://reactjs.org/logo-og.png",
         githubStars: "20.7k",
         githubFolks: "2.5kk",
         count: 0,

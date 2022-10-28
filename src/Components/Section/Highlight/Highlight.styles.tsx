@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { media } from "Styles/media.styles";
-
-const HighlightContainer = styled.div`
+const HighlightArea = styled.section`
+    padding: 4rem;
+    background-color: #f4f6f8;
+`;
+const HighlightContainer = styled.section`
     max-width: 1200px;
     width: 100%;
     height: auto;
     margin: 0 auto;
     ${media.laptop`  
-        padding: 3.8rem;
     `}
 `;
 
@@ -30,13 +32,11 @@ const MainImage = styled.img`
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(66.66667% - 10px);
+    width: 770px;
     height: 459px;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-    ${media.laptop`  
-        
-  `}
     ${media.tablet`  
     transition: ease all 1s;
     max-width: calc(99.66667% - 10px);
@@ -97,6 +97,7 @@ const HighlightList = styled.ul`
 `;
 
 export {
+    HighlightArea,
     HighlightContainer,
     HighlightWrapper,
     MainLink,

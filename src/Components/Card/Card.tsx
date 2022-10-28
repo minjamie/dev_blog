@@ -19,7 +19,9 @@ const Card: FC<any> = (props: CardProp) => {
             <CardImage sectionCategory={props.sectionCategory} src={img} />
             <CardContent>
                 <CardCategory>{category}</CardCategory>
-                <CardTitle> {title}</CardTitle>
+                <CardTitle sectionCategory={props.sectionCategory}>
+                    {title}
+                </CardTitle>
                 <CardInfo>
                     <CardWriteDate>{githubFolks} Folks /</CardWriteDate>
                     <CardViewCount>{githubStars} Ratings</CardViewCount>

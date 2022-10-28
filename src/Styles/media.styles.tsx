@@ -5,7 +5,7 @@ type DeviceType = "mobile" | "laptop" | "tablet" | "desktop";
 const sizes: Record<DeviceType, number> = {
     mobile: 600,
     tablet: 768,
-    laptop: 1280,
+    laptop: 1300,
     desktop: 2560,
 };
 

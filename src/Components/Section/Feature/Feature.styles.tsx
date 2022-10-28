@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const FeatureArea = styled.section`
+    background-color: #011641;
     padding: 4rem;
 `;
 
@@ -46,7 +47,6 @@ const FeatureTapButton = styled.button`
 
 const FeatureList = styled.div`
     display: flex;
-    justify-content: center;
     ${media.laptop`  
         flex-flow: row wrap;
     `}

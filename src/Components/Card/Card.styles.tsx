@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const CardLink = styled.article<{ sectionCategory: string }>`
-    z-index: 1;
     width: ${(props) =>
         props.sectionCategory == "feature" ? "25%" : "33.33333%"};
     ${media.laptop`  
@@ -16,6 +15,7 @@ const CardLink = styled.article<{ sectionCategory: string }>`
     `}
 `;
 const CardImage = styled.img<{ sectionCategory: string }>`
+    background-color: white !important;
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(95% - 10px);
@@ -32,12 +32,10 @@ const CardImage = styled.img<{ sectionCategory: string }>`
     ${media.mobile`  
     max-width: 150px;
     max-height: 150px;
-    background-image: white;
     `}
 `;
 const CardContent = styled.div`
     margin: 2rem 0 4rem 0;
-    padding-left: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -52,9 +50,10 @@ const CardCategory = styled.h1`
     padding-bottom: 5px;
     margin: 0;
 `;
-const CardTitle = styled.h1`
+const CardTitle = styled.h1<{ sectionCategory: string }>`
+    color: ${(props) =>
+        props.sectionCategory === "feature" ? "white" : "gray"};
     font-size: var(--font-size-subTitle);
-    color: var(--font-color-title);
     margin: 0;
     padding-bottom: 5px;
 `;

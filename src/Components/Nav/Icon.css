@@ -9,7 +9,7 @@
     vertical-align: middle;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1300px) {
     .Menu-Search {
         color: black;
         order: 3;

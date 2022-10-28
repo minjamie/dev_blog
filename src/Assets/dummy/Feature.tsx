@@ -4,7 +4,7 @@ const feature = [
         title: "Onsen UI",
         category: "Category",
         content: "",
-        img: "https://blog.digitalogy.co/wp-content/uploads/2020/12/React-Desktop.png",
+        img: "https://blog.digitalogy.co/wp-content/uploads/2020/12/Onsen-UI-Bes-react-component-library.png",
         githubStars: "8.2kk",
         githubFolks: "930",
         count: 0,

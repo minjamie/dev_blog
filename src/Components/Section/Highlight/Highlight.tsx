@@ -2,6 +2,7 @@ import Card from "Components/Card/Card";
 import highlight from "Assets/dummy/highlight";
 import React, { useState } from "react";
 import {
+    HighlightArea,
     HighlightContainer,
     MainLink,
     MainImage,
@@ -22,7 +23,7 @@ export default function Highlight(props: any) {
     const restData = highlight.slice(1, 4);
     const [subData] = useState(restData);
     return (
-        <section>
+        <HighlightArea>
             <GlobalStyle />
 
             <HighlightWrapper>
@@ -56,6 +57,6 @@ export default function Highlight(props: any) {
                     </HighlightList>
                 </HighlightContainer>
             </HighlightWrapper>
-        </section>
+        </HighlightArea>
     );
 }

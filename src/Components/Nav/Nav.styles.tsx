@@ -16,17 +16,18 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
     align-items: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 15px 0px;
+    padding: 1rem 7rem 1rem 4rem;
     border-bottom: ${(props) =>
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
         props.shadow ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
     ${media.laptop`  
-        padding: 15px 50px;
+        padding: 1rem 4.5rem;
     `}
 `;
 
 const NavBarLogoLink = styled.a`
+    margin-left: 1rem;
     cursor: pointer;
     ${media.laptop`  
         flex-grow: 0.9;
@@ -39,8 +40,8 @@ const NavBarLogo = styled.img<{ src: string }>`
     src: src;
     width: 100%;
     display: block;
-    height: auto;
-    max-width: 200px;
+    width: 200px;
+    height: 50px;
 `;
 
 const NavBarMenuIcon = styled.div`
@@ -66,7 +67,7 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     margin: 0;
     padding: 0;
     max-width: 800px;
-    margin-left: 45.5rem;
+    margin-left: 40rem;
     margin-right: 1rem;
     ${media.laptop`  
         display: flex;
@@ -87,6 +88,7 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
 `;
 
 const NavBarMenuItem = styled.li`
+    white-space: nowrap;
     font-size: var(--font-size-navTitle);
     padding-left: 1rem;
     ${media.laptop`  
