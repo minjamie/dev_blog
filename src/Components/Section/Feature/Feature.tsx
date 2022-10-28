@@ -15,24 +15,24 @@ export default function Feature(props: any) {
     return (
         <FeatureArea>
             <FeatureContainer>
-                <FeatureWrapper>
-                    <FeatureTaps>
-                        <FeatureTapButton>Featured</FeatureTapButton>
-                        <br></br>
-                        <FeatureTapButton>Popular</FeatureTapButton>
-                    </FeatureTaps>
-                    <FeatureList>
-                        {feature.map((a: any, index: any) => {
-                            return (
-                                <Card
-                                    key={index}
-                                    data={feature[index]}
-                                    sectionCategory={props.sectionCategory}
-                                />
-                            );
-                        })}
-                    </FeatureList>
-                </FeatureWrapper>
+                {/* <FeatureWrapper> */}
+                <FeatureTaps>
+                    <FeatureTapButton>Featured</FeatureTapButton>
+                    <br></br>
+                    <FeatureTapButton>Popular</FeatureTapButton>
+                </FeatureTaps>
+                <FeatureList>
+                    {feature.map((a: any, index: any) => {
+                        return (
+                            <Card
+                                key={index}
+                                data={feature[index]}
+                                sectionCategory={props.sectionCategory}
+                            />
+                        );
+                    })}
+                </FeatureList>
+                {/* </FeatureWrapper> */}
             </FeatureContainer>
         </FeatureArea>
     );

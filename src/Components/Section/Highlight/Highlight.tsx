@@ -21,7 +21,6 @@ export default function Highlight(props: any) {
     const [mainData, setMainData] = useState(highlight[0]);
     const restData = highlight.slice(1, 4);
     const [subData] = useState(restData);
-
     return (
         <section>
             <GlobalStyle />
@@ -50,6 +49,7 @@ export default function Highlight(props: any) {
                                     key={index}
                                     data={subData[index]}
                                     sectionCategory={props.sectionCategory}
+                                    cardIndex={index}
                                 />
                             );
                         })}

@@ -18,15 +18,13 @@ const FeatureWrapper = styled.div`
 `;
 
 const FeatureTaps = styled.div`
-    width: 90%;
+    width: 100%;
     display: flex;
     font-size: 0;
-    padding: 44px 0 24px 15px;
+    padding: 2rem 0;
     ${media.laptop`  
-        padding-left: 4rem;
     `}
     ${media.mobile`  
-        padding: 2em;
     `}
 `;
 const FeatureTapButton = styled.button`
@@ -53,7 +51,6 @@ const FeatureList = styled.div`
         flex-flow: row wrap;
     `}
     ${media.mobile`  
-padding-left: 3rem;
 `}
 `;
 

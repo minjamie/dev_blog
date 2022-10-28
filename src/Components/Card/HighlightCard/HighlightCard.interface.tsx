@@ -7,4 +7,5 @@ export interface HighlightCardProp {
         githubStars: string;
         githubFolks: string;
     };
+    cardIndex: number;
 }

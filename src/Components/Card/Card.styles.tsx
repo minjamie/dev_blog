@@ -13,7 +13,6 @@ const CardLink = styled.article<{ sectionCategory: string }>`
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
-            padding:  1rem 0;
     `}
 `;
 const CardImage = styled.img<{ sectionCategory: string }>`

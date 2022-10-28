@@ -22,7 +22,7 @@ const MainLink = styled.a`
     padding-bottom: 2rem;
     text-decoration: none;
     ${media.tablet`  
-    flex-direction: column;
+        flex-direction: column;
     `}
 `;
 
@@ -35,8 +35,10 @@ const MainImage = styled.img`
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     ${media.laptop`  
-    `}
+        
+  `}
     ${media.tablet`  
+    transition: ease all 1s;
     max-width: calc(99.66667% - 10px);
     `}
 `;

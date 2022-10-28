@@ -16,8 +16,8 @@ const HighlightCard: FC<any> = (props: HighlightCardProp) => {
 
     return (
         <HighlightCardLink>
-            <HighlightCardImage src={img} />
-            <HighlightCardContent>
+            <HighlightCardImage index={props.cardIndex} src={img} />
+            <HighlightCardContent index={props.cardIndex}>
                 <HighlightCardCategory>{category}</HighlightCardCategory>
                 <HighlightCardTitle> {title}</HighlightCardTitle>
                 <HighlightCardInfo>
