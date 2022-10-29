@@ -22,7 +22,7 @@ const FeatureTaps = styled.div`
     width: 100%;
     display: flex;
     font-size: 0;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
     ${media.laptop`  
     `}
     ${media.mobile`  
@@ -47,6 +47,8 @@ const FeatureTapButton = styled.button`
 
 const FeatureList = styled.div`
     display: flex;
+    flex-direction: row;
+    text-align: center;
     ${media.laptop`  
         flex-flow: row wrap;
     `}

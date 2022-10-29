@@ -3,11 +3,14 @@ import { media } from "Styles/media.styles";
 
 const HighlightCardLink = styled.article`
     width: 33.334%;
+    text-align: center;
     ${media.laptop`  
         transition: ease all 1s;
         width: 50%;
+        text-align:  center;
         &:nth-child(3){
         width: 100%;
+        padding-left:1.2rem;
          transition: ease all 1s;
             display: flex;
         }

@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { media } from "Styles/media.styles";
+
 const HighlightArea = styled.section`
     padding: 4rem;
     background-color: #f4f6f8;
@@ -10,8 +10,6 @@ const HighlightContainer = styled.section`
     width: 100%;
     height: auto;
     margin: 0 auto;
-    ${media.laptop`  
-    `}
 `;
 
 const HighlightWrapper = styled.div`
@@ -21,6 +19,7 @@ const HighlightWrapper = styled.div`
 
 const MainLink = styled.a`
     display: flex;
+    padding: 0 1rem;
     padding-bottom: 2rem;
     text-decoration: none;
     ${media.tablet`  
@@ -38,8 +37,8 @@ const MainImage = styled.img`
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     ${media.tablet`  
-    transition: ease all 1s;
-    max-width: calc(99.66667% - 10px);
+        transition: ease all 1s;
+        max-width: calc(99.66667% - 10px);
     `}
 `;
 const MainContent = styled.div`
@@ -52,7 +51,7 @@ const MainContent = styled.div`
     max-height: 569px;
     height: auto;
     text-align: left;
-    padding: 20px 10px 20px 20px;
+    padding: 1rem 2rem 2rem 2rem;
 `;
 const MainCategory = styled.h1`
     font-size: var(--font-size-subTitle);
@@ -87,13 +86,11 @@ const MainViewCount = styled.span`
 
 const HighlightList = styled.ul`
     display: flex;
-    justify-content: center;
     padding: 0;
     margin: 0;
     ${media.laptop`  
-        flex-flow: row wrap;
-        justify-content: start ;
-    `}
+    flex-flow: row wrap;
+    `};
 `;
 
 export {

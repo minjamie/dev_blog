@@ -2,12 +2,15 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const CardLink = styled.article<{ sectionCategory: string }>`
+    text-align: center;
     width: ${(props) =>
         props.sectionCategory == "feature" ? "25%" : "33.33333%"};
     ${media.laptop`  
+        transition: ease all 1s;
         width: 50%
     `}
     ${media.mobile`  
+            transition: ease all 1s;
             width: 100vw;
             display: flex;
             flex-direction: row-reverse;
@@ -19,7 +22,8 @@ const CardImage = styled.img<{ sectionCategory: string }>`
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(95% - 10px);
-    width: ${(props) => (props.sectionCategory == "feature" ? "85%" : "100%")};
+    max-height: 217px;
+    width: ${(props) => (props.sectionCategory == "feature" ? "90%" : "100%")};
     max-height: ${(props) =>
         props.sectionCategory == "feature" ? "180px" : "217px"};
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
@@ -40,6 +44,7 @@ const CardContent = styled.div`
     flex-direction: column;
     justify-content: start;
     text-align: left;
+    padding-left: 1rem;
     ${media.mobile`  
         width: 80vw;
     `}
