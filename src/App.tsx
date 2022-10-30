@@ -12,14 +12,14 @@ function App() {
         { id: 0, name: "Story" },
         { id: 1, name: "Tech" },
         { id: 2, name: "Culture" },
-        { id: 4, name: "Sign-Up" },
+        { id: 3, name: "Sign-In" },
     ]);
 
     const [footerMenu, setFooterMenu] = useState([
         { id: 0, name: "유비케어" },
         { id: 1, name: "뉴스" },
         { id: 2, name: "제품" },
-        { id: 4, name: "채용" },
+        { id: 3, name: "채용" },
     ]);
 
     return (
@@ -40,11 +40,8 @@ function App() {
                     element={<Menu category={category[2]} />}
                 />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
-                <Route
-                    path={`${category[3].name}`}
-                    element={<Menu category={category[3]} />}
-                />
             </Routes>
+            <span className="site-actions-backdrop"></span>
             <FooterBar footerMenu={footerMenu} />
         </div>
     );

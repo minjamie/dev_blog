@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { media } from "Styles/media.styles";
 
 const NavBar = styled.nav`
@@ -22,7 +22,7 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
     box-shadow: ${(props) =>
         props.shadow ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
     ${media.laptop`  
-        padding: 1rem 4.5rem;
+        padding: 1rem 5.5rem;
     `}
 `;
 
@@ -63,27 +63,27 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     flex-shrink: 5;
     display: flex;
     list-style: none;
-    justify-content: end;
     margin: 0;
     padding: 0;
     max-width: 800px;
     margin-left: 40rem;
     margin-right: 1rem;
+    background-color: white;
     ${media.laptop`  
-        display: flex;
-        flex-direction: column;
         width: 100%;
-        height: 90vh;
+        flex-direction:column;
+        max-width: 1300px;
+        max-height: 250px;
+        margin-left:0;
+        margin-right: 0;
         position: absolute;
-        top: 80px;
-        left: -100%;
-        opacity: 1;
-        transition: all 0.5s ease;
-        background:${(props: any) => (props.active ? "#242222" : null)};
-        left: ${(props: any) => (props.active ? 0 : null)};
-        opacity: ${(props: any) => (props.active ? 1 : null)};
-        transition: ${(props: any) => (props.active ? "all 0.5s ease;" : null)};
-        z-index: ${(props: any) => (props.active ? 1 : null)};
+        top:75px;
+        visibility: ${(props: any) => (props.active ? "visible" : "hidden")};
+        opacity: ${(props: any) => (props.active ? 1 : 0)};
+        transform: ${(props: any) =>
+            props.active ? "translate3d(0, 0, 0)" : "translate3d(0, -1%, 0)"};
+    transition: 
+    ${(props: any) => (props.active ? "all 0.25s ease-out" : null)};
     `}
 `;
 
@@ -91,8 +91,12 @@ const NavBarMenuItem = styled.li`
     white-space: nowrap;
     font-size: var(--font-size-navTitle);
     padding-left: 1rem;
-    ${media.laptop`  
-        opacity: ${(props: any) => (props.active ? 1 : 0)};
+    ${media.laptop`
+        font-size: var(--font-size-subTitle);
+            padding:0 2rem;
+            &:last-child {
+            padding-bottom: 1rem
+            }
     `}
 `;
 
@@ -103,10 +107,10 @@ const NavBarMenuLink = styled.a`
     text-decoration: none;
     height: 100%;
     ${media.laptop`  
-        text-align: center;
-        padding: 2rem;
+    z-index: -1000;
+        text-align: left;
+        padding: 0.5rem 3.5rem;
         width: 100%;
-        display: table;
     `}
     &:hover {
         color: #1f98f4;

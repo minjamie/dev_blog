@@ -16,8 +16,7 @@ const FooterBarContainer = styled.div`
     margin-left: auto;
     padding: 1.5rem 0;
     ${media.laptop`  
-        padding: 2rem 4rem;
-
+        padding: 2rem 5.5rem;
     `}
 `;
 

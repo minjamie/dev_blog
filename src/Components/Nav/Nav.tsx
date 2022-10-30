@@ -13,7 +13,7 @@ import {
     NavBarMenuList,
 } from "./Nav.styles";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
-import { TfiClose, TfiSearch } from "react-icons/tfi";
+import { TfiClose, TfiSearch, TfiAlignLeft } from "react-icons/tfi";
 import { Search } from "Components/Search/Search";
 
 const Navbar: FC<any> = (props) => {
@@ -42,10 +42,11 @@ const Navbar: FC<any> = (props) => {
                     <NavBarLogo src={logoSrc} />
                 </NavBarLogoLink>
                 <NavBarMenuIcon onClick={handleClick}>
-                    <FontAwesomeIcon
-                        className="Menu-Bar"
-                        icon={click ? faTimes : faBars}
-                    />
+                    {click ? (
+                        <TfiClose className="Menu-Bar" />
+                    ) : (
+                        <TfiAlignLeft className="Menu-Bar" />
+                    )}
                 </NavBarMenuIcon>
                 <NavBarMenuList active={click}>
                     {props.category.map((a: any, index: any) => {
