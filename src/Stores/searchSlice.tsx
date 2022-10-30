@@ -5,7 +5,6 @@ const search = createSlice({
     initialState: { active: false },
     reducers: {
         activeSearch(state) {
-            console.log(state.active);
             state.active ? (state.active = false) : (state.active = true);
         },
     },

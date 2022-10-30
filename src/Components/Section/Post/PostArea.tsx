@@ -10,7 +10,7 @@ import {
 
 export default function Post(props: any) {
     const [data, setData] = useState(posts);
-    console.log(props.sectionCategory);
+    props.sectionCategory;
     return (
         <PostArea>
             <PostContainer>

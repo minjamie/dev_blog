@@ -1,4 +1,5 @@
 import NavBar from "./Components/Nav/Nav";
+import FooterBar from "./Components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { useState } from "react";
@@ -12,6 +13,13 @@ function App() {
         { id: 1, name: "Tech" },
         { id: 2, name: "Culture" },
         { id: 4, name: "Sign-Up" },
+    ]);
+
+    const [footerMenu, setFooterMenu] = useState([
+        { id: 0, name: "유비케어" },
+        { id: 1, name: "뉴스" },
+        { id: 2, name: "제품" },
+        { id: 4, name: "채용" },
     ]);
 
     return (
@@ -37,6 +45,7 @@ function App() {
                     element={<Menu category={category[3]} />}
                 />
             </Routes>
+            <FooterBar footerMenu={footerMenu} />
         </div>
     );
 }
