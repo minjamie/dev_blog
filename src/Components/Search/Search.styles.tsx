@@ -1,27 +1,27 @@
 import styled, { keyframes } from "styled-components";
+import { media } from "Styles/media.styles";
 
 const SearchContainer = styled.div<{
     expand: boolean;
 }>`
-    background: white;
-    margin: 0 auto;
-    padding: 10px;
     background-color: white;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     height: 100px;
+    left: 0;
     top: 80px;
     z-index: 1;
-    overflow: hidden;
-    -webkit-transition: all 0.3s;
-    /* transform: ${(props: any) =>
-        props.expand ? "translate3d(0, 0, 0)" : "translate3d(0, -100%, 0);"}; */
-    visibility: ${(props: any) => (props.expand ? "visible" : "hidden")};
+    padding: 0 6rem 0 5rem;
+    transition: ${(props) => (props.expand ? "all 0.15s;" : null)};
     border-bottom: ${(props) =>
         props.expand ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
         props.expand ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
+    visibility: ${(props: any) => (props.expand ? "visible" : "hidden")};
     animation: ${(props: any) => (props.expand ? FadeUp : FadeDown)} all 1s;
+    ${media.laptop`  
+        padding: 0 5.4rem 0 5rem;
+`}
 `;
 
 const FadeUp = keyframes`
@@ -31,13 +31,14 @@ const FadeUp = keyframes`
         }
         to {
             opacity: 1;
-        }
+              transform: translateZ(0);
+      }
 `;
 
 const FadeDown = keyframes`
         from {
             opacity: 0;
-            transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, 0.1%, 0);
         }
         to {
             opacity: 1;
@@ -47,7 +48,9 @@ const FadeDown = keyframes`
 
 const SearchFrom = styled.form`
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1155px;
 `;
 
 const SearchInput = styled.input<{
@@ -55,17 +58,11 @@ const SearchInput = styled.input<{
     placeholder: string;
     expand: boolean;
 }>`
-    width: 1s0px;
+    width: 100%;
     height: 80px;
+    font-size: 30px;
     border: none;
     outline: none;
-    font-size: 30px;
-    ::-webkit-search-decoration,
-    ::-webkit-search-cancel-button,
-    ::-webkit-search-results-button,
-    ::-webkit-search-results-decoration {
-        display: none;
-    }
 `;
 
 export { SearchContainer, SearchFrom, SearchInput };

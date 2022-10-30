@@ -1,7 +1,5 @@
 import "./Icon.css";
 import { useState, useEffect, FC } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faBars, faX } from "@fortawesome/free-solid-svg-icons";
 import {
     NavBar,
     NavBarContainer,

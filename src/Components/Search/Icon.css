@@ -1,0 +1,13 @@
+.Search-Icon {
+    font-size: 1.5rem;
+    cursor: pointer;
+    vertical-align: middle;
+    right: 2rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .Menu-Search {
+        color: black;
+        order: 3;
+    }
+}
