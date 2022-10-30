@@ -83,7 +83,7 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
         transform: ${(props: any) =>
             props.active ? "translate3d(0, 0, 0)" : "translate3d(0, -1%, 0)"};
     transition: 
-    ${(props: any) => (props.active ? "all 0.25s ease-out" : null)};
+    ${(props: any) => (props.active ? "all 0.2s ease-out" : null)};
     `}
 `;
 

@@ -1,16 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const search = createSlice({
-    name: "search",
+    name: "category",
     initialState: { active: false },
     reducers: {
-        activeSearch(state) {
+        activeCategory(state) {
             state.active ? (state.active = false) : (state.active = true);
         },
-        closeSearch(state) {
+        closeCategory(state) {
             state.active = false;
         },
     },
 });
 export default search;
-export const { activeSearch, closeSearch } = search.actions;
+export const { activeCategory, closeCategory } = search.actions;

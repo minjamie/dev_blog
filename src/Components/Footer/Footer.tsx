@@ -14,7 +14,6 @@ import {
 import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 
 const Footerbar: FC<any> = (props) => {
-    console.log(props.footerMenu);
     return (
         <FooterBar>
             <FooterBarContainer>

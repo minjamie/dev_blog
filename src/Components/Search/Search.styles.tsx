@@ -12,7 +12,7 @@ const SearchContainer = styled.div<{
     top: 80px;
     z-index: 1;
     padding: 0 6rem 0 5rem;
-    transition: ${(props) => (props.expand ? "all 0.15s;" : null)};
+    transition: ${(props) => (props.expand ? "all 0.25s ease-out" : null)};
     border-bottom: ${(props) =>
         props.expand ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
@@ -31,7 +31,7 @@ const FadeUp = keyframes`
         }
         to {
             opacity: 1;
-              transform: translateZ(0);
+            transform: translateZ(0);
       }
 `;
 

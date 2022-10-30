@@ -2,10 +2,13 @@ import NavBar from "./Components/Nav/Nav";
 import FooterBar from "./Components/Footer/Footer";
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
 import People from "Pages/Culture/People/People";
+import { useDispatch, useSelector } from "react-redux";
+import { activeSearch, closeSearch } from "Stores/searchSlice";
+import { activeCategory, closeCategory } from "Stores/categorySlice";
 
 function App() {
     const [category, setCategory] = useState([
@@ -22,9 +25,17 @@ function App() {
         { id: 3, name: "채용" },
     ]);
 
+    const state = useSelector((state: any) => state);
+    const dispatch = useDispatch();
+
+    const closeBackdrop = () => {
+        document.body.style.overflow = "unset";
+        dispatch(closeCategory());
+        dispatch(closeSearch());
+    };
     return (
         <div className="App">
-            <NavBar category={category} />
+            <NavBar category={category} active={state} />
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route
@@ -41,7 +52,16 @@ function App() {
                 />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
             </Routes>
-            <span className="site-actions-backdrop"></span>
+            {state.category.active || state.search.active ? (
+                <div
+                    className={
+                        state.category.active || state.search.active
+                            ? "backdrop active"
+                            : "backdrop"
+                    }
+                    onClick={closeBackdrop}
+                ></div>
+            ) : null}
             <FooterBar footerMenu={footerMenu} />
         </div>
     );
