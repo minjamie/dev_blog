@@ -4,10 +4,10 @@ import { media } from "Styles/media.styles";
 const CardLink = styled.article<{ sectionCategory: string }>`
     text-align: center;
     width: ${(props) =>
-        props.sectionCategory == "feature" ? "25%" : "33.33333%"};
+        props.sectionCategory === "feature" ? "25%" : "33.33333%"};
     ${media.laptop`  
         transition: ease all 1s;
-        width: 50%
+        width: 50%;
     `}
     ${media.mobile`  
             transition: ease all 1s;
@@ -17,7 +17,7 @@ const CardLink = styled.article<{ sectionCategory: string }>`
             justify-content: center;
     `}
 `;
-const CardImage = styled.img<{ sectionCategory: string }>`
+const CardImage = styled.img<{ sectionCategory: string; index: number }>`
     background-color: white !important;
     border-radius: 20px;
     object-fit: contain;
@@ -42,7 +42,7 @@ const CardImage = styled.img<{ sectionCategory: string }>`
     max-height: 150px;
     `}
 `;
-const CardContent = styled.div`
+const CardContent = styled.div<{ index: number }>`
     margin: 2rem 0 4rem 0;
     display: flex;
     flex-direction: column;

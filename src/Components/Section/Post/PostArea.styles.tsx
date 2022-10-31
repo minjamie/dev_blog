@@ -25,7 +25,6 @@ const PostList = styled.div`
     justify-content: center;
     ${media.laptop`  
         flex-flow: row wrap;
-        justify-content: start ;
     `}
 `;
 

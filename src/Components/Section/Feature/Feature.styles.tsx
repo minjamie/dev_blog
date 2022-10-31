@@ -48,7 +48,7 @@ const FeatureTapButton = styled.button`
 const FeatureList = styled.div`
     display: flex;
     flex-direction: row;
-    text-align: center;
+    justify-content: center;
     ${media.laptop`  
         flex-flow: row wrap;
     `}

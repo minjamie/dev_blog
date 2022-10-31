@@ -92,6 +92,7 @@ const HighlightList = styled.ul`
     display: flex;
     padding: 0;
     margin: 0;
+    justify-content: center;
     ${media.laptop`  
     flex-flow: row wrap;
     `};

@@ -23,6 +23,8 @@ const HighlightCardLink = styled.article`
             justify-content: center;
             &:nth-child(3){
                 width: 100vw;
+                padding-left:0rem;
+
         }
     `}
 `;
@@ -67,7 +69,8 @@ const HighlightCardContent = styled.div<{ index: number }>`
     `}
     ${media.mobile`  
          width: 80vw;
-        padding-left: 0
+        padding-left:1rem;
+
     `}
 `;
 const HighlightCardCategory = styled.h1`

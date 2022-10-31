@@ -8,4 +8,5 @@ export interface CardProp {
         githubFolks: string;
     };
     sectionCategory: string;
+    cardIndex: number;
 }

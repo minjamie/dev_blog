@@ -16,8 +16,12 @@ const Card: FC<any> = (props: CardProp) => {
     const { githubFolks, githubStars, img, title, category } = props.data;
     return (
         <CardLink sectionCategory={props.sectionCategory}>
-            <CardImage sectionCategory={props.sectionCategory} src={img} />
-            <CardContent>
+            <CardImage
+                index={props.cardIndex}
+                sectionCategory={props.sectionCategory}
+                src={img}
+            />
+            <CardContent index={props.cardIndex}>
                 <CardCategory>{category}</CardCategory>
                 <CardTitle sectionCategory={props.sectionCategory}>
                     {title}
