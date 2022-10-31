@@ -33,9 +33,12 @@ import { closeSignIn } from "Stores/signInSlice";
 const SignIn: FC<any> = () => {
     const dispatch = useDispatch();
     const closeLogin = () => {
-        document.body.style.overflow = "unset";
         dispatch(closeSignIn());
+        document.body.style.overflow = "unset";
     };
+
+    const [isSignIn, setSignIn] = useState(true);
+
     return (
         <SignInContainer>
             <SignInTop>
@@ -43,17 +46,23 @@ const SignIn: FC<any> = () => {
                 <SignInImg src={symbolSrc} />
             </SignInTop>
             <SignInBottom>
-                <SignInTitle>로그인</SignInTitle>
-                <SignInLabel>이메일로 로그인</SignInLabel>
+                <SignInTitle>{isSignIn ? "로그인" : "회원가입"}</SignInTitle>
+                <SignInLabel>
+                    이메일로 {isSignIn ? "로그인" : "회원가입"}
+                </SignInLabel>
                 <SignInInputWrapper>
                     <SignInEmailInput
                         type="text"
                         placeholder="이메일을 입력하세요."
                     ></SignInEmailInput>
-                    <SignInButton>로그인</SignInButton>
+                    <SignInButton>
+                        {isSignIn ? "로그인" : "회원가입"}
+                    </SignInButton>
                 </SignInInputWrapper>
                 <SignInOAuthWrapper>
-                    <SignInOAuthLabel>소셜 계정으로 로그인</SignInOAuthLabel>
+                    <SignInOAuthLabel>
+                        소셜 계정으로 {isSignIn ? "로그인" : "회원가입"}
+                    </SignInOAuthLabel>
                     <SignInOAuthContainer>
                         <LoginKakao src={kakaoLogo} />
                         <LoginGoogle>
@@ -67,8 +76,13 @@ const SignIn: FC<any> = () => {
                 </SignInOAuthWrapper>
                 <SignInHelpWrapper>
                     <SignInHelpTitle>
-                        아직 회원이 아니신가요?
-                        <SignInHelp>회원가입</SignInHelp>
+                        {isSignIn
+                            ? "아직 회원이 아니신가요?"
+                            : "계정이 이미 있으신가요?"}
+                        &nbsp;
+                        <SignInHelp onClick={() => setSignIn(!isSignIn)}>
+                            {isSignIn ? "로그인" : "회원가입"}
+                        </SignInHelp>
                     </SignInHelpTitle>
                 </SignInHelpWrapper>
             </SignInBottom>

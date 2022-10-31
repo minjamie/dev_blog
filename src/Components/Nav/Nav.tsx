@@ -47,6 +47,7 @@ const Navbar: FC<any> = (props) => {
 
     const activeLogin = () => {
         dispatch(activeSignIn());
+        dispatch(closeCategory());
         document.body.style.overflow = "hidden";
     };
 

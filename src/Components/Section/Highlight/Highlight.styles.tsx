@@ -36,6 +36,10 @@ const MainImage = styled.img`
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    &:hover {
+        transition: ease all 0.5s;
+        transform: scale(0.97);
+    }
     ${media.tablet`  
         transition: ease all 1s;
         max-width: calc(99.66667% - 10px);

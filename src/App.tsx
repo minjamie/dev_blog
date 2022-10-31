@@ -68,7 +68,7 @@ function App() {
                     onClick={closeBackdrop}
                 ></div>
             ) : null}
-            {state.signIn.active && <SignIn></SignIn>}
+            {state.signIn.active && <SignIn />}
             <FooterBar footerMenu={footerMenu} />
         </div>
     );

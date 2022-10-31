@@ -72,6 +72,9 @@ const SignInButton = styled.button`
     background-color: #fbaf97;
     color: white;
     border: #fbaf97;
+    &:hover {
+        opacity: 0.5;
+    }
 `;
 const SignInOAuthWrapper = styled.div`
     width: 100%;
@@ -103,10 +106,16 @@ const SignInHelpTitle = styled.h1`
 const SignInHelp = styled.span`
     color: #faad93;
     font-weight: 900;
+    &:hover {
+        text-decoration: underline #faad93 1px;
+        cursor: pointer;
+    }
 `;
+
 const LoginKakao = styled.img`
     width: 80px;
     height: 40px;
+    cursor: pointer;
 `;
 const LoginGoogle = styled.div`
     display: flex;
@@ -116,6 +125,7 @@ const LoginGoogle = styled.div`
     height: 40px;
     border: 1.5px solid #eaedef;
     border-radius: 0.3rem;
+    cursor: pointer;
 `;
 
 const LoginGoogleTitle = styled.h4`
@@ -133,11 +143,13 @@ const LoginUBcareWrapper = styled.div`
     height: 40px;
     border: 1.5px solid #df8353;
     border-radius: 0.3rem;
+    cursor: pointer;
 `;
 
 const LoginUBcare = styled.img`
     width: 50px;
     height: 30px;
+    cursor: pointer;
 `;
 
 export {

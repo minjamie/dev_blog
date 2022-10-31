@@ -36,6 +36,10 @@ const HighlightCardImage = styled.img<{ index: number }>`
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
+    &:hover {
+        transition: ease all 0.5s;
+        transform: scale(0.95);
+    }
     ${media.laptop`  
         max-height: 257px;
         width: ${(props: any) => (props.index === 2 ? "45vw" : null)};
