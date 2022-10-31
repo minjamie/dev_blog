@@ -16,6 +16,7 @@ import { Search } from "Components/Search/Search";
 import { useDispatch } from "react-redux";
 import { activeSearch, closeSearch } from "Stores/searchSlice";
 import { activeCategory, closeCategory } from "Stores/categorySlice";
+import { activeSignIn } from "Stores/signInSlice";
 
 const Navbar: FC<any> = (props) => {
     const [scroll, setScroll] = useState(false);
@@ -44,6 +45,11 @@ const Navbar: FC<any> = (props) => {
         document.body.style.overflow = "hidden";
     };
 
+    const activeLogin = () => {
+        dispatch(activeSignIn());
+        document.body.style.overflow = "hidden";
+    };
+
     return (
         <NavBar>
             <NavBarContainer shadow={scroll}>
@@ -69,6 +75,9 @@ const Navbar: FC<any> = (props) => {
                             </NavBarMenuItem>
                         );
                     })}
+                    <NavBarMenuItem onClick={activeLogin}>
+                        <NavBarMenuLink>Sign-In</NavBarMenuLink>
+                    </NavBarMenuItem>
                 </NavBarMenuList>
                 {props.active.search.active ? (
                     <TfiClose className="Menu-Search" onClick={openSearch} />
