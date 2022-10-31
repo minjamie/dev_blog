@@ -20,6 +20,7 @@ import {
     LoginUBcare,
     LoginGoogleTitle,
     SignInOAuthContainer,
+    LoginUBcareWrapper,
 } from "./SignIn.styles";
 import symbolSrc from "Assets/Images/login-logo.jpg";
 import ubcareLogo from "Assets/Images/ubcare_logo.jpg";
@@ -59,7 +60,9 @@ const SignIn: FC<any> = () => {
                             <FcGoogle className="login-Google" />
                             <LoginGoogleTitle>Login</LoginGoogleTitle>
                         </LoginGoogle>
-                        <LoginUBcare src={ubcareLogo} />
+                        <LoginUBcareWrapper>
+                            <LoginUBcare src={ubcareLogo} />
+                        </LoginUBcareWrapper>
                     </SignInOAuthContainer>
                 </SignInOAuthWrapper>
                 <SignInHelpWrapper>

@@ -124,11 +124,20 @@ const LoginGoogleTitle = styled.h4`
     margin: 0;
     padding-left: 0.25rem;
 `;
-const LoginUBcare = styled.img`
+
+const LoginUBcareWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80px;
     height: 40px;
     border: 1.5px solid #df8353;
     border-radius: 0.3rem;
+`;
+
+const LoginUBcare = styled.img`
+    width: 50px;
+    height: 30px;
 `;
 
 export {
@@ -150,5 +159,6 @@ export {
     LoginKakao,
     LoginGoogle,
     LoginGoogleTitle,
+    LoginUBcareWrapper,
     LoginUBcare,
 };

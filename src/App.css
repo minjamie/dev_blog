@@ -10,7 +10,10 @@
     --animate-repeat: 1;
     background-color: var(main-background-color);
 }
-
+::-webkit-scrollbar {
+    width: 0; /* Remove scrollbar space */
+    background: transparent; /* Optional: just make scrollbar invisible */
+}
 .backdrop {
     opacity: 0;
 }
@@ -25,5 +28,4 @@
     height: 100vh;
     background: #000;
     overflow: hidden;
-    overflow-y: scroll;
 }
