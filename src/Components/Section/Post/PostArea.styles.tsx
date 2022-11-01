@@ -19,10 +19,12 @@ const PostWrapper = styled.div`
     width: 100%;
     height: auto;
 `;
-const PostList = styled.div`
+const PostList = styled.div<{ cardLength: number }>`
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    width: 100%;
+    justify-content: ${(props: any) =>
+        props.cardLength % 3 == 0 ? "center" : "start"};
     ${media.laptop`  
         flex-flow: row wrap;
     `}

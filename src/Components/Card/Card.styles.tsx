@@ -1,13 +1,30 @@
 import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
-const CardLink = styled.article<{ sectionCategory: string }>`
+const CardLink = styled.article<{
+    sectionCategory: string;
+    cardLength: number;
+}>`
     text-align: center;
     width: ${(props) =>
-        props.sectionCategory === "feature" ? "25%" : "33.33333%"};
+        props.sectionCategory == "feature" ? "25%" : "33.33333%"};
     ${media.laptop`  
         transition: ease all 1s;
         width: 50%;
+        &:last-child{
+            width: ${(props: any) =>
+                props.sectionCategory === "post" && props.cardLength % 2 == 1
+                    ? "96%"
+                    : "50%"};
+            display: ${(props: any) =>
+                props.sectionCategory === "post" && props.cardLength % 2 == 1
+                    ? "flex"
+                    : null};
+            flex-direction: ${(props: any) =>
+                props.sectionCategory === "post" && props.cardLength % 2 == 1
+                    ? "column"
+                    : null};
+        }
     `}
     ${media.mobile`  
             transition: ease all 1s;
@@ -15,9 +32,19 @@ const CardLink = styled.article<{ sectionCategory: string }>`
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
+            &:last-child{
+                width: 100vw;
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: center;
+        }
     `}
 `;
-const CardImage = styled.img<{ sectionCategory: string; index: number }>`
+const CardImage = styled.img<{
+    sectionCategory: string;
+    index: number;
+    cardLength: number;
+}>`
     background-color: white !important;
     border-radius: 20px;
     object-fit: contain;
@@ -35,20 +62,49 @@ const CardImage = styled.img<{ sectionCategory: string; index: number }>`
     }
     ${media.laptop`  
         max-height: 257px;
-        width:100%;
+        width: ${(props: any) =>
+            props.sectionCategory === "post" &&
+            props.index === props.cardLength - 1 &&
+            props.cardLength % 2 == 1
+                ? "48.5%"
+                : "100%"}; 
     `}
     ${media.mobile`  
     max-width: 150px;
     max-height: 150px;
     `}
 `;
-const CardContent = styled.div<{ index: number }>`
+const CardContent = styled.div<{
+    sectionCategory: string;
+    index: number;
+    cardLength: number;
+}>`
     margin: 2rem 0 4rem 0;
     display: flex;
     flex-direction: column;
     justify-content: start;
     text-align: left;
     padding-left: 1rem;
+    ${media.laptop`  
+        {
+            justify-content: ${(props: any) =>
+                props.sectionCategory === "highlight" && props.index === 2
+                    ? "center"
+                    : "start"}; 
+            width: ${(props: any) =>
+                (props.sectionCategory === "highlight" && props.index === 2) ||
+                (props.sectionCategory === "post" && props.cardLength % 2 == 1)
+                    ? "49.5vw"
+                    : null};
+            margin: ${(props: any) =>
+                props.sectionCategory === "highlight" && props.index === 2
+                    ? "0"
+                    : "2rem 0 4rem 0"}; 
+            padding-left: ${(props: any) =>
+                props.sectionCategory === "highlight" && props.index === 2
+                    ? "0"
+                    : "1rem"}; 
+    `}
     ${media.mobile`  
         width: 80vw;
     `}

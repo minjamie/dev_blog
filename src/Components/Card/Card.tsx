@@ -15,13 +15,21 @@ import {
 const Card: FC<any> = (props: CardProp) => {
     const { githubFolks, githubStars, img, title, category } = props.data;
     return (
-        <CardLink sectionCategory={props.sectionCategory}>
+        <CardLink
+            sectionCategory={props.sectionCategory}
+            cardLength={props.cardLength}
+        >
             <CardImage
                 index={props.cardIndex}
                 sectionCategory={props.sectionCategory}
+                cardLength={props.cardLength}
                 src={img}
             />
-            <CardContent index={props.cardIndex}>
+            <CardContent
+                sectionCategory={props.sectionCategory}
+                cardLength={props.cardLength}
+                index={props.cardIndex}
+            >
                 <CardCategory>{category}</CardCategory>
                 <CardTitle sectionCategory={props.sectionCategory}>
                     {title}

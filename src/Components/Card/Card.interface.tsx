@@ -9,4 +9,5 @@ export interface CardProp {
     };
     sectionCategory: string;
     cardIndex: number;
+    cardLength: number;
 }

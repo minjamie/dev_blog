@@ -27,7 +27,9 @@ export default function Feature(props: any) {
                                 <Card
                                     key={index}
                                     data={feature[index]}
+                                    cardIndex={index}
                                     sectionCategory={props.sectionCategory}
+                                    cardLength={data.length}
                                 />
                             );
                         })}

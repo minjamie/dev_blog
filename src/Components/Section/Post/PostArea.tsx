@@ -15,13 +15,15 @@ export default function Post(props: any) {
         <PostArea>
             <PostContainer>
                 <PostWrapper>
-                    <PostList>
+                    <PostList cardLength={data.length}>
                         {posts.map((a: any, index: any) => {
                             return (
                                 <Card
                                     key={index}
                                     data={data[index]}
+                                    cardLength={data.length}
                                     sectionCategory={props.sectionCategory}
+                                    cardIndex={index}
                                 />
                             );
                         })}

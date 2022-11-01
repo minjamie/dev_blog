@@ -214,7 +214,7 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
     },
 
     {
-        id: 16,
+        id: 14,
         category: "Category",
         title: "React Materialize",
         content: `You should use React Materialize if you want to use materialize-css components in your react application.
