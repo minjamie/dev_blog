@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
-const SignInContainer = styled.div`
+const SignUpUBcareContainer = styled.div`
     position: fixed;
     width: 500px;
     height: 400px;
@@ -13,13 +13,13 @@ const SignInContainer = styled.div`
     border-radius: 1rem;
     ${media.tablet`  
     border-radius: 0;
-  width: 100%;
+    width: 100%;
     height: 100%;
     z-index: 999;
  `}
 `;
 
-const SignInTop = styled.div`
+const SignUpUBcareTop = styled.div`
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
     text-align: center;
@@ -30,19 +30,20 @@ const SignInTop = styled.div`
     height: 0;
  `}
 `;
-const SignInImg = styled.img<{ src: string }>`
+const SignUpUBcareImg = styled.img<{ src: string }>`
     width: auto;
     height: 150px;
     ${media.tablet`  
     height: 100%;
  `}
 `;
-const SignInBottom = styled.div`
+const SignUpUBcareBottom = styled.div`
     width: 100%;
-    background-color: white;
+    background-color: #f4f6f8;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    background-color: white;
     height: 350px;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
@@ -51,31 +52,28 @@ const SignInBottom = styled.div`
     height: 100%;
     border-radius: 0;
     padding: 2rem 2rem;
-
+ 
 `}
 `;
-const SignInTitle = styled.h1`
+const SignUpUBcareTitle = styled.h1`
     font-size: 1.2rem;
     font-weight: 900;
     padding-bottom: 0.5rem;
 `;
-const SignInLabel = styled.label`
+const SignUpUBcareLabel = styled.label`
     font-size: 0.9rem;
     font-weight: 600;
     color: #7a7b85;
 `;
-const SignInInputWrapper = styled.div<{ isSignIn: boolean; isClick: boolean }>`
+const SignUpUBcareInputWrapper = styled.div`
     display: flex;
     justify-content: center;
     padding: 1rem 0 2rem 0;
-    order: ${(props: any) => (!props.isSignIn && props.isClick ? 1 : null)};
-    padding: ${(props: any) =>
-        !props.isSignIn && props.isClick ? "2.5rem 0 5rem 0" : null};
     ${media.tablet`  
     width: 100%;
  `}
 `;
-const SignInEmailInput = styled.input`
+const SignUpUBcareEmailInput = styled.input`
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     height: 40px;
@@ -92,7 +90,7 @@ const SignInEmailInput = styled.input`
  `}
 `;
 
-const SignInButton = styled.button`
+const SignUpUBcareButton = styled.button`
     border-top-right-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     height: 40px;
@@ -104,35 +102,30 @@ const SignInButton = styled.button`
         opacity: 0.5;
     }
 `;
-const SignInOAuthWrapper = styled.div<{ isSignIn: boolean; isClick: boolean }>`
-    padding-top: ${(props: any) =>
-        !props.isSignIn && props.isClick ? "1rem" : null};
-    order: ${(props: any) => (!props.isSignIn && props.isClick ? 0 : null)};
+const SignUpUBcareOAuthWrapper = styled.div`
     width: 100%;
 `;
-const SignInOAuthContainer = styled.div`
+const SignUpUBcareOAuthContainer = styled.div`
     display: flex;
     justify-content: space-around;
 `;
 
-const SignInOAuthLabel = styled.h1`
+const SignUpUBcareOAuthLabel = styled.h1`
     font-size: 0.9rem;
     font-weight: 600;
     color: #7a7b85;
     padding-bottom: 0.5rem;
 `;
-const SignInHelpWrapper = styled.div<{ isSignIn: boolean; isClick: boolean }>`
+const SignUpUBcareHelpWrapper = styled.div`
     width: 100%;
     height: 150px;
     position: relative;
-    order: ${(props: any) => (!props.isSignIn && props.isClick ? 2 : null)};
 
     ${media.tablet`  
     height: 100%;
  `}
 `;
-
-const SignInHelpTitle = styled.h1`
+const SignUpUBcareHelpTitle = styled.h1`
     font-size: 0.8rem;
     color: black;
     position: absolute;
@@ -140,9 +133,7 @@ const SignInHelpTitle = styled.h1`
     right: 0;
     margin: 0;
 `;
-
-const SignUBcareHelpTitle = styled(SignInHelpTitle)``;
-const SignInHelp = styled.span`
+const SignUpUBcareHelp = styled.span`
     color: #faad93;
     font-weight: 900;
     &:hover {
@@ -191,26 +182,45 @@ const LoginUBcare = styled.img`
     cursor: pointer;
 `;
 
+const arrowBox = styled.div`
+    position: relative;
+    background: #88b7d5;
+    border: 4px solid #c2e1f5;
+
+    :after {
+        border-color: rgba(136, 183, 213, 0);
+        border-top-color: #88b7d5;
+        border-width: 30px;
+        margin-left: -30px;
+    }
+    :before {
+        border-color: rgba(194, 225, 245, 0);
+        border-top-color: #c2e1f5;
+        border-width: 36px;
+        margin-left: -36px;
+    }
+`;
+
 export {
-    SignInContainer,
-    SignInTop,
-    SignInImg,
-    SignInBottom,
-    SignInTitle,
-    SignInInputWrapper,
-    SignInEmailInput,
-    SignInButton,
-    SignInLabel,
-    SignInOAuthWrapper,
-    SignInOAuthContainer,
-    SignInOAuthLabel,
-    SignInHelpWrapper,
-    SignInHelpTitle,
-    SignUBcareHelpTitle,
-    SignInHelp,
+    SignUpUBcareContainer,
+    SignUpUBcareTop,
+    SignUpUBcareImg,
+    SignUpUBcareBottom,
+    SignUpUBcareTitle,
+    SignUpUBcareInputWrapper,
+    SignUpUBcareEmailInput,
+    SignUpUBcareButton,
+    SignUpUBcareLabel,
+    SignUpUBcareOAuthWrapper,
+    SignUpUBcareOAuthContainer,
+    SignUpUBcareOAuthLabel,
+    SignUpUBcareHelpWrapper,
+    SignUpUBcareHelpTitle,
+    SignUpUBcareHelp,
     LoginKakao,
     LoginGoogle,
     LoginGoogleTitle,
     LoginUBcareWrapper,
     LoginUBcare,
+    arrowBox,
 };

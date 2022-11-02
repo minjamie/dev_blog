@@ -1,3 +1,4 @@
+import PaginationComponent from "Components/Pagination/Pagination";
 import posts from "Assets/dummy/Post";
 import Card from "Components/Card/Card";
 import React, { useState } from "react";
@@ -29,6 +30,7 @@ export default function Post(props: any) {
                         })}
                     </PostList>
                 </PostWrapper>
+                <PaginationComponent />
             </PostContainer>
         </PostArea>
     );

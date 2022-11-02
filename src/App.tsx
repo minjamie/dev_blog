@@ -10,6 +10,8 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { closeSearch } from "Stores/searchSlice";
 import { closeCategory } from "Stores/categorySlice";
+import SignInUBcare from "Components/SignIn/UBcare/SignInUBcare";
+import SignUpUBcare from "Components/SignUp/UBcare/SignUpUBcare";
 
 function App() {
     const [category] = useState([
@@ -69,6 +71,7 @@ function App() {
                 ></div>
             ) : null}
             {state.signIn.active && <SignIn />}
+
             <FooterBar footerMenu={footerMenu} />
         </div>
     );
