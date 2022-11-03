@@ -27,7 +27,8 @@ const CardLink = styled.article<{
         }
     `}
     ${media.mobile`  
-            transition: ease all 1s;
+    padding: 0 1.5rem;
+      transition: ease all 1s;
             width: 100vw;
             display: flex;
             flex-direction: row-reverse;
@@ -100,13 +101,10 @@ const CardContent = styled.div<{
                 props.sectionCategory === "highlight" && props.index === 2
                     ? "0"
                     : "2rem 0 4rem 0"}; 
-            padding-left: ${(props: any) =>
-                props.sectionCategory === "highlight" && props.index === 2
-                    ? "0"
-                    : "1rem"}; 
     `}
     ${media.mobile`  
-        width: 80vw;
+    padding-left:0rem;
+        width:  100%;
     `}
 `;
 const CardCategory = styled.h1`

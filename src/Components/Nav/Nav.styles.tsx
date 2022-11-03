@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const NavBar = styled.nav`
@@ -16,18 +16,17 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
     align-items: center;
     margin-right: auto;
     margin-left: auto;
-    padding: 1rem 7rem 1rem 4rem;
+    padding: 1rem 0 1rem 0;
     border-bottom: ${(props) =>
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
         props.shadow ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
     ${media.laptop`  
-        padding: 1rem 5.5rem;
-    `}
+        padding: 1rem 1.5rem 1rem 1.5rem;
+   `}
 `;
 
 const NavBarLogoLink = styled.a`
-    margin-left: 1rem;
     cursor: pointer;
     ${media.laptop`  
         flex-grow: 0.9;

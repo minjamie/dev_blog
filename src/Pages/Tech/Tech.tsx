@@ -1,17 +1,12 @@
-import { useState } from "react";
-import { TechList, TechPage } from "./Tech.styles";
 import "App.css";
-import Card from "Components/Card/Card";
-import posts from "Assets/dummy/Post";
+import Post from "Components/Section/Post/PostArea";
+import { TechList, TechPage } from "./Tech.styles";
 
 export default function Tech(props: any) {
-    const [data, setData] = useState(posts);
     return (
         <TechPage>
             <TechList>
-                {posts.map((a: any, index: any) => {
-                    return <Card key={index} data={data[index]} />;
-                })}
+                <Post sectionCategory={"post"}></Post>
             </TechList>
         </TechPage>
     );

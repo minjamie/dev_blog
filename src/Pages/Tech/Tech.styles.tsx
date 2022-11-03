@@ -1,19 +1,13 @@
 import styled from "styled-components";
 
-const TechPage = styled.main`
-    height: 100vh;
+const TechPage = styled.div`
+    height: 100%;
     width: 100%;
 `;
 
 const TechList = styled.div`
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    column-gap: 30px;
-    row-gap: 30px;
-    grid-gap: 20px;
-    margin: 0 auto;
-    padding: 0 150px;
+    height: 100%;
+    width: 100%;
 `;
 
 export { TechList, TechPage };

@@ -2,42 +2,57 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const MenuBarWrapper = styled.div`
-    height: 15vh;
-    font-size: 1.3rem;
-    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 82px;
+    background-color: #f4f6f8;
 `;
 
 const MenuBarContainer = styled.div`
+    flex-shrink: 1;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    -webkit-justify-content: center;
+    padding-top: 4rem;
     ${media.laptop`  
-        justify-content: space-between;
-        padding: 10px 50px;
-    `}
+     padding-right: 5rem;
+     padding-left: 5rem;
+   `}
+    ${media.mobile`  
+     padding-right: 5.5rem;
+     padding-left: 5.5rem; `}
 `;
 
 const MenuBarCategoryRight = styled.div`
     text-align: right;
-    max-width: 140px;
-    width: 100%;
-    ${media.laptop`  
-    `}
+    max-width: 70px;
 `;
 const MenuBarCategoryCenter = styled.ul`
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    width: 38vw;
+    flex-shrink: 5;
+    display: flex;
+    list-style: none;
+    max-width: 1000px;
     margin: 0;
     padding: 0;
+    width: 100%;
+    height: 90px;
+    ${media.laptop`  
+        width: 100%;
+        max-width: 1300px;
+        max-height: 250px;
+        margin-left:0;
+        margin-right: 0;
+        height: 90px;
+    `}
 `;
 
 const MenuBarCategoryLeft = styled.div`
     text-align: left;
     max-width: 140px;
     ${media.laptop`  
+    /* padding-left: 2.5rem */
     `}
 `;
 

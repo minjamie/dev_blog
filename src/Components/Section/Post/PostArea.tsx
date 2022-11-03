@@ -1,7 +1,7 @@
-import PaginationComponent from "Components/Pagination/Pagination";
 import posts from "Assets/dummy/Post";
 import Card from "Components/Card/Card";
-import React, { useState } from "react";
+import PaginationComponent from "Components/Pagination/Pagination";
+import { useState } from "react";
 import {
     PostArea,
     PostContainer,
@@ -11,7 +11,6 @@ import {
 
 export default function Post(props: any) {
     const [data, setData] = useState(posts);
-    props.sectionCategory;
     return (
         <PostArea>
             <PostContainer>

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const HighlightArea = styled.section`
-    padding: 4rem;
+    padding: 4rem 0rem;
     background-color: #f4f6f8;
 `;
 const HighlightContainer = styled.section`

@@ -11,11 +11,12 @@ const HighlightCardLink = styled.article`
         &:nth-child(3){
         width: 100%;
         padding-left:1.2rem;
-         transition: ease all 1s;
-            display: flex;
+        transition: ease all 1s;
+        display: flex;
         }
     `}
     ${media.mobile`  
+            padding: 0 1.5rem;
             transition: ease all 1s;
             width: 100vw;
             display: flex;
@@ -23,7 +24,6 @@ const HighlightCardLink = styled.article`
             justify-content: center;
             &:nth-child(3){
                 width: 100vw;
-                padding-left:0rem;
 
         }
     `}
@@ -69,7 +69,7 @@ const HighlightCardContent = styled.div<{ index: number }>`
     `}
     ${media.mobile`  
          width: 80vw;
-        padding-left:1rem;
+        padding-left:0rem;
 
     `}
 `;

@@ -1,12 +1,11 @@
-import React from "react";
 import {
-    MenuBarWrapper,
-    MenuBarContainer,
+    Category,
+    CategoryTitle,
+    MenuBarCategoryCenter,
     MenuBarCategoryLeft,
     MenuBarCategoryRight,
-    CategoryTitle,
-    Category,
-    MenuBarCategoryCenter,
+    MenuBarContainer,
+    MenuBarWrapper,
 } from "./MenuBar.styles";
 
 export default function MenuBar(props: any) {

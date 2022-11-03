@@ -1,16 +1,12 @@
-import { useState } from "react";
-import { CultureList, MenuPage, TechList } from "./Menu.styles";
-import MenuBar from "Components/MenuBar/MenuBar";
 import "App.css";
-import Card from "Components/Card/Card";
-import posts from "Assets/dummy/Post";
 import CategoryBar from "Components/CategoryBar/CategoryBar";
-import Story from "Pages/Story/Story";
+import MenuBar from "Components/MenuBar/MenuBar";
 import Culture from "Pages/Culture/Culture";
+import Story from "Pages/Story/Story";
 import Tech from "Pages/Tech/Tech";
+import { MenuPage } from "./Menu.styles";
 
 export default function Menu(props: any) {
-    const [data, setData] = useState(posts);
     return (
         <MenuPage>
             {props.category.id !== 2 ? (

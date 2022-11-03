@@ -3,7 +3,7 @@ import { media } from "Styles/media.styles";
 
 const FeatureArea = styled.section`
     background-color: #011641;
-    padding: 4rem;
+    padding: 4rem 0;
 `;
 
 const FeatureContainer = styled.div`
