@@ -1,69 +1,67 @@
-import "./Icon.css";
-import React, { FC, useState } from "react";
-import {
-    SignInContainer,
-    SignInEmailInput,
-    SignInTitle,
-    SignInLabel,
-    SignInOAuthWrapper,
-    SignInOAuthLabel,
-    SignInTop,
-    SignInBottom,
-    SignInHelpWrapper,
-    SignInHelpTitle,
-    SignInHelp,
-    SignInImg,
-    SignInButton,
-    SignInInputWrapper,
-    LoginKakao,
-    LoginGoogle,
-    LoginUBcare,
-    LoginGoogleTitle,
-    SignInOAuthContainer,
-    LoginUBcareWrapper,
-} from "./SignIn.styles";
+import { Tooltip } from "@mui/material";
+import kakaoLogo from "Assets/Images/kakao_login_large.png";
 import symbolSrc from "Assets/Images/login-logo.jpg";
 import ubcareLogo from "Assets/Images/ubcare_logo.jpg";
-import kakaoLogo from "Assets/Images/kakao_login_large.png";
+import MultipleSelect from "Components/SelectBox/SelectBox";
+import React, { FC, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { TfiClose } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
-import { closeSignIn } from "Stores/signInSlice";
-import { Tooltip } from "@mui/material";
-import MultipleSelect from "Components/SelectBox/SelectBox";
+import { closeSign } from "Stores/signInSlice";
+import "./Icon.css";
+import {
+    LoginGoogle,
+    LoginGoogleTitle,
+    LoginKakao,
+    LoginUBcare,
+    LoginUBcareWrapper,
+    SignBottom,
+    SignButton,
+    SignContainer,
+    SignEmailInput,
+    SignHelp,
+    SignHelpTitle,
+    SignHelpWrapper,
+    SignImg,
+    SignInputWrapper,
+    SignLabel,
+    SignOAuthContainer,
+    SignOAuthLabel,
+    SignOAuthWrapper,
+    SignTitle,
+    SignTop,
+} from "./Sign.styles";
 
-const SignIn: FC<any> = () => {
+const Sign: FC<any> = () => {
     const dispatch = useDispatch();
     const closeLogin = () => {
-        dispatch(closeSignIn());
+        dispatch(closeSign());
         document.body.style.overflow = "unset";
     };
 
-    const [isSignIn, setSignIn] = useState(true);
+    const [isSignIn, setSign] = useState(true);
     const [isClick, setClick] = useState(false);
-    console.log("isSignIn", isSignIn, "isClick", isClick);
 
     const handleSignButton = () => {
-        setSignIn(!isSignIn);
+        setSign(!isSignIn);
         setClick(false);
     };
     const hasClick: React.MouseEventHandler<HTMLDivElement> = (e): void =>
         setClick(true);
     return (
-        <SignInContainer>
-            <SignInTop>
+        <SignContainer>
+            <SignTop>
                 <TfiClose onClick={closeLogin} className="close-Button" />
-                <SignInImg src={symbolSrc} />
-            </SignInTop>
-            <SignInBottom>
-                <SignInTitle>{isSignIn ? "로그인" : "회원가입"}</SignInTitle>
-
-                <SignInLabel>
+                <SignImg src={symbolSrc} />
+            </SignTop>
+            <SignBottom>
+                <SignTitle>{isSignIn ? "로그인" : "회원가입"}</SignTitle>
+                <SignLabel>
                     {isClick ? "유비웨어" : "이메일"}로{" "}
                     {isSignIn ? "로그인" : "회원가입"}
-                </SignInLabel>
-                <SignInInputWrapper isSignIn={isSignIn} isClick={isClick}>
-                    <SignInEmailInput
+                </SignLabel>
+                <SignInputWrapper isSignIn={isSignIn} isClick={isClick}>
+                    <SignEmailInput
                         type="text"
                         placeholder={
                             isClick && isSignIn
@@ -72,21 +70,21 @@ const SignIn: FC<any> = () => {
                                 ? "사원 번호을 입력하세요."
                                 : "이메일을 입력하세요."
                         }
-                    ></SignInEmailInput>
-                    <SignInButton>
+                    ></SignEmailInput>
+                    <SignButton>
                         {isSignIn ? "로그인" : !isClick ? "회원가입 " : "검색"}
-                    </SignInButton>
-                </SignInInputWrapper>
-                <SignInOAuthWrapper isSignIn={isSignIn} isClick={isClick}>
+                    </SignButton>
+                </SignInputWrapper>
+                <SignOAuthWrapper isSignIn={isSignIn} isClick={isClick}>
                     {isClick && !isSignIn ? (
                         <MultipleSelect />
                     ) : (
-                        <SignInOAuthLabel>
+                        <SignOAuthLabel>
                             소셜 계정으로 {isSignIn ? "로그인" : "회원가입"}
-                        </SignInOAuthLabel>
+                        </SignOAuthLabel>
                     )}
                     {isClick && !isSignIn ? null : (
-                        <SignInOAuthContainer>
+                        <SignOAuthContainer>
                             <LoginKakao src={kakaoLogo} />
                             <LoginGoogle>
                                 <FcGoogle className="login-Google" />
@@ -100,28 +98,28 @@ const SignIn: FC<any> = () => {
                                     <LoginUBcare src={ubcareLogo} />
                                 </LoginUBcareWrapper>
                             </Tooltip>
-                        </SignInOAuthContainer>
+                        </SignOAuthContainer>
                     )}
-                </SignInOAuthWrapper>
-                <SignInHelpWrapper isSignIn={isSignIn} isClick={isClick}>
-                    <SignInHelpTitle>
+                </SignOAuthWrapper>
+                <SignHelpWrapper isSignIn={isSignIn} isClick={isClick}>
+                    <SignHelpTitle>
                         {isClick && !isSignIn
                             ? "오류 발생시 관리자에게 문의바랍니다."
                             : !isClick && !isSignIn
                             ? "계정이 이미 있으신가요?"
                             : "아직 회원이 아니신가요?"}
                         &nbsp;
-                        <SignInHelp onClick={handleSignButton}>
+                        <SignHelp onClick={handleSignButton}>
                             {isClick && !isSignIn
                                 ? "문의하기"
                                 : !isClick && !isSignIn
                                 ? "로그인"
                                 : "회원가입"}
-                        </SignInHelp>
-                    </SignInHelpTitle>
-                </SignInHelpWrapper>
-            </SignInBottom>
-        </SignInContainer>
+                        </SignHelp>
+                    </SignHelpTitle>
+                </SignHelpWrapper>
+            </SignBottom>
+        </SignContainer>
     );
 };
-export default SignIn;
+export default Sign;

@@ -1,17 +1,15 @@
-import NavBar from "./Components/Nav/Nav";
-import FooterBar from "./Components/Footer/Footer";
-import SignIn from "./Components/SignIn/SignIn";
-import { Route, Routes } from "react-router-dom";
-import "./App.css";
+import People from "Pages/Culture/People/People";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
-import People from "Pages/Culture/People/People";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeSearch } from "Stores/searchSlice";
+import { Route, Routes } from "react-router-dom";
 import { closeCategory } from "Stores/categorySlice";
-import SignInUBcare from "Components/SignIn/UBcare/SignInUBcare";
-import SignUpUBcare from "Components/SignUp/UBcare/SignUpUBcare";
+import { closeSearch } from "Stores/searchSlice";
+import "./App.css";
+import FooterBar from "./Components/Footer/Footer";
+import NavBar from "./Components/Nav/Nav";
+import Sign from "./Components/Sign/Sign";
 
 function App() {
     const [category] = useState([
@@ -70,7 +68,7 @@ function App() {
                     onClick={closeBackdrop}
                 ></div>
             ) : null}
-            {state.signIn.active && <SignIn />}
+            {state.signIn.active && <Sign />}
 
             <FooterBar footerMenu={footerMenu} />
         </div>

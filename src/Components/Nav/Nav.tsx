@@ -1,5 +1,12 @@
+import logoSrc from "Assets/Images/ub_devblog_logo.png";
+import { Search } from "Components/Search/Search";
+import { FC, useEffect, useState } from "react";
+import { TfiAlignLeft, TfiClose, TfiSearch } from "react-icons/tfi";
+import { useDispatch } from "react-redux";
+import { activeCategory, closeCategory } from "Stores/categorySlice";
+import { activeSearch, closeSearch } from "Stores/searchSlice";
+import { activeSign } from "Stores/signInSlice";
 import "./Icon.css";
-import { useState, useEffect, FC } from "react";
 import {
     NavBar,
     NavBarContainer,
@@ -10,13 +17,6 @@ import {
     NavBarMenuLink,
     NavBarMenuList,
 } from "./Nav.styles";
-import logoSrc from "Assets/Images/ub_devblog_logo.png";
-import { TfiClose, TfiSearch, TfiAlignLeft } from "react-icons/tfi";
-import { Search } from "Components/Search/Search";
-import { useDispatch } from "react-redux";
-import { activeSearch, closeSearch } from "Stores/searchSlice";
-import { activeCategory, closeCategory } from "Stores/categorySlice";
-import { activeSignIn } from "Stores/signInSlice";
 
 const Navbar: FC<any> = (props) => {
     const [scroll, setScroll] = useState(false);
@@ -46,7 +46,7 @@ const Navbar: FC<any> = (props) => {
     };
 
     const activeLogin = () => {
-        dispatch(activeSignIn());
+        dispatch(activeSign());
         dispatch(closeSearch());
         dispatch(closeCategory());
         document.body.style.overflow = "hidden";

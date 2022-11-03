@@ -1,9 +1,7 @@
-import * as React from "react";
-import { makeStyles, useTheme } from "@mui/material/styles";
-import InputLabel from "@mui/material/InputLabel";
+import { MenuItem } from "@mui/material";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import { MenuItem, OutlinedInput } from "@mui/material";
+import InputLabel from "@mui/material/InputLabel";
+import Select from "@mui/material/Select";
 
 export default function MultipleSelect() {
     const teams = [
@@ -16,18 +14,9 @@ export default function MultipleSelect() {
     ];
 
     return (
-        <FormControl
-            fullWidth
-            variant="standard"
-            defaultValue={"소속 팀"}
-            sx={{
-                width: 370,
-                height: 40,
-            }}
-        >
+        <FormControl fullWidth={true}>
             <InputLabel
                 id="demo-simple-select-standard-label"
-                style={{ color: "#7a7b85", margin: "0 auto" }}
                 variant="standard"
                 htmlFor="uncontrolled-native"
             >
@@ -37,10 +26,6 @@ export default function MultipleSelect() {
                 labelId="demo-simple-select-standard-label"
                 id="demo-simple-select-standard"
                 label="Age"
-                sx={{
-                    width: 370,
-                    height: 40,
-                }}
             >
                 {teams.map((a, index) => {
                     return (

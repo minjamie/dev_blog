@@ -4,16 +4,16 @@ const signIn = createSlice({
     name: "signIn",
     initialState: { active: false },
     reducers: {
-        activeSignIn(state) {
+        activeSign(state) {
             state.active ? (state.active = false) : (state.active = true);
         },
-        openSignIn(state) {
+        openSign(state) {
             state.active = true;
         },
-        closeSignIn(state) {
+        closeSign(state) {
             state.active = false;
         },
     },
 });
 export default signIn;
-export const { activeSignIn, openSignIn, closeSignIn } = signIn.actions;
+export const { activeSign, openSign, closeSign } = signIn.actions;
