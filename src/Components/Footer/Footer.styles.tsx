@@ -2,60 +2,76 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const FooterBar = styled.footer`
-    width: 100%;
     background: white;
     display: block;
 `;
 
 const FooterBarContainer = styled.div`
-    flex-shrink: 1;
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 1.5rem 0;
-    ${media.laptop`  
-        padding: 2rem 5.5rem;
+    padding: 2rem 1rem;
+    ${media.tablet`  
     `}
 `;
 
 const FooterBarTop = styled.div`
     display: flex;
-    justify-content: center;
+    align-items: center;
     ${media.laptop`  
+ `}
+
+    ${media.tablet`  
     flex-direction: column;
     `}
 `;
+
 const FooterBarBottom = styled.div`
-    display: flex;
     justify-content: center;
-    margin-top: 1.5rem;
-    ${media.laptop`  
+    align-items: center;
+    display: flex;
+    ${media.tablet`  
     justify-content: flex-start;
     `}
 `;
 
-const FooterBarMenuIcon = styled.div`
-    cursor: pointer;
+const FooterTopCenter = styled.div`
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    width: 860px;
+    height: 30px;
+    background-color: white;
     ${media.laptop`  
+        width: 100%;
+    padding: 0 27rem;
+    `}
+`;
+
+const FooterBarMenuIcon = styled.div`
+    width: auto;
+    cursor: pointer;
+    white-space: nowrap;
+    height: 30px;
+    ${media.laptop`
     `}
 `;
 const FooterBarTitle = styled.h5`
-    font-size: 1rem;
+    margin: 0;
+    font-size: 1.5rem;
 `;
 const FooterBarMenuList = styled.ul`
-    flex-shrink: 5;
     display: flex;
     list-style: none;
-    justify-content: start;
+    height: 30px;
     margin: 0;
     padding: 0;
-    max-width: 800px;
-    margin-right: 55rem;
     ${media.laptop`  
-    margin-bottom: 1.5rem;
-    `}
+`}
+    ${media.tablet`  
+`}
+${media.mobile`  
+`}
 `;
 
 const FooterBarMenuItem = styled.li`
@@ -84,6 +100,7 @@ export {
     FooterBar,
     FooterBarContainer,
     FooterBarTop,
+    FooterTopCenter,
     FooterBarBottom,
     FooterBarMenuIcon,
     FooterBarMenuList,

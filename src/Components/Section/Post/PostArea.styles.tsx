@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const PostArea = styled.section`
-    padding: 4rem 0;
+    padding: 4rem 0 4rem 0;
     background-color: #f4f6f8;
 `;
 

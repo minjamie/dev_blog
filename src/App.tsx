@@ -7,7 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import { closeCategory } from "Stores/categorySlice";
 import { closeSearch } from "Stores/searchSlice";
 import "./App.css";
-import FooterBar from "./Components/Footer/Footer";
+import Footerbar from "./Components/Footer/Footer";
 import NavBar from "./Components/Nav/Nav";
 import Sign from "./Components/Sign/Sign";
 
@@ -69,8 +69,7 @@ function App() {
                 ></div>
             ) : null}
             {state.signIn.active && <Sign />}
-
-            <FooterBar footerMenu={footerMenu} />
+            <Footerbar footerMenu={footerMenu} />
         </div>
     );
 }

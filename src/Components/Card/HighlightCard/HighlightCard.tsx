@@ -1,14 +1,14 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { HighlightCardProp } from "./HighlightCard.interface";
 import {
-    HighlightCardImage,
-    HighlightCardLink,
-    HighlightCardContent,
-    HighlightCardTitle,
-    HighlightCardInfo,
     HighlightCardCategory,
-    HighlightCardWriteDate,
+    HighlightCardContent,
+    HighlightCardImage,
+    HighlightCardInfo,
+    HighlightCardLink,
+    HighlightCardTitle,
     HighlightCardViewCount,
+    HighlightCardWriteDate,
 } from "./HighlightCard.styles";
 
 const HighlightCard: FC<any> = (props: HighlightCardProp) => {
@@ -24,6 +24,7 @@ const HighlightCard: FC<any> = (props: HighlightCardProp) => {
                     <HighlightCardWriteDate>
                         {githubFolks} Folks /
                     </HighlightCardWriteDate>
+                    &nbsp;
                     <HighlightCardViewCount>
                         {githubStars} Ratings
                     </HighlightCardViewCount>

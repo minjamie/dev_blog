@@ -1,15 +1,14 @@
-import path from "path";
-import React, { FC } from "react";
+import { FC } from "react";
 import { CardProp } from "./Card.interface";
 import {
-    CardImage,
-    CardLink,
-    CardContent,
-    CardTitle,
-    CardInfo,
     CardCategory,
-    CardWriteDate,
+    CardContent,
+    CardImage,
+    CardInfo,
+    CardLink,
+    CardTitle,
     CardViewCount,
+    CardWriteDate,
 } from "./Card.styles";
 
 const Card: FC<any> = (props: CardProp) => {
@@ -35,7 +34,7 @@ const Card: FC<any> = (props: CardProp) => {
                     {title}
                 </CardTitle>
                 <CardInfo>
-                    <CardWriteDate>{githubFolks} Folks /</CardWriteDate>
+                    <CardWriteDate>{githubFolks} Folks / </CardWriteDate>
                     <CardViewCount>{githubStars} Ratings</CardViewCount>
                 </CardInfo>
             </CardContent>

@@ -10,7 +10,6 @@ const NavBar = styled.nav`
 `;
 
 const NavBarContainer = styled.div<{ shadow: boolean }>`
-    flex-shrink: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +20,9 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
         props.shadow ? "1px solid rgba(0, 0, 0, 0.1)" : null};
     box-shadow: ${(props) =>
         props.shadow ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
-    ${media.laptop`  
+    ${media.laptop`
+        justify-content: space-between;
+  
         padding: 1rem 1.5rem 1rem 1.5rem;
    `}
 `;
@@ -29,8 +30,6 @@ const NavBarContainer = styled.div<{ shadow: boolean }>`
 const NavBarLogoLink = styled.a`
     cursor: pointer;
     ${media.laptop`  
-        flex-grow: 0.9;
-        display: inline-flex;
         order: 2;
     `}
 `;
@@ -39,7 +38,7 @@ const NavBarLogo = styled.img<{ src: string }>`
     src: src;
     width: 100%;
     display: block;
-    width: 200px;
+    width: 210px;
     height: 50px;
 `;
 
@@ -50,7 +49,6 @@ const NavBarMenuIcon = styled.div`
     height: 30px;
     cursor: pointer;
     ${media.laptop`  
-        flex-grow: 0.9;
         display: inline-flex;
         font-size: 1.8rem;
         cursor: pointer;
@@ -59,12 +57,10 @@ const NavBarMenuIcon = styled.div`
 `;
 
 const NavBarMenuList = styled.ul<{ active: boolean }>`
-    flex-shrink: 5;
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    max-width: 800px;
     margin-left: 40rem;
     margin-right: 1rem;
     background-color: white;
@@ -92,7 +88,7 @@ const NavBarMenuItem = styled.li`
     padding-left: 1rem;
     ${media.laptop`
         font-size: var(--font-size-subTitle);
-            padding:0 2rem;
+            padding:0 1.5rem;
             &:last-child {
             padding-bottom: 1rem
             }
@@ -108,7 +104,7 @@ const NavBarMenuLink = styled.a`
     ${media.laptop`  
     z-index: -1000;
         text-align: left;
-        padding: 0.5rem 3.5rem;
+        padding: 0.5rem 0;
         width: 100%;
     `}
     &:hover {

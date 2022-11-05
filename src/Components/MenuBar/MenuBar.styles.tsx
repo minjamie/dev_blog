@@ -17,23 +17,28 @@ const MenuBarContainer = styled.div`
     align-items: center;
     padding-top: 4rem;
     ${media.laptop`  
-     padding-right: 5rem;
-     padding-left: 5rem;
-   `}
-    ${media.mobile`  
-     padding-right: 5.5rem;
-     padding-left: 5.5rem; `}
+        padding-right: 1.5rem;
+        padding-left: 1.5rem;
+    `}
+    ${media.mobile`
+        flex-direction:column;
+        align-items: start;
+    `}
 `;
 
 const MenuBarCategoryRight = styled.div`
     text-align: right;
     max-width: 70px;
+    ${media.mobile`
+      padding-top: 1rem;
+        display:flex;
+    `}
 `;
 const MenuBarCategoryCenter = styled.ul`
     flex-shrink: 5;
     display: flex;
     list-style: none;
-    max-width: 1000px;
+    max-width: 990px;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -46,21 +51,37 @@ const MenuBarCategoryCenter = styled.ul`
         margin-right: 0;
         height: 90px;
     `}
+    ${media.mobile`
+        display:none
+    `}
 `;
 
 const MenuBarCategoryLeft = styled.div`
     text-align: left;
     max-width: 140px;
-    ${media.laptop`  
-    /* padding-left: 2.5rem */
-    `}
 `;
 
 const CategoryTitle = styled.h5`
     font-size: 35px;
+    ${media.mobile`
+        display:flex;
+    `}
 `;
 
-const Category = styled.h4``;
+const CategoryMeta = styled.h5`
+    font-size: 35px;
+    ${media.mobile`
+        font-size: 25px;
+        color: var(--font-color-subTitle);
+    `}
+`;
+
+const Category = styled.h4`
+    color: var(--font-color-subTitle);
+    ${media.mobile`
+    font-size: 25px;
+    `}
+`;
 
 export {
     MenuBarWrapper,
@@ -69,5 +90,6 @@ export {
     MenuBarCategoryCenter,
     MenuBarCategoryRight,
     CategoryTitle,
+    CategoryMeta,
     Category,
 };

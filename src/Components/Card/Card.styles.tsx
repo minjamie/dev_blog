@@ -14,7 +14,7 @@ const CardLink = styled.article<{
         &:last-child{
             width: ${(props: any) =>
                 props.sectionCategory === "post" && props.cardLength % 2 == 1
-                    ? "96%"
+                    ? "100%"
                     : "50%"};
             display: ${(props: any) =>
                 props.sectionCategory === "post" && props.cardLength % 2 == 1
@@ -24,11 +24,16 @@ const CardLink = styled.article<{
                 props.sectionCategory === "post" && props.cardLength % 2 == 1
                     ? "column"
                     : null};
+            padding: 
+             ${(props: any) =>
+                 props.sectionCategory === "post" && props.cardLength % 2 == 1
+                     ? "1rem"
+                     : "0rem"};
         }
     `}
     ${media.mobile`  
     padding: 0 1.5rem;
-      transition: ease all 1s;
+            transition: ease all 1s;
             width: 100vw;
             display: flex;
             flex-direction: row-reverse;
@@ -37,7 +42,9 @@ const CardLink = styled.article<{
                 width: 100vw;
                 display: flex;
                 flex-direction: row-reverse;
-                justify-content: center;
+                justify-content: center;        
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
         }
     `}
 `;
@@ -67,7 +74,7 @@ const CardImage = styled.img<{
             props.sectionCategory === "post" &&
             props.index === props.cardLength - 1 &&
             props.cardLength % 2 == 1
-                ? "48.5%"
+                ? "47.5%"
                 : "100%"}; 
     `}
     ${media.mobile`  
@@ -95,15 +102,22 @@ const CardContent = styled.div<{
             width: ${(props: any) =>
                 (props.sectionCategory === "highlight" && props.index === 2) ||
                 (props.sectionCategory === "post" && props.cardLength % 2 == 1)
-                    ? "49.5vw"
+                    ? "47.5%"
                     : null};
             margin: ${(props: any) =>
                 props.sectionCategory === "highlight" && props.index === 2
                     ? "0"
                     : "2rem 0 4rem 0"}; 
+            padding-left: 
+            ${(props: any) =>
+                props.sectionCategory === "post" &&
+                props.cardLength % 2 == 1 &&
+                props.index === props.cardLength - 1
+                    ? "0rem"
+                    : "1rem"};
     `}
     ${media.mobile`  
-    padding-left:0rem;
+        padding-left:0rem;
         width:  100%;
     `}
 `;
@@ -115,7 +129,7 @@ const CardCategory = styled.h1`
 `;
 const CardTitle = styled.h1<{ sectionCategory: string }>`
     color: ${(props) =>
-        props.sectionCategory === "feature" ? "white" : "gray"};
+        props.sectionCategory === "feature" ? "white" : "black"};
     font-size: var(--font-size-subTitle);
     margin: 0;
     padding-bottom: 5px;

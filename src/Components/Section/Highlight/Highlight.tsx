@@ -1,22 +1,21 @@
-import Card from "Components/Card/Card";
 import highlight from "Assets/dummy/highlight";
-import React, { useState } from "react";
+import HighlightCard from "Components/Card/HighlightCard/HighlightCard";
+import { useState } from "react";
+import { GlobalStyle } from "Styles/global.styles";
 import {
     HighlightArea,
     HighlightContainer,
-    MainLink,
-    MainImage,
-    MainContent,
-    MainCategory,
-    MainTitle,
-    MainInfo,
     HighlightList,
-    MainWriteDate,
-    MainViewCount,
     HighlightWrapper,
+    MainCategory,
+    MainContent,
+    MainImage,
+    MainInfo,
+    MainLink,
+    MainTitle,
+    MainViewCount,
+    MainWriteDate,
 } from "./Highlight.styles";
-import { GlobalStyle } from "Styles/global.styles";
-import HighlightCard from "Components/Card/HighlightCard/HighlightCard.";
 
 export default function Highlight(props: any) {
     const [mainData, setMainData] = useState(highlight[0]);

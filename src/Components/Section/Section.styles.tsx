@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
-const SectionContainer = styled.div``;
+const SectionContainer = styled.div`
+    width: 100%;
+`;
 
 export { SectionContainer };

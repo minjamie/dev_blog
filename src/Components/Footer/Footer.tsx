@@ -1,17 +1,18 @@
-import "./Icon.css";
 import { FC } from "react";
+import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
 import {
     FooterBar,
+    FooterBarBottom,
     FooterBarContainer,
-    FooterBarTop,
+    FooterBarMenuIcon,
     FooterBarMenuItem,
     FooterBarMenuLink,
     FooterBarMenuList,
-    FooterBarBottom,
     FooterBarTitle,
-    FooterBarMenuIcon,
+    FooterBarTop,
+    FooterTopCenter,
 } from "./Footer.styles";
-import { AiFillFacebook, AiFillInstagram } from "react-icons/ai";
+import "./Icon.css";
 
 const Footerbar: FC<any> = (props) => {
     return (
@@ -29,6 +30,7 @@ const Footerbar: FC<any> = (props) => {
                             );
                         })}
                     </FooterBarMenuList>
+                    <FooterTopCenter />
                     <FooterBarMenuIcon>
                         <AiFillFacebook className="Menu-Facebook"></AiFillFacebook>
                         <AiFillInstagram className="Menu-Instagram"></AiFillInstagram>
