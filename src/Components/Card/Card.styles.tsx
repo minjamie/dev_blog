@@ -25,10 +25,10 @@ const CardLink = styled.article<{
                     ? "column"
                     : null};
             padding: 
-             ${(props: any) =>
-                 props.sectionCategory === "post" && props.cardLength % 2 == 1
-                     ? "1rem"
-                     : "0rem"};
+            ${(props: any) =>
+                props.sectionCategory === "post" && props.cardLength % 2 == 1
+                    ? "1rem"
+                    : "0rem"};
         }
     `}
     ${media.mobile`  

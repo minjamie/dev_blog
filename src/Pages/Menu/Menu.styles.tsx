@@ -1,14 +1,7 @@
 import styled from "styled-components";
 
-const MenuPage = styled.main``;
-
-const StoryList = styled.div``;
-
-const CultureList = styled.div`
-    display: flex;
-    flex-direction: column;
-    padding: 0 150px;
-    margin-top: 40px;
+const MenuPage = styled.main`
+    background-color: #f4f6f8;
 `;
 
-export { MenuPage, StoryList, CultureList };
+export { MenuPage };

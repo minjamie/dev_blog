@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-    CategoryBarWrapper,
+    CategoryBarBottom,
     CategoryBarContainer,
+    CategoryBarWrapper,
     CategoryHash,
     CategoryTitle,
-    CategoryBarBottom,
 } from "./CategoryBar.styles";
 
 export default function CategoryBar(props: any) {
+    console.log(props.category);
     const hash = [
         { title: "전체", count: null },
         { title: "#Application & Library", count: 1 },
@@ -26,13 +27,19 @@ export default function CategoryBar(props: any) {
     const [click, setClick] = useState(false);
     const meta = { number: 13, category: props.category };
     return (
-        <CategoryBarWrapper>
-            <CategoryBarContainer>
-                <CategoryTitle>{meta.category}</CategoryTitle>
+        <CategoryBarWrapper category={props.category}>
+            <CategoryBarContainer category={props.category}>
+                <CategoryTitle category={props.category}>
+                    {props.category ? meta.category : "Top Tag"}
+                </CategoryTitle>
                 <CategoryBarBottom>
                     {hash.map((a, index) => {
                         return (
-                            <CategoryHash active={click} key={index}>
+                            <CategoryHash
+                                active={click}
+                                key={index}
+                                category={props.category}
+                            >
                                 {hash[index].title}
                                 {hash[index].count && `(${hash[index].count})`}
                             </CategoryHash>
