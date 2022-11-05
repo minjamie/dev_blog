@@ -72,7 +72,8 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
         margin-left:0;
         margin-right: 0;
         position: absolute;
-        top:75px;
+        top:82px;
+        left:0;
         visibility: ${(props: any) => (props.active ? "visible" : "hidden")};
         opacity: ${(props: any) => (props.active ? 1 : 0)};
         transform: ${(props: any) =>

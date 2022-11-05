@@ -8,10 +8,9 @@ const SearchContainer = styled.div<{
     position: fixed;
     width: 100%;
     height: 100px;
-    left: 0;
     top: 80px;
+    left: 0rem;
     z-index: 1;
-    padding: 0 6rem 0 5rem;
     transition: ${(props) => (props.expand ? "all 0.25s ease-out" : null)};
     border-bottom: ${(props) =>
         props.expand ? "1px solid rgba(0, 0, 0, 0.1)" : null};
@@ -19,9 +18,6 @@ const SearchContainer = styled.div<{
         props.expand ? "0 2px 5px -1px rgba(0, 0, 0, 0.08);" : null};
     visibility: ${(props: any) => (props.expand ? "visible" : "hidden")};
     animation: ${(props: any) => (props.expand ? FadeUp : FadeDown)} all 1s;
-    ${media.laptop`  
-        padding: 0 5.4rem 0 5rem;
-`}
 `;
 
 const FadeUp = keyframes`
@@ -49,8 +45,15 @@ const FadeDown = keyframes`
 const SearchFrom = styled.form`
     display: flex;
     align-items: center;
+    justify-content: center;
+    max-width: 1205px;
     margin: 0 auto;
-    max-width: 1155px;
+    padding-left: 1.3rem;
+    padding-right: 0.7rem;
+    ${media.laptop`  
+        padding-right: 1.5rem;
+
+`}
 `;
 
 const SearchInput = styled.input<{
@@ -58,7 +61,7 @@ const SearchInput = styled.input<{
     placeholder: string;
     expand: boolean;
 }>`
-    width: 100%;
+    width: 98%;
     height: 80px;
     font-size: 30px;
     border: none;

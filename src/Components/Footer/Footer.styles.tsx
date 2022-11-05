@@ -23,7 +23,7 @@ const FooterBarTopContent = styled.div`
     display: flex;
     justify-content: space-between;
     ${media.tablet` 
-         justify-content: center;
+justify-content: center;
 flex-direction: column;
     `}
 `;
