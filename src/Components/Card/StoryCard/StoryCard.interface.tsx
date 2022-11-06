@@ -1,7 +1,7 @@
 export interface StoryProp {
     data: {
         img: string;
-        content: string;
+        category: string;
         title: string;
         path: string;
     };

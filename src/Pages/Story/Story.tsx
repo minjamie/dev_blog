@@ -1,15 +1,15 @@
-import StoryCard from "Components/Card/StoryCard/StoryCard";
 import "App.css";
-import posts from "Assets/dummy/Post";
+import story from "Assets/dummy/Story";
+import StoryCard from "Components/Card/StoryCard/StoryCard";
 import { useState } from "react";
-import { StoryPage, StoryList } from "./Story.styles";
+import { StoryList, StoryPage } from "./Story.styles";
 
 export default function Story(props: any) {
-    const [data, setData] = useState(posts);
+    const [data, setData] = useState(story);
     return (
         <StoryPage>
             <StoryList>
-                {posts.map((a: any, index: any) => {
+                {story.map((a: any, index: any) => {
                     return <StoryCard key={index} data={data[index]} />;
                 })}
             </StoryList>

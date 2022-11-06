@@ -3,23 +3,26 @@ import { StoryProp } from "./StoryCard.interface";
 import {
     StoryDesc,
     StoryImage,
+    StoryImageWrapper,
     StoryItem,
     StoryLink,
-    StoryText,
-    StoryTitle,
+    StoryName,
+    StoryTeam,
 } from "./StoryCard.styles";
 
 const StoryCard: FC<any> = (props: StoryProp) => {
-    const { content, img, title } = props.data;
+    const { category, img, title } = props.data;
 
     return (
-        <StoryLink href="abc">
+        <StoryLink>
             <StoryItem>
-                <StoryTitle>{title}</StoryTitle>
                 <StoryDesc>
-                    <StoryText>{content}</StoryText>
+                    <StoryName>{category}</StoryName>
+                    <StoryTeam>{title}</StoryTeam>
                 </StoryDesc>
-                <StoryImage src={img} />
+                <StoryImageWrapper>
+                    <StoryImage src={img} />
+                </StoryImageWrapper>
             </StoryItem>
         </StoryLink>
     );
