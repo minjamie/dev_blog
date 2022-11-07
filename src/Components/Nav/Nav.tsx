@@ -31,7 +31,7 @@ const Navbar: FC<any> = (props) => {
                 setScroll(false);
             }
         };
-    });
+    }, [scroll]);
 
     const openCategory = () => {
         dispatch(activeCategory());

@@ -64,7 +64,7 @@ const SignLabel = styled.label`
     font-weight: 600;
     color: #7a7b85;
 `;
-const SignInputWrapper = styled.div<{ isSignIn: boolean; isClick: boolean }>`
+const SignInputWrapper = styled.form<{ isSignIn: boolean; isClick: boolean }>`
     display: flex;
     justify-content: center;
     padding: 1rem 0 2rem 0;

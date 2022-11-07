@@ -41,6 +41,8 @@ const Sign: FC<any> = () => {
 
     const [isSignIn, setSign] = useState(true);
     const [isClick, setClick] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [value, setValue] = useState("");
 
     const handleSignButton = () => {
         setSign(!isSignIn);
@@ -48,6 +50,48 @@ const Sign: FC<any> = () => {
     };
     const hasClick: React.MouseEventHandler<HTMLDivElement> = (e): void =>
         setClick(true);
+    const database = [
+        {
+            username: "김민재",
+            email: "minjae2246@ubcare.co.kr",
+        },
+    ];
+    const errors = {
+        invalid: "invalid email",
+        notFound: "invalid email",
+    };
+
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+        setValue(event.target.value);
+    };
+
+
+    const handleSubmit: React.MouseEventHandler<HTMLFormElement> = (
+        event: React.FormEvent
+    ): void => {
+        setSubmitting(true);
+        let isValidate = validate(values);
+        setErrors(validate(values));
+        if (Object.values(isValidate).length === 0) {
+            alert("로그인 성공");
+            // do something when form submit
+        }
+        event.preventDefault();
+        // const userData = database.find(
+        //     // (user) => user.email === event.target.value
+        // );
+        // if (userData) {
+        //     if (userData.email !== invalid.value) {
+        //         // Invalid password
+        //         setErrorMessages({ name: "uemail", message: errors.invalid });
+        //     } else {
+        //         setIsSubmitted(true);
+        //     }
+        // } else {
+        //     setErrorMessages({ name: "notFound", message: errors.notFound });
+        // }
+    };
+
     return (
         <SignContainer>
             <SignTop>
@@ -60,9 +104,13 @@ const Sign: FC<any> = () => {
                     {isClick ? "유비웨어" : "이메일"}로{" "}
                     {isSignIn ? "로그인" : "회원가입"}
                 </SignLabel>
-                <SignInputWrapper isSignIn={isSignIn} isClick={isClick}>
+                <SignInputWrapper
+                    onSubmit={handleSubmit}
+                    isSignIn={isSignIn}
+                    isClick={isClick}
+                >
                     <SignEmailInput
-                        type="text"
+                        type="email"
                         placeholder={
                             isClick && isSignIn
                                 ? "유비웨어 계정을 입력하세요."
@@ -70,8 +118,10 @@ const Sign: FC<any> = () => {
                                 ? "사원 번호을 입력하세요."
                                 : "이메일을 입력하세요."
                         }
+                        value={value}
+                        onChange={handleChange}
                     ></SignEmailInput>
-                    <SignButton>
+                    <SignButton type="submit">
                         {isSignIn ? "로그인" : !isClick ? "회원가입 " : "검색"}
                     </SignButton>
                 </SignInputWrapper>
