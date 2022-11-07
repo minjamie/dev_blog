@@ -4,5 +4,7 @@ export interface StoryProp {
         category: string;
         title: string;
         path: string;
+        hasDoneInterview: boolean;
     };
+    cardLength: number;
 }

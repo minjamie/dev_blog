@@ -8,9 +8,15 @@ export default function Story(props: any) {
     const [data, setData] = useState(story);
     return (
         <StoryPage>
-            <StoryList>
+            <StoryList cardLength={data.length}>
                 {story.map((a: any, index: any) => {
-                    return <StoryCard key={index} data={data[index]} />;
+                    return (
+                        <StoryCard
+                            key={index}
+                            data={data[index]}
+                            cardLength={data.length}
+                        />
+                    );
                 })}
             </StoryList>
         </StoryPage>

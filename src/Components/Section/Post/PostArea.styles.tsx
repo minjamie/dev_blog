@@ -25,9 +25,7 @@ const PostList = styled.div<{ cardLength: number }>`
     width: 100%;
     justify-content: ${(props: any) =>
         props.cardLength % 3 == 0 ? "center" : "start"};
-    ${media.laptop`  
-        flex-flow: row wrap;
-    `}
+        
 `;
 
 export { PostArea, PostContainer, PostWrapper, PostList };
