@@ -56,12 +56,21 @@ const NavBarMenuIcon = styled.div`
     `}
 `;
 
-const NavBarMenuList = styled.ul<{ active: boolean }>`
+const NavBarMenuList = styled.ul<{
+    active: boolean;
+    Authentication: boolean;
+    SignIn: boolean;
+}>`
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
-    margin-left: 40rem;
+    margin-left: ${(props: any) =>
+        props.SignIn && !props.Authentication
+            ? "32.3rem"
+            : props.SignIn && props.Authentication
+            ? "31rem"
+            : "40rem"};
     margin-right: 1rem;
     background-color: white;
     ${media.laptop`  
@@ -83,10 +92,21 @@ const NavBarMenuList = styled.ul<{ active: boolean }>`
     `}
 `;
 
-const NavBarMenuItem = styled.li`
+const NavBarMenuItem = styled.li<{
+    Authentication: boolean;
+    SignIn: boolean;
+}>`
+    cursor: pointer;
     white-space: nowrap;
     font-size: var(--font-size-navTitle);
     padding-left: 1rem;
+    &:nth-child(4) {
+        padding: ${(props: any) =>
+            props.SignIn ? "0.1rem 0.5rem" : "0 0 0 1rem"};
+        margin-left: ${(props: any) => (props.SignIn ? "1rem" : null)};
+        border: ${(props: any) => (props.SignIn ? "1px solid black" : null)};
+        border-radius: ${(props: any) => (props.SignIn ? "3rem" : null)};
+    }
     ${media.laptop`
         font-size: var(--font-size-subTitle);
             padding:0 1.5rem;
@@ -95,7 +115,15 @@ const NavBarMenuItem = styled.li`
             }
     `}
 `;
-
+const NavBarMenuProfile = styled.img<{ src: string }>`
+    src: src;
+    object-fit: fill;
+    width: 43px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0;
+    padding: 0;
+`;
 const NavBarMenuLink = styled.a`
     color: black;
     display: flex;
@@ -118,6 +146,7 @@ export {
     NavBar,
     NavBarContainer,
     NavBarLogoLink,
+    NavBarMenuProfile,
     NavBarLogo,
     NavBarMenuIcon,
     NavBarMenuList,

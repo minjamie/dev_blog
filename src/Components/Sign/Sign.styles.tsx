@@ -75,6 +75,23 @@ const SignInputWrapper = styled.form<{ isSignIn: boolean; isClick: boolean }>`
     width: 100%;
  `}
 `;
+
+const SignEmailLink = styled.div`
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 372px;
+    outline: 1px;
+    background-color: #fbaf97;
+    padding-left: 1rem;
+`;
+
+const SignEmailLinkTitle = styled.h5`
+    font-size: 0.9rem;
+    padding-left: 1rem;
+    margin: 0;
+`;
+
 const SignEmailInput = styled.input`
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
@@ -198,8 +215,10 @@ export {
     SignBottom,
     SignTitle,
     SignInputWrapper,
+    SignEmailLink,
     SignEmailInput,
     SignButton,
+    SignEmailLinkTitle,
     SignLabel,
     SignOAuthWrapper,
     SignOAuthContainer,

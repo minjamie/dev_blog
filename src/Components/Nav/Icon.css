@@ -9,6 +9,10 @@
     vertical-align: middle;
 }
 
+.Down-Button {
+    font-size: 1rem;
+    color: gray;
+}
 @media screen and (max-width: 1300px) {
     .Menu-Search {
         color: black;

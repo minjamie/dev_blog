@@ -18,6 +18,12 @@ function App() {
         { id: 2, name: "Culture" },
     ]);
 
+    const signCategory = [
+        { id: 0, name: "Write" },
+        { id: 1, name: "Authenticate" },
+        { id: 2, name: "Profile" },
+    ];
+
     const [footerMenu] = useState([
         { id: 0, name: "유비케어" },
         { id: 1, name: "뉴스" },
@@ -53,6 +59,10 @@ function App() {
                     element={<Menu category={category[2]} />}
                 />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
+                <Route
+                    path={`${signCategory[0].name}`}
+                    element={<Menu category={category[2]} />}
+                />
             </Routes>
             {state.category.active ||
             state.search.active ||
