@@ -1,6 +1,7 @@
 import People from "Pages/Culture/People/People";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
+import Write from "Pages/Write/Write";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
@@ -59,10 +60,7 @@ function App() {
                     element={<Menu category={category[2]} />}
                 />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
-                <Route
-                    path={`${signCategory[0].name}`}
-                    element={<Menu category={category[2]} />}
-                />
+                <Route path={`${signCategory[0].name}`} element={<Write />} />
             </Routes>
             {state.category.active ||
             state.search.active ||
