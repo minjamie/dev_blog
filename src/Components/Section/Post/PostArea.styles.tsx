@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { media } from "Styles/media.styles";
 
 const PostArea = styled.section`
     padding: 4rem 0 4rem 0;
@@ -25,7 +24,6 @@ const PostList = styled.div<{ cardLength: number }>`
     width: 100%;
     justify-content: ${(props: any) =>
         props.cardLength % 3 == 0 ? "center" : "start"};
-        
 `;
 
 export { PostArea, PostContainer, PostWrapper, PostList };

@@ -4,7 +4,7 @@ import Menu from "Pages/Menu/Menu";
 import Write from "Pages/Write/Write";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { closeCategory } from "Stores/categorySlice";
 import { closeSearch } from "Stores/searchSlice";
 import "./App.css";
@@ -41,10 +41,14 @@ function App() {
             dispatch(closeSearch());
         }
     };
+    const location = useLocation();
+    console.log(location.pathname == signCategory[0].name);
 
     return (
         <div className="App">
-            <NavBar category={category} active={state} />
+            {location.pathname !== `/${signCategory[0].name}` && (
+                <NavBar category={category} active={state} />
+            )}
             <Routes>
                 <Route path="/" element={<Main />} />
                 <Route
@@ -77,7 +81,9 @@ function App() {
                 ></div>
             ) : null}
             {state.signIn.active && <Sign />}
-            <Footerbar footerMenu={footerMenu} />
+            {location.pathname !== `/${signCategory[0].name}` && (
+                <Footerbar footerMenu={footerMenu} />
+            )}
         </div>
     );
 }
