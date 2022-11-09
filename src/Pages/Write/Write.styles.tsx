@@ -21,13 +21,33 @@ const WriteTitleInput = styled.input`
     outline: none;
     border-right: 1.5px solid #f5f6f8;
 `;
-
-const WriteTagInput = styled.textarea`
+const WriteTagInputWrapper = styled.div`
+    width: 50%;
+    flex-wrap: wrap;
+    display: flex;
+`;
+const WriteTagInput = styled.input`
+    margin-top: 1rem;
     padding-left: 1.5rem;
     font-weight: 700;
-    width: 50%;
     border: none;
     outline: none;
+`;
+
+const WriteTagWrapper = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`;
+const WriteTag = styled.span`
+    white-space: nowrap;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: #00a8ff;
+    background-color: #f6f9fc;
+    border: none;
+    outline: none;
+    padding: 0.2rem 1rem;
+    border-radius: 0.7rem;
 `;
 
 const WriteButtonWrapper = styled.div`
@@ -66,7 +86,10 @@ export {
     WritePage,
     WriteTitleAndTagWrapper,
     WriteTitleInput,
+    WriteTagInputWrapper,
     WriteTagInput,
+    WriteTag,
+    WriteTagWrapper,
     WriteButtonWrapper,
     WriteRegisterButton,
     WriteSaveButton,

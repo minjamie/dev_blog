@@ -5,7 +5,7 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
@@ -18,7 +18,9 @@ import {
     WriteRegisterButton,
     WriteSaveAndExitButtonWrapper,
     WriteSaveButton,
+    WriteTag,
     WriteTagInput,
+    WriteTagInputWrapper,
     WriteTitleAndTagWrapper,
     WriteTitleInput,
 } from "./Write.styles";
@@ -29,6 +31,16 @@ interface Props {
 
 export default function Write(props: any) {
     const ref: React.MutableRefObject<any> = useRef<any>();
+    const tagRef: React.MutableRefObject<any> = useRef<any>();
+
+    const [tag, setTag] = useState<string>("");
+    const [tags, setTags] = useState<string[]>([]);
+    console.log(tag, tags);
+
+    const handleChangeTag = (event: React.ChangeEvent): void => {
+        const { value } = event.target as HTMLInputElement;
+        setTag(value);
+    };
 
     const pop = () => {
         const editorIns = ref.current.getInstance();
@@ -42,16 +54,32 @@ export default function Write(props: any) {
         <WritePage>
             <WriteTitleAndTagWrapper>
                 <WriteTitleInput placeholder="제목을 입력하세요"></WriteTitleInput>
-                <WriteTagInput
-                    placeholder="태그를 입력하세요.&#13;&#10;쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다."
-                ></WriteTagInput>
+                <WriteTagInputWrapper>
+                    {tags.map((a, index) => {
+                        return <WriteTag key={index}>{a}</WriteTag>;
+                    })}
+                    <WriteTagInput
+                        placeholder="태그를 입력하세요."
+                        onChange={handleChangeTag}
+                        onKeyPress={(event) => {
+                            if (event.key === "Enter") {
+                                event.preventDefault();
+                                const arr = [...tags];
+                                arr.push(tag);
+                                setTags(arr);
+                                setTag("");
+                            }
+                        }}
+                        value={tag}
+                    ></WriteTagInput>
+                </WriteTagInputWrapper>
             </WriteTitleAndTagWrapper>
             <Editor
                 ref={ref}
                 initialValue={props.content || " "}
                 previewHighlight={false}
                 previewStyle="vertical"
-                height="83vh"
+                height="86vh"
                 hideModeSwitch={true}
                 initialEditType={"markdown"}
                 placeholder={"당신의 이야기를 들려주세요!"}
