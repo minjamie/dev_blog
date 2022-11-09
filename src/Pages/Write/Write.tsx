@@ -6,32 +6,36 @@ import { Editor } from "@toast-ui/react-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import { useRef } from "react";
+import { FiArrowLeft } from "react-icons/fi";
 import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
 import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
+import "./Icon.css";
 import {
     WriteButtonWrapper,
     WriteExitButton,
     WritePage,
     WriteRegisterButton,
+    WriteSaveAndExitButtonWrapper,
     WriteSaveButton,
     WriteTagInput,
     WriteTitleAndTagWrapper,
     WriteTitleInput,
 } from "./Write.styles";
-export default function Write({ content }: any) {
-    const editorRef = useRef();
-    const handleChangeEditor = (e: any) => {
-        const content = Editor.prototype.getInstance().getHTML();
-    };
 
-    const handleRegisterButton = () => {
-        const content = Editor.prototype.getInstance().getHTML();
-        const content2 = Editor.prototype.getInstance().getMarkdown();
+interface Props {
+    content: string;
+}
 
-        // 입력창에 입력한 내용을 MarkDown 형태로 취득
-        console.log(content);
-        console.log(content2);
+export default function Write(props: any) {
+    const ref: React.MutableRefObject<any> = useRef<any>();
+
+    const pop = () => {
+        const editorIns = ref.current.getInstance();
+        const contentHtml = editorIns.getHTML();
+        const contentMark = editorIns.getMarkdown();
+        console.log(contentHtml);
+        console.log(contentMark);
     };
 
     return (
@@ -43,26 +47,32 @@ export default function Write({ content }: any) {
                 ></WriteTagInput>
             </WriteTitleAndTagWrapper>
             <Editor
-                initialValue={content || " "}
+                ref={ref}
+                initialValue={props.content || " "}
                 previewHighlight={false}
                 previewStyle="vertical"
-                height="88vh"
+                height="83vh"
                 hideModeSwitch={true}
-                useCommandShortcut={true}
                 initialEditType={"markdown"}
-                placeholder={"당신의 이야기를 적어보세요"}
+                placeholder={"당신의 이야기를 들려주세요!"}
                 plugins={[
                     colorSyntax,
                     fontSize,
                     [codeSyntaxHighlight, { highlighter: Prism }],
                 ]}
-            ></Editor>
+                autofocus={false}
+            />
             <WriteButtonWrapper>
-                <WriteExitButton type="submit">나가기</WriteExitButton>
-                <WriteRegisterButton type="submit">
-                    출간하기
-                </WriteRegisterButton>
-                <WriteSaveButton type="submit">임시저장</WriteSaveButton>
+                <WriteExitButton type="submit">
+                    <FiArrowLeft className="Exit-Button" />
+                    나가기
+                </WriteExitButton>
+                <WriteSaveAndExitButtonWrapper>
+                    <WriteSaveButton type="submit">임시저장</WriteSaveButton>
+                    <WriteRegisterButton type="submit" onClick={pop}>
+                        출간하기
+                    </WriteRegisterButton>
+                </WriteSaveAndExitButtonWrapper>
             </WriteButtonWrapper>
         </WritePage>
     );
