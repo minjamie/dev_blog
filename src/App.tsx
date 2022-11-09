@@ -42,7 +42,11 @@ function App() {
         }
     };
     const location = useLocation();
-    console.log(location.pathname == signCategory[0].name);
+    console.log(
+        state.category.active,
+        state.search.active,
+        state.signIn.active
+    );
 
     return (
         <div className="App">
@@ -74,7 +78,7 @@ function App() {
                         state.signIn.active ||
                         state.search.active ||
                         state.category.active
-                            ? "backdrop active"
+                            ? "backdrop backdropActive"
                             : "backdrop"
                     }
                     onClick={closeBackdrop}

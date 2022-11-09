@@ -1,12 +1,27 @@
+import {
+    WritePage,
+    WriteTitleAndTagWrapper,
+    WriteTitleInput,
+    WriteTagInput,
+    WriteButtonWrapper,
+    WriteRegisterButton,
+    WriteSaveButton,
+    WriteExitButton,
+} from "./Write.styles";
+// eslint-disable-next-line
+import "prismjs/themes/prism.css";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
-import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
-import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
-import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor } from "@toast-ui/react-editor";
-import "App.css";
 import Prism from "prismjs";
+import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
+import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
+import "@toast-ui/editor/dist/toastui-editor.css";
+import "tui-color-picker/dist/tui-color-picker.css";
+// eslint-disable-next-line
+import "prismjs/themes/prism.css";
+import fontSize from "tui-editor-plugin-font-size";
+import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
+import { Editor } from "@toast-ui/react-editor";
 import { useRef } from "react";
-import { WritePage } from "./Write.styles";
 export default function Write({ content }: any) {
     const editorRef = useRef();
     const handleChangeEditor = (e: any) => {
@@ -24,30 +39,34 @@ export default function Write({ content }: any) {
 
     return (
         <WritePage>
-            {/* <WriteTitleAndTagWrapper>
+            <WriteTitleAndTagWrapper>
                 <WriteTitleInput placeholder="제목을 입력하세요"></WriteTitleInput>
-                <WriteTagInput placeholder="태그를 입력하세요"></WriteTagInput>
-            </WriteTitleAndTagWrapper> */}
+                <WriteTagInput
+                    placeholder="태그를 입력하세요.&#13;&#10;쉼표 혹은 엔터를 입력하여 태그를 등록할 수 있습니다."
+                ></WriteTagInput>
+            </WriteTitleAndTagWrapper>
             <Editor
-                initialValue={content || " "} // 글 수정 시 사용
+                initialValue={content || " "}
                 previewHighlight={false}
-                previewStyle="vertical" // 미리보기 스타일 지정
-                height="600px" // 에디터 창 높이
+                previewStyle="vertical"
+                height="88vh"
                 hideModeSwitch={true}
                 useCommandShortcut={true}
                 initialEditType={"markdown"}
+                placeholder={"당신의 이야기를 적어보세요"}
                 plugins={[
                     colorSyntax,
+                    fontSize,
                     [codeSyntaxHighlight, { highlighter: Prism }],
                 ]}
             ></Editor>
-            {/* <WriteButtonWrapper>
+            <WriteButtonWrapper>
                 <WriteExitButton type="submit">나가기</WriteExitButton>
                 <WriteRegisterButton type="submit">
                     출간하기
                 </WriteRegisterButton>
                 <WriteSaveButton type="submit">임시저장</WriteSaveButton>
-            </WriteButtonWrapper> */}
+            </WriteButtonWrapper>
         </WritePage>
     );
 }

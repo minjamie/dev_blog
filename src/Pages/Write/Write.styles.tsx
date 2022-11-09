@@ -1,25 +1,38 @@
 import styled from "styled-components";
 
-const WritePage = styled.div``;
+const WritePage = styled.div`
+    position: fixed;
+    right: 0;
+    left: 0;
+`;
 const WriteTitleAndTagWrapper = styled.div`
+    height: 7vh;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
 `;
 
 const WriteTitleInput = styled.input`
-    height: 50px;
+    padding-left: 1.5rem;
+    font-weight: 700;
+    font-size: 2.5rem;
+    width: 50%;
     border: none;
     outline: none;
+    border-right: 1.5px solid #f5f6f8;
 `;
 
-const WriteTagInput = styled.input`
-    height: 50px;
+const WriteTagInput = styled.textarea`
+    padding-left: 1.5rem;
+    font-weight: 700;
+    width: 50%;
     border: none;
     outline: none;
 `;
 
 const WriteButtonWrapper = styled.div`
     background-color: black;
+    height: 12vh;
 `;
 const WriteRegisterButton = styled.button``;
 const WriteSaveButton = styled.button``;
