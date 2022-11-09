@@ -1,27 +1,24 @@
-import {
-    WritePage,
-    WriteTitleAndTagWrapper,
-    WriteTitleInput,
-    WriteTagInput,
-    WriteButtonWrapper,
-    WriteRegisterButton,
-    WriteSaveButton,
-    WriteExitButton,
-} from "./Write.styles";
-// eslint-disable-next-line
-import "prismjs/themes/prism.css";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
-import Prism from "prismjs";
-import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
+import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 import "@toast-ui/editor/dist/toastui-editor.css";
-import "tui-color-picker/dist/tui-color-picker.css";
-// eslint-disable-next-line
+import { Editor } from "@toast-ui/react-editor";
+import Prism from "prismjs";
 import "prismjs/themes/prism.css";
+import { useRef } from "react";
+import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
 import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
-import { Editor } from "@toast-ui/react-editor";
-import { useRef } from "react";
+import {
+    WriteButtonWrapper,
+    WriteExitButton,
+    WritePage,
+    WriteRegisterButton,
+    WriteSaveButton,
+    WriteTagInput,
+    WriteTitleAndTagWrapper,
+    WriteTitleInput,
+} from "./Write.styles";
 export default function Write({ content }: any) {
     const editorRef = useRef();
     const handleChangeEditor = (e: any) => {
