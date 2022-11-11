@@ -42,12 +42,6 @@ function App() {
         }
     };
     const location = useLocation();
-    console.log(
-        state.category.active,
-        state.search.active,
-        state.signIn.active
-    );
-
     return (
         <div className="App">
             {location.pathname !== `/${signCategory[0].name}` && (

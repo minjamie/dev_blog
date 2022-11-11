@@ -1,34 +1,31 @@
 import styled from "styled-components";
 
 const WritePage = styled.div`
-    position: fixed;
-    right: 0;
-    left: 0;
+    position: static;
 `;
 const WriteTitleAndTagWrapper = styled.div`
-    height: 5vh;
-    display: flex;
+    height: auto;
     align-items: center;
-    padding: 3rem 1rem;
+    padding: 1rem;
+    height: auto;
 `;
 
 const WriteTitleInput = styled.input`
-    padding-left: 1.5rem;
+    width: 100%;
+    padding-left: 0.7rem;
     font-weight: 700;
     font-size: 2.5rem;
-    width: 50%;
     border: none;
     outline: none;
-    border-right: 1.5px solid #f5f6f8;
 `;
 const WriteTagInputWrapper = styled.div`
-    width: 50%;
+    width: auto;
     flex-wrap: wrap;
     display: flex;
+    align-items: center;
 `;
 const WriteTagInput = styled.input`
-    margin-top: 1rem;
-    padding-left: 1.5rem;
+    padding-left: 0.7rem;
     font-weight: 700;
     border: none;
     outline: none;
@@ -39,14 +36,12 @@ const WriteTagWrapper = styled.div`
     flex-wrap: wrap;
 `;
 const WriteTag = styled.span`
+    padding: 0.1rem 0.2rem;
     white-space: nowrap;
-    margin-left: 1rem;
-    margin-top: 1rem;
     color: #00a8ff;
     background-color: #f6f9fc;
     border: none;
     outline: none;
-    padding: 0.2rem 1rem;
     border-radius: 0.7rem;
 `;
 
@@ -54,9 +49,9 @@ const WriteButtonWrapper = styled.div`
     background-color: #f6f9fc;
     display: flex;
     justify-content: space-between;
-    height: 5vh;
     align-items: center;
-    padding: 0 2rem;
+    padding: 1rem 2rem;
+    height: auto;
 `;
 const WriteRegisterButton = styled.button`
     background-color: #00a8ff;
