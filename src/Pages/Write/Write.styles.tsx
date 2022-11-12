@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-const WritePage = styled.div`
-    position: static;
-`;
+const WritePage = styled.div``;
 const WriteTitleAndTagWrapper = styled.div`
     height: auto;
     align-items: center;
@@ -29,6 +27,7 @@ const WriteTagInput = styled.input`
     font-weight: 700;
     border: none;
     outline: none;
+    padding-top: 0.7rem;
 `;
 
 const WriteTagWrapper = styled.div`
@@ -43,6 +42,8 @@ const WriteTag = styled.span`
     border: none;
     outline: none;
     border-radius: 0.7rem;
+    margin-left: 0.7rem;
+    margin-top: 0.5rem;
 `;
 
 const WriteButtonWrapper = styled.div`

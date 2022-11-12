@@ -5,7 +5,7 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
@@ -35,23 +35,18 @@ export default function Write(props: any) {
 
     const [size, setSize] = useState(0);
     const [tagSize, setTagSize] = useState(0);
-
     const autoResize = () => {
-        console.log(tagSize);
-        setSize(window.innerHeight - 190);
+        console.log(tagInputWrapperRef.current.clientHeight);
+        setSize(window.innerHeight - 155);
     };
+
+    useEffect(() => {
+        setTagSize(tagInputWrapperRef.current.clientHeight);
+    }, [tagInputWrapperRef.current]);
 
     useEffect(() => {
         window.addEventListener("resize", autoResize);
         autoResize();
-    }, []);
-
-    useEffect(() => {
-        setTagSize(tagInputWrapperRef.current.clientHeight);
-    }, [tagInputWrapperRef]);
-
-    useLayoutEffect(() => {
-        setTagSize(tagInputWrapperRef.current.clientHeight);
     }, []);
 
     const [tag, setTag] = useState<string>("");
@@ -78,6 +73,7 @@ export default function Write(props: any) {
                     {tags.map((a, index) => {
                         return <WriteTag key={index}>{a}</WriteTag>;
                     })}
+
                     <WriteTagInput
                         placeholder="태그를 입력하세요."
                         onChange={handleChangeTag}
@@ -88,6 +84,7 @@ export default function Write(props: any) {
                                 arr.push(tag);
                                 setTags(arr);
                                 setTag("");
+                                console.log(size);
                             }
                         }}
                         value={tag}
@@ -108,7 +105,7 @@ export default function Write(props: any) {
                     [codeSyntaxHighlight, { highlighter: Prism }],
                 ]}
                 autofocus={false}
-                height={`${size}px`}
+                height={`${size - tagSize}px`}
             />
             <WriteButtonWrapper>
                 <WriteExitButton type="submit">
@@ -121,6 +118,7 @@ export default function Write(props: any) {
                         출간하기
                     </WriteRegisterButton>
                 </WriteSaveAndExitButtonWrapper>
+                {size - tagSize} /{tagSize}
             </WriteButtonWrapper>
         </WritePage>
     );
