@@ -5,7 +5,7 @@ import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
 import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
@@ -35,18 +35,16 @@ export default function Write(props: any) {
 
     const [size, setSize] = useState(0);
     const [tagSize, setTagSize] = useState(0);
-    const autoResize = () => {
-        console.log(tagInputWrapperRef.current.clientHeight);
-        setSize(window.innerHeight - 155);
-    };
 
-    useEffect(() => {
-        setTagSize(tagInputWrapperRef.current.clientHeight);
-    }, [tagInputWrapperRef.current]);
+    const autoResize = () => {
+        setSize(window.innerHeight - 190);
+    };
 
     useEffect(() => {
         window.addEventListener("resize", autoResize);
         autoResize();
+
+        return () => window.removeEventListener("resize", autoResize);
     }, []);
 
     const [tag, setTag] = useState<string>("");
@@ -64,16 +62,33 @@ export default function Write(props: any) {
         console.log(contentHtml);
         console.log(contentMark);
     };
+    let target;
+    let result: any;
+    useEffect(() => {
+        target = document.getElementById("resize") as HTMLDivElement;
+        result = document.querySelector(".result") as HTMLSpanElement;
+        console.log(target);
+
+        console.log(result);
+    }, []);
+
+    const observer = new ResizeObserver((entries) => {
+        for (const entry of entries) {
+            const cr = entry.contentRect;
+            const { height } = entry.contentRect;
+            result.innerText = height;
+        }
+    });
+    observer.observe(result);
 
     return (
         <WritePage>
             <WriteTitleAndTagWrapper>
                 <WriteTitleInput placeholder="제목을 입력하세요"></WriteTitleInput>
-                <WriteTagInputWrapper ref={tagInputWrapperRef}>
+                <WriteTagInputWrapper id="resize">
                     {tags.map((a, index) => {
                         return <WriteTag key={index}>{a}</WriteTag>;
                     })}
-
                     <WriteTagInput
                         placeholder="태그를 입력하세요."
                         onChange={handleChangeTag}
@@ -105,7 +120,7 @@ export default function Write(props: any) {
                     [codeSyntaxHighlight, { highlighter: Prism }],
                 ]}
                 autofocus={false}
-                height={`${size - tagSize}px`}
+                height={`${size}px`}
             />
             <WriteButtonWrapper>
                 <WriteExitButton type="submit">
@@ -118,7 +133,7 @@ export default function Write(props: any) {
                         출간하기
                     </WriteRegisterButton>
                 </WriteSaveAndExitButtonWrapper>
-                {size - tagSize} /{tagSize}
+                부모의 높이: <span className="result"></span>
             </WriteButtonWrapper>
         </WritePage>
     );

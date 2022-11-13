@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-const WritePage = styled.div``;
+const WritePage = styled.div`
+    position: static;
+`;
 const WriteTitleAndTagWrapper = styled.div`
     height: auto;
     align-items: center;
