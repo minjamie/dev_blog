@@ -1,3 +1,4 @@
+import { match } from "assert";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { Search } from "Components/Search/Search";
 import { FC, useEffect, useState } from "react";
@@ -27,7 +28,9 @@ const Navbar: FC<any> = (props) => {
     const [SignIn, setSignIn] = useState(true);
     const [Authentication, setAuthentication] = useState(true);
     const [scroll, setScroll] = useState(false);
-
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 1200px)").matches
+    );
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -62,6 +65,12 @@ const Navbar: FC<any> = (props) => {
     const signIn = () => {
         setSignIn(true);
     };
+
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 1200px)")
+            .addEventListener("change", (e) => setMatches(e.matches));
+    }, []);
 
     return (
         <NavBar>
@@ -118,8 +127,18 @@ const Navbar: FC<any> = (props) => {
                                 SignIn={SignIn}
                                 Authentication={Authentication}
                             >
-                                <NavBarMenuProfile src={userData.src} />
-                                <AiFillCaretDown className="Down-Button" />
+                                <NavBarMenuLink href={"Profile"}>
+                                    {matches ? (
+                                        <>
+                                            <NavBarMenuProfile
+                                                src={userData.src}
+                                            />
+                                            <AiFillCaretDown className="Down-Button" />
+                                        </>
+                                    ) : (
+                                        "Profile"
+                                    )}
+                                </NavBarMenuLink>
                             </NavBarMenuItem>
                         </>
                     ) : (

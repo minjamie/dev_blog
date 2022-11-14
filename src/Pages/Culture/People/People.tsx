@@ -10,11 +10,7 @@ export default function People(props: any) {
     const { id } = useParams();
     return (
         <PeoplePage>
-            <PeopleList>
-                {posts.map((a: any, index: any) => {
-                    return <Card key={index} data={data[index]} />;
-                })}
-            </PeopleList>
+            <PeopleList></PeopleList>
         </PeoplePage>
     );
 }

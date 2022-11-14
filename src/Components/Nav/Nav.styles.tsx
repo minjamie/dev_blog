@@ -77,7 +77,7 @@ const NavBarMenuList = styled.ul<{
         width: 100%;
         flex-direction:column;
         max-width: 1300px;
-        max-height: 250px;
+        max-height: ${(props: any) => (props.SignIn ? "280px" : "250px")};
         margin-left:0;
         margin-right: 0;
         position: absolute;
@@ -109,14 +109,14 @@ const NavBarMenuItem = styled.li<{
     }
     ${media.laptop`
         font-size: var(--font-size-subTitle);
-            padding:0 1.5rem;
-            &:last-child {
-            padding-bottom: 1rem
-            }
+        padding:0 1.5rem;
+        &:nth-child(4){
+            border:none;
+            padding:${(props: any) => (props.SignIn ? null : "0 1.5rem")};
+  }
     `}
 `;
 const NavBarMenuProfile = styled.img<{ src: string }>`
-    src: src;
     object-fit: fill;
     width: 43px;
     height: 40px;

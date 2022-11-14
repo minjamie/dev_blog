@@ -25,11 +25,12 @@ const WriteTagInputWrapper = styled.div`
     align-items: center;
 `;
 const WriteTagInput = styled.input`
-    padding-left: 0.7rem;
+    padding-left: 1rem;
     font-weight: 700;
     border: none;
     outline: none;
     padding-top: 0.7rem;
+    padding-bottom: 0.3rem;
 `;
 
 const WriteTagWrapper = styled.div`
@@ -44,7 +45,7 @@ const WriteTag = styled.span`
     border: none;
     outline: none;
     border-radius: 0.7rem;
-    margin-left: 0.7rem;
+    margin-left: 1rem;
     margin-top: 0.5rem;
 `;
 

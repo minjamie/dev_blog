@@ -1,3 +1,4 @@
+import { Tooltip } from "@mui/material";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
 import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
 import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
@@ -31,13 +32,21 @@ interface Props {
 
 export default function Write(props: any) {
     const ref: React.MutableRefObject<any> = useRef<any>();
-    const tagInputWrapperRef: React.MutableRefObject<any> = useRef<any>();
+    const tagRef: React.MutableRefObject<any> = useRef<any>();
 
     const [size, setSize] = useState(0);
     const [tagSize, setTagSize] = useState(0);
+    const [tag, setTag] = useState<string>("");
+    const [tags, setTags] = useState<string[]>([]);
+    const [tooltipIsOpen, setTooltipIsOpen] = React.useState(false);
+    const [matches, setMatches] = useState(
+        window.matchMedia("(min-width: 1200px)").matches
+    );
+    const tipText =
+        "쉼표 혹은 엔터를 이용해서 태그를 등록할 수있습니다.\n 등록된 태그를 클릭하면 삭제됩니다.";
 
     const autoResize = () => {
-        setSize(window.innerHeight - 190);
+        setSize(window.innerHeight - 155);
     };
 
     useEffect(() => {
@@ -47,12 +56,43 @@ export default function Write(props: any) {
         return () => window.removeEventListener("resize", autoResize);
     }, []);
 
-    const [tag, setTag] = useState<string>("");
-    const [tags, setTags] = useState<string[]>([]);
+    useEffect(() => {
+        const target = tagRef.current;
+        const observer = new ResizeObserver((entries) => {
+            for (const entry of entries) {
+                const { height } = entry.contentRect;
+                setTagSize(height);
+            }
+        });
+        observer.observe(target);
+    }, []);
+
+    useEffect(() => {
+        window
+            .matchMedia("(min-width: 1200px)")
+            .addEventListener("change", (e) => setMatches(e.matches));
+    }, []);
 
     const handleChangeTag = (event: React.ChangeEvent): void => {
         const { value } = event.target as HTMLInputElement;
         setTag(value);
+    };
+
+    const addTag = (event: React.KeyboardEvent): void => {
+        if (event.key === "Enter" || event.key === ",") {
+            event.preventDefault();
+            const arr = [...tags];
+            arr.push(tag);
+            setTags(arr);
+            setTooltipIsOpen(false);
+            setTag("");
+        }
+    };
+
+    const removeTag = (event: React.MouseEvent, index: number): void => {
+        const arr = [...tags];
+        arr.splice(index, 1);
+        setTags(arr);
     };
 
     const pop = () => {
@@ -62,65 +102,59 @@ export default function Write(props: any) {
         console.log(contentHtml);
         console.log(contentMark);
     };
-    let target;
-    let result: any;
-    useEffect(() => {
-        target = document.getElementById("resize") as HTMLDivElement;
-        result = document.querySelector(".result") as HTMLSpanElement;
-        console.log(target);
-
-        console.log(result);
-    }, []);
-
-    const observer = new ResizeObserver((entries) => {
-        for (const entry of entries) {
-            const cr = entry.contentRect;
-            const { height } = entry.contentRect;
-            result.innerText = height;
-        }
-    });
-    observer.observe(result);
 
     return (
         <WritePage>
             <WriteTitleAndTagWrapper>
                 <WriteTitleInput placeholder="제목을 입력하세요"></WriteTitleInput>
-                <WriteTagInputWrapper id="resize">
-                    {tags.map((a, index) => {
-                        return <WriteTag key={index}>{a}</WriteTag>;
+                <WriteTagInputWrapper ref={tagRef}>
+                    {tags.map((tag, index) => {
+                        return (
+                            <WriteTag
+                                key={index}
+                                onClick={(e) => removeTag(e, index)}
+                            >
+                                {tag}
+                            </WriteTag>
+                        );
                     })}
-                    <WriteTagInput
-                        placeholder="태그를 입력하세요."
-                        onChange={handleChangeTag}
-                        onKeyPress={(event) => {
-                            if (event.key === "Enter") {
-                                event.preventDefault();
-                                const arr = [...tags];
-                                arr.push(tag);
-                                setTags(arr);
-                                setTag("");
-                                console.log(size);
-                            }
-                        }}
-                        value={tag}
-                    ></WriteTagInput>
+                    <Tooltip
+                        style={{ whiteSpace: "pre-line" }}
+                        title={
+                            <span style={{ whiteSpace: "pre-line" }}>
+                                {tipText}
+                            </span>
+                        }
+                        arrow
+                        onClick={() => setTooltipIsOpen(!tooltipIsOpen)}
+                        onClose={() => setTooltipIsOpen(false)}
+                        onOpen={() => setTooltipIsOpen(true)}
+                        open={tooltipIsOpen}
+                        disableHoverListener={true}
+                    >
+                        <WriteTagInput
+                            placeholder="태그를 입력하세요."
+                            onChange={handleChangeTag}
+                            onKeyPress={addTag}
+                            value={tag}
+                        ></WriteTagInput>
+                    </Tooltip>
                 </WriteTagInputWrapper>
             </WriteTitleAndTagWrapper>
             <Editor
                 ref={ref}
                 initialValue={props.content || ``}
                 previewHighlight={false}
-                previewStyle="vertical"
+                previewStyle={matches ? "vertical" : "tab"}
                 hideModeSwitch={true}
                 initialEditType={"markdown"}
-                placeholder={"당신의 이야기를 들려주세요!"}
+                // placeholder={"당신의 이야기를 들려주세요!"}
                 plugins={[
                     colorSyntax,
                     fontSize,
                     [codeSyntaxHighlight, { highlighter: Prism }],
                 ]}
-                autofocus={false}
-                height={`${size}px`}
+                height={`${size - tagSize}px`}
             />
             <WriteButtonWrapper>
                 <WriteExitButton type="submit">
@@ -133,7 +167,6 @@ export default function Write(props: any) {
                         출간하기
                     </WriteRegisterButton>
                 </WriteSaveAndExitButtonWrapper>
-                부모의 높이: <span className="result"></span>
             </WriteButtonWrapper>
         </WritePage>
     );

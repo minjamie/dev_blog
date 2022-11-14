@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const PeoplePage = styled.main`
+    background-color: #f4f6f8;
     height: 100vh;
     width: 100%;
 `;
