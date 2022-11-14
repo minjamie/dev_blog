@@ -168,25 +168,28 @@ const SignHelp = styled.span`
     }
 `;
 
-const LoginKakao = styled.img`
-    width: 80px;
-    height: 40px;
+const LoginGithub = styled.img`
+    width: 90px;
+    height: 45px;
     cursor: pointer;
+    border: 1.5px solid black;
+    border-radius: 0.3rem;
 `;
 const LoginGoogle = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
-    height: 40px;
+    width: 90px;
+    height: 45px;
     border: 1.5px solid #eaedef;
     border-radius: 0.3rem;
     cursor: pointer;
 `;
 
 const LoginGoogleTitle = styled.h4`
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #b7b7b7;
     margin: 0;
     padding-left: 0.25rem;
 `;
@@ -227,7 +230,7 @@ export {
     SignHelpTitle,
     SignUBcareHelpTitle,
     SignHelp,
-    LoginKakao,
+    LoginGithub,
     LoginGoogle,
     LoginGoogleTitle,
     LoginUBcareWrapper,

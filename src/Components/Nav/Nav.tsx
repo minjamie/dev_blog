@@ -1,8 +1,7 @@
 import { match } from "assert";
 import logoSrc from "Assets/Images/ub_devblog_logo.png";
 import { Search } from "Components/Search/Search";
-import { FC, useEffect, useState } from "react";
-import { AiFillCaretDown } from "react-icons/ai";
+import React, { FC, useEffect, useState } from "react";
 import { TfiAlignLeft, TfiClose, TfiSearch } from "react-icons/tfi";
 import { useDispatch } from "react-redux";
 import { activeCategory, closeCategory } from "Stores/categorySlice";
@@ -18,8 +17,8 @@ import {
     NavBarMenuItem,
     NavBarMenuLink,
     NavBarMenuList,
-    NavBarMenuProfile,
 } from "./Nav.styles";
+import AccountMenu from "Components/AccountMenu/AccountMenu";
 
 const Navbar: FC<any> = (props) => {
     const userData = {
@@ -31,17 +30,14 @@ const Navbar: FC<any> = (props) => {
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 1200px)").matches
     );
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-        window.onscroll = function () {
-            if (window.scrollY > 10) {
-                setScroll(true);
-            } else {
-                setScroll(false);
-            }
-        };
-    }, [scroll]);
+    const my = {
+        isAuth: Authentication,
+        isSignIn: SignIn,
+        src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
+    };
+
+    const dispatch = useDispatch();
 
     const openCategory = () => {
         dispatch(activeCategory());
@@ -65,6 +61,16 @@ const Navbar: FC<any> = (props) => {
     const signIn = () => {
         setSignIn(true);
     };
+
+    useEffect(() => {
+        window.onscroll = function () {
+            if (window.scrollY > 10) {
+                setScroll(true);
+            } else {
+                setScroll(false);
+            }
+        };
+    }, [scroll]);
 
     useEffect(() => {
         window
@@ -127,18 +133,11 @@ const Navbar: FC<any> = (props) => {
                                 SignIn={SignIn}
                                 Authentication={Authentication}
                             >
-                                <NavBarMenuLink href={"Profile"}>
-                                    {matches ? (
-                                        <>
-                                            <NavBarMenuProfile
-                                                src={userData.src}
-                                            />
-                                            <AiFillCaretDown className="Down-Button" />
-                                        </>
-                                    ) : (
-                                        "Profile"
-                                    )}
-                                </NavBarMenuLink>
+                                {matches ? (
+                                    <AccountMenu my={my} sign={setSignIn} />
+                                ) : (
+                                    <NavBarMenuLink>Profile</NavBarMenuLink>
+                                )}
                             </NavBarMenuItem>
                         </>
                     ) : (

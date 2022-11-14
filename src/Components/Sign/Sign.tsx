@@ -1,5 +1,5 @@
 import { Tooltip } from "@mui/material";
-import kakaoLogo from "Assets/Images/kakao_login_large.png";
+import githubLogo from "Assets/Images/github_logo.png";
 import symbolSrc from "Assets/Images/login-logo.jpg";
 import ubcareLogo from "Assets/Images/ubcare_logo.jpg";
 import MultipleSelect from "Components/SelectBox/SelectBox";
@@ -13,7 +13,7 @@ import "./Icon.css";
 import {
     LoginGoogle,
     LoginGoogleTitle,
-    LoginKakao,
+    LoginGithub,
     LoginUBcare,
     LoginUBcareWrapper,
     SignBottom,
@@ -62,9 +62,7 @@ const Sign: FC<any> = () => {
     const handleSubmit: React.MouseEventHandler<HTMLFormElement> = (
         event: React.FormEvent
     ): void => {
-        // const { value } = event.target as HTMLFormElement;
         event.preventDefault();
-
         const userData = database.some((email) => email == value);
         if (userData) {
             setSubmitting(true);
@@ -131,10 +129,10 @@ const Sign: FC<any> = () => {
                     )}
                     {isClick && !isSignIn ? null : (
                         <SignOAuthContainer>
-                            <LoginKakao src={kakaoLogo} />
+                            <LoginGithub src={githubLogo} />
                             <LoginGoogle>
                                 <FcGoogle className="login-Google" />
-                                <LoginGoogleTitle>Login</LoginGoogleTitle>
+                                <LoginGoogleTitle>Google</LoginGoogleTitle>
                             </LoginGoogle>
                             <Tooltip
                                 title="유비케어 소속이라면 클릭해주세요."
