@@ -11,13 +11,14 @@ import "./App.css";
 import Footerbar from "./Components/Footer/Footer";
 import NavBar from "./Components/Nav/Nav";
 import Sign from "./Components/Sign/Sign";
+import SignUp from "./Components/Sign/SignUp/SignUp";
 
 function App() {
-    const [category] = useState([
+    const category = [
         { id: 0, name: "Story" },
         { id: 1, name: "Tech" },
         { id: 2, name: "Culture" },
-    ]);
+    ];
 
     const signCategory = [
         { id: 0, name: "Write" },
@@ -61,6 +62,7 @@ function App() {
                     path={`${category[2].name}`}
                     element={<Menu category={category[2]} />}
                 />
+                <Route path="/SignUp" element={<SignUp />} />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
                 <Route path={`${signCategory[0].name}`} element={<Write />} />
             </Routes>

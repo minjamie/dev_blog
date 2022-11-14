@@ -148,7 +148,7 @@ export default function Write(props: any) {
                 previewStyle={matches ? "vertical" : "tab"}
                 hideModeSwitch={true}
                 initialEditType={"markdown"}
-                // placeholder={"당신의 이야기를 들려주세요!"}
+                placeholder={"당신의 이야기를 들려주세요!"}
                 plugins={[
                     colorSyntax,
                     fontSize,
