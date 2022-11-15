@@ -176,6 +176,7 @@ export default function SignUp() {
                         value={form.nickName.value}
                         onChange={handleChange}
                         name="nickName"
+                        error={form.nickName.error}
                     />
                     <FormHelperText id="component-helper-text">
                         {form.nickName.value.length === 0
@@ -198,6 +199,7 @@ export default function SignUp() {
                         value={form.introduce.value}
                         name="introduce"
                         onChange={handleChange}
+                        error={form.introduce.error}
                     />
                     <FormHelperText id="component-helper-text">
                         {form.introduce.value.length === 0
@@ -210,7 +212,7 @@ export default function SignUp() {
                     sx={{
                         color: "#d32f2f",
                         fontWeight: "900",
-                        fontSize: "1.2rem",
+                        fontSize: "1.1rem",
                     }}
                 >
                     {form.name.error && submit

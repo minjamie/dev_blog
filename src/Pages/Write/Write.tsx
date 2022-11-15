@@ -1,3 +1,4 @@
+import Preview from "Components/Preview/Preview";
 import { Tooltip } from "@mui/material";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
 import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
@@ -37,7 +38,10 @@ export default function Write(props: any) {
     const [size, setSize] = useState(0);
     const [tagSize, setTagSize] = useState(0);
     const [tag, setTag] = useState<string>("");
+    const [title, setTile] = useState<string>("");
     const [tags, setTags] = useState<string[]>([]);
+    const [contents, setContents] = useState("");
+    const [click, setClick] = useState(false);
     const [tooltipIsOpen, setTooltipIsOpen] = React.useState(false);
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 1200px)").matches
@@ -73,9 +77,13 @@ export default function Write(props: any) {
             .addEventListener("change", (e) => setMatches(e.matches));
     }, []);
 
-    const handleChangeTag = (event: React.ChangeEvent): void => {
-        const { value } = event.target as HTMLInputElement;
-        setTag(value);
+    const handleChange = (event: React.ChangeEvent): void => {
+        const { value, name } = event.target as HTMLInputElement;
+        if (name === "tag") {
+            setTag(value);
+        } else if (name === "title") {
+            setTile(value);
+        }
     };
 
     const addTag = (event: React.KeyboardEvent): void => {
@@ -95,18 +103,23 @@ export default function Write(props: any) {
         setTags(arr);
     };
 
-    const pop = () => {
+    const handleWrite = () => {
         const editorIns = ref.current.getInstance();
-        const contentHtml = editorIns.getHTML();
+        // const contentHtml = editorIns.getHTML();
         const contentMark = editorIns.getMarkdown();
-        console.log(contentHtml);
-        console.log(contentMark);
+        setClick(!click);
+        setContents(contentMark);
     };
 
     return (
         <WritePage>
             <WriteTitleAndTagWrapper>
-                <WriteTitleInput placeholder="제목을 입력하세요"></WriteTitleInput>
+                <WriteTitleInput
+                    placeholder="제목을 입력하세요"
+                    value={title}
+                    onChange={handleChange}
+                    name="title"
+                ></WriteTitleInput>
                 <WriteTagInputWrapper ref={tagRef}>
                     {tags.map((tag, index) => {
                         return (
@@ -134,9 +147,10 @@ export default function Write(props: any) {
                     >
                         <WriteTagInput
                             placeholder="태그를 입력하세요."
-                            onChange={handleChangeTag}
+                            onChange={handleChange}
                             onKeyPress={addTag}
                             value={tag}
+                            name="tag"
                         ></WriteTagInput>
                     </Tooltip>
                 </WriteTagInputWrapper>
@@ -148,7 +162,7 @@ export default function Write(props: any) {
                 previewStyle={matches ? "vertical" : "tab"}
                 hideModeSwitch={true}
                 initialEditType={"markdown"}
-                placeholder={"당신의 이야기를 들려주세요!"}
+                // placeholder={"당신의 이야기를 들려주세요!"}
                 plugins={[
                     colorSyntax,
                     fontSize,
@@ -163,11 +177,12 @@ export default function Write(props: any) {
                 </WriteExitButton>
                 <WriteSaveAndExitButtonWrapper>
                     <WriteSaveButton type="submit">임시저장</WriteSaveButton>
-                    <WriteRegisterButton type="submit" onClick={pop}>
+                    <WriteRegisterButton type="submit" onClick={handleWrite}>
                         출간하기
                     </WriteRegisterButton>
                 </WriteSaveAndExitButtonWrapper>
             </WriteButtonWrapper>
+            <Preview props={click} setClick={setClick} />
         </WritePage>
     );
 }

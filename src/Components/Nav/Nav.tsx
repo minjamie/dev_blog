@@ -35,6 +35,7 @@ const Navbar: FC<any> = (props) => {
         isAuth: Authentication,
         isSignIn: SignIn,
         src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
+        nickName: "minjae2246",
     };
 
     const dispatch = useDispatch();
