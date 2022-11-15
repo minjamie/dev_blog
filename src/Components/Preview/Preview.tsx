@@ -1,47 +1,63 @@
-import { Button } from "@mui/material";
-import { Stack } from "@mui/system";
-import React, { useEffect, useState } from "react";
-import { AiOutlinePicture } from "react-icons/ai";
-import {
-    PreviewPage,
-    PreviewLeft,
-    PreviewTitle,
-    PreviewThumbnail,
-    PreviewIntroduce,
-    PreviewIntroduceCount,
-    PreviewRight,
-    PreviewOpenSettingTitle,
-    PreviewPathTitle,
-    PreviewPath,
-    PreviewButtonWrapper,
-    PreviewSaveTitle,
-    PreviewContainer,
-    PreviewOpenSettingWrapper,
-    PreviewPathWrapper,
-    PreviewSavePositionWrapper,
-    PreviewPathDefault,
-    PreviewPathAndDefaultWrapper,
-    PreviewOpenSettingButtonWrapper,
-} from "./Preview.styles";
-import PublicIcon from "@mui/icons-material/Public";
 import LockIcon from "@mui/icons-material/Lock";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
-import { WriteExitButton, WriteRegisterButton } from "Pages/Write/Write.styles";
-import { GlobalStyle } from "Styles/global.styles";
+import PublicIcon from "@mui/icons-material/Public";
+import { Button } from "@mui/material";
 import Box from "@mui/material/Box";
+import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Divider from "@mui/material/Divider";
-import InboxIcon from "@mui/icons-material/Inbox";
-import DraftsIcon from "@mui/icons-material/Drafts";
+import { WriteExitButton } from "Pages/Write/Write.styles";
+import React, { useState } from "react";
+import { AiOutlinePicture } from "react-icons/ai";
+import { GlobalStyle } from "Styles/global.styles";
+import {
+    PreviewButtonWrapper,
+    PreviewContainer,
+    PreviewIntroduce,
+    PreviewIntroduceCount,
+    PreviewLeft,
+    PreviewOpenSettingButtonWrapper,
+    PreviewOpenSettingTitle,
+    PreviewOpenSettingWrapper,
+    PreviewPage,
+    PreviewPath,
+    PreviewPathAndDefaultWrapper,
+    PreviewPathDefault,
+    PreviewPathTitle,
+    PreviewPathWrapper,
+    PreviewRight,
+    PreviewSavePosition,
+    PreviewSavePositionButtonWrapper,
+    PreviewSavePositionCancelButton,
+    PreviewSavePositionInputWrapper,
+    PreviewSavePositionPathContainer,
+    PreviewSavePositionPathDefault,
+    PreviewSavePositionPathDefaultInput,
+    PreviewSavePositionPathWrapper,
+    PreviewSavePositionRegisterButton,
+    PreviewSavePositionWrapper,
+    PreviewSaveTitle,
+    PreviewThumbnail,
+    PreviewTitle,
+} from "./Preview.styles";
 
 export default function Preview(props: any) {
     const [intro, setIntro] = useState("");
     const [path, setPath] = useState("");
     const [isOpen, setOpen] = useState(true);
-    const [isSave, setSave] = useState(true);
+    const [isSave, setSave] = useState(false);
+    const [isFucus, setFocus] = useState(false);
+    const [savePaths, setSavePaths] = useState<string[]>([
+        "Save1",
+        "Save2",
+        "Save3",
+        "Save4",
+        "Save5",
+        "Save6",
+    ]);
+    const [savePath, setSavePath] = useState<string>("");
+
     const [selectedIndex, setSelectedIndex] = React.useState(1);
 
     const my = {
@@ -87,7 +103,7 @@ export default function Preview(props: any) {
                         <AiOutlinePicture
                             style={{
                                 fontSize: "8rem",
-                                strokeWidth: "30", // --> higher value === more thickness the filled area
+                                strokeWidth: "30",
                                 stroke: "#e9ecef",
                                 color: "#bdc2c7",
                             }}
@@ -111,200 +127,240 @@ export default function Preview(props: any) {
                     />
                     <PreviewIntroduceCount>{`${intro.length} / 150`}</PreviewIntroduceCount>
                 </PreviewLeft>
-                <PreviewRight>
-                    <PreviewOpenSettingWrapper>
-                        <PreviewOpenSettingTitle>
-                            {isSave ? "저장위치 설정" : "공개 설정"}
-                        </PreviewOpenSettingTitle>
-                        {isSave && (
-                            <Box
+                <PreviewRight isFucus={isFucus}>
+                    <PreviewOpenSettingTitle>
+                        {isSave ? "저장위치 설정" : "공개 설정"}
+                    </PreviewOpenSettingTitle>
+                    {isSave ? (
+                        <Box
+                            sx={{
+                                width: "100%",
+                                height: isFucus ? 380 : 370,
+                                maxHeight: 400,
+                                maxWidth: 380,
+                                bgcolor: "background.paper",
+                            }}
+                        >
+                            <PreviewSavePositionInputWrapper isFucus={isFucus}>
+                                <PreviewSavePosition
+                                    placeholder={
+                                        "새로운 저장공간의 이름을 입력하세요"
+                                    }
+                                    onFocus={() => setFocus(true)}
+                                    onBlur={() => setFocus(false)}
+                                    isFucus={isFucus}
+                                />
+                                {isFucus && (
+                                    <PreviewSavePositionPathContainer>
+                                        <PreviewSavePositionPathWrapper>
+                                            <PreviewSavePositionPathDefault>
+                                                {defaultPath}
+                                            </PreviewSavePositionPathDefault>
+                                            <PreviewSavePositionPathDefaultInput />
+                                        </PreviewSavePositionPathWrapper>
+                                        <PreviewSavePositionButtonWrapper>
+                                            <PreviewSavePositionCancelButton
+                                                onClick={() => {
+                                                    isSave
+                                                        ? setSave(false)
+                                                        : props.setClick(false);
+                                                }}
+                                            >
+                                                취소
+                                            </PreviewSavePositionCancelButton>
+                                            <PreviewSavePositionRegisterButton>
+                                                저장공간 추가
+                                            </PreviewSavePositionRegisterButton>
+                                        </PreviewSavePositionButtonWrapper>
+                                    </PreviewSavePositionPathContainer>
+                                )}
+                            </PreviewSavePositionInputWrapper>
+                            <Divider />
+                            <List
                                 sx={{
                                     width: "100%",
-                                    height: 300,
-                                    maxWidth: 320,
                                     bgcolor: "background.paper",
-                                    position: "fixed",
-                                    zIndex: 2,
+                                    overflow: "auto",
+                                    maxHeight: 240,
+                                    padding: 0,
+                                    "& ul": { padding: 0 },
                                 }}
+                                component="nav"
                             >
-                                <List
-                                    component="nav"
-                                    aria-label="main mailbox folders"
+                                {savePaths.map((a, index) => {
+                                    return (
+                                        <ListItemButton
+                                            key={index}
+                                            selected={selectedIndex === index}
+                                            onClick={(event) =>
+                                                handleListItemClick(
+                                                    event,
+                                                    index
+                                                )
+                                            }
+                                        >
+                                            <ListItemText primary={a} />
+                                        </ListItemButton>
+                                    );
+                                })}
+                            </List>
+                        </Box>
+                    ) : (
+                        <>
+                            <PreviewOpenSettingWrapper>
+                                <PreviewOpenSettingButtonWrapper>
+                                    <Button
+                                        onClick={(e) => clickOpen(e, true)}
+                                        sx={{
+                                            color: isOpen
+                                                ? "#f5f6f6"
+                                                : "#868e96",
+                                            border: isOpen
+                                                ? "1.5px solid #1976d2"
+                                                : "1.5px solid #f5f6f6",
+                                            backgroundColor: isOpen
+                                                ? "#1976d2"
+                                                : "#ffffff",
+                                            height: "50px",
+                                            width: "175px",
+                                            fontSize: "1.35rem",
+                                            marginRight: "1rem",
+                                            "&:hover": {
+                                                backgroundColor: isOpen
+                                                    ? "#1976d2"
+                                                    : "#ffffff",
+                                                border: isOpen
+                                                    ? "1.5px solid #1976d2"
+                                                    : "1.5px solid #f5f6f6",
+                                                opacity: 0.9,
+                                            },
+                                            ["@media (max-width:1200px)"]: {
+                                                // eslint-disable-line no-useless-computed-key
+                                                height: "45px",
+                                                width: "150px",
+                                                fontSize: "1.2rem",
+                                            },
+                                            ["@media (max-width:780px)"]: {
+                                                // eslint-disable-line no-useless-computed-key
+                                                height: "45px",
+                                                width: "50%",
+                                                fontSize: "1.2rem",
+                                            },
+                                        }}
+                                        variant="outlined"
+                                        startIcon={<PublicIcon />}
+                                    >
+                                        전체 공개
+                                    </Button>
+                                    <Button
+                                        onClick={(e) => clickOpen(e, false)}
+                                        sx={{
+                                            color: isOpen
+                                                ? "#868e96"
+                                                : "#f5f6f6",
+                                            border: isOpen
+                                                ? "1.5px solid #f5f6f6"
+                                                : "1.5px solid #1976d2",
+                                            backgroundColor: isOpen
+                                                ? "#ffffff"
+                                                : "#1976d2",
+                                            height: "50px",
+                                            width: "175px",
+                                            fontSize: "1.35rem",
+                                            "&:hover": {
+                                                backgroundColor: isOpen
+                                                    ? "#ffffff"
+                                                    : "#1976d2",
+                                                border: isOpen
+                                                    ? "1.5px solid #f5f6f6"
+                                                    : "1.5px solid #1976d2",
+                                                opacity: 0.9,
+                                            },
+                                            ["@media (max-width:1200px)"]: {
+                                                // eslint-disable-line no-useless-computed-key
+                                                height: "45px",
+                                                width: "150px",
+                                                fontSize: "1.2rem",
+                                            },
+                                            ["@media (max-width:780px)"]: {
+                                                // eslint-disable-line no-useless-computed-key
+                                                height: "45px",
+                                                width: "50%",
+                                                fontSize: "1.2rem",
+                                            },
+                                        }}
+                                        variant="contained"
+                                        startIcon={<LockIcon />}
+                                    >
+                                        비공개
+                                    </Button>
+                                </PreviewOpenSettingButtonWrapper>
+                            </PreviewOpenSettingWrapper>
+                            <PreviewPathWrapper>
+                                <PreviewPathTitle>URL 설정</PreviewPathTitle>
+                                <PreviewPathAndDefaultWrapper>
+                                    <PreviewPathDefault>
+                                        {defaultPath}
+                                    </PreviewPathDefault>
+                                    <PreviewPath
+                                        onChange={handleChange}
+                                        value={path}
+                                        name="path"
+                                        type="text"
+                                    ></PreviewPath>
+                                </PreviewPathAndDefaultWrapper>
+                            </PreviewPathWrapper>
+                            <PreviewSavePositionWrapper>
+                                <PreviewSaveTitle>
+                                    저장위치 설정
+                                </PreviewSaveTitle>
+                                <Button
+                                    onClick={clickSave}
+                                    sx={{
+                                        height: "50px",
+                                        fontSize: "1.35rem",
+                                        ["@media (max-width:1200px)"]: {
+                                            // eslint-disable-line no-useless-computed-key
+                                            height: "45px",
+                                            fontSize: "1.2rem",
+                                        },
+                                    }}
+                                    variant="outlined"
+                                    fullWidth
+                                    startIcon={<PlaylistAddIcon />}
                                 >
-                                    <ListItemButton
-                                        selected={selectedIndex === 0}
-                                        onClick={(event) =>
-                                            handleListItemClick(event, 0)
-                                        }
-                                    >
-                                        <ListItemIcon>
-                                            <InboxIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Inbox" />
-                                    </ListItemButton>
-                                    <ListItemButton
-                                        selected={selectedIndex === 1}
-                                        onClick={(event) =>
-                                            handleListItemClick(event, 1)
-                                        }
-                                    >
-                                        <ListItemIcon>
-                                            <DraftsIcon />
-                                        </ListItemIcon>
-                                        <ListItemText primary="Drafts" />
-                                    </ListItemButton>
-                                </List>
-                                <Divider />
-                                <List
-                                    component="nav"
-                                    aria-label="secondary mailbox folder"
-                                >
-                                    <ListItemButton
-                                        selected={selectedIndex === 2}
-                                        onClick={(event) =>
-                                            handleListItemClick(event, 2)
-                                        }
-                                    >
-                                        <ListItemText primary="Trash" />
-                                    </ListItemButton>
-                                    <ListItemButton
-                                        selected={selectedIndex === 3}
-                                        onClick={(event) =>
-                                            handleListItemClick(event, 3)
-                                        }
-                                    >
-                                        <ListItemText primary="Spam" />
-                                    </ListItemButton>
-                                </List>
-                            </Box>
-                        )}
-                        <PreviewOpenSettingButtonWrapper>
-                            <Button
-                                onClick={(e) => clickOpen(e, true)}
-                                sx={{
-                                    color: isOpen ? "#f5f6f6" : "#868e96",
-                                    border: isOpen
-                                        ? "1.5px solid #1976d2"
-                                        : "1.5px solid #f5f6f6",
-                                    backgroundColor: isOpen
-                                        ? "#1976d2"
-                                        : "#ffffff",
-                                    height: "50px",
-                                    width: "175px",
-                                    fontSize: "1.35rem",
-                                    marginRight: "1rem",
-                                    "&:hover": {
-                                        backgroundColor: isOpen
-                                            ? "#1976d2"
-                                            : "#ffffff",
-                                        border: isOpen
-                                            ? "1.5px solid #1976d2"
-                                            : "1.5px solid #f5f6f6",
-                                        opacity: 0.9,
-                                    },
-                                    ["@media (max-width:1200px)"]: {
-                                        // eslint-disable-line no-useless-computed-key
-                                        height: "45px",
-                                        width: "150px",
-                                        fontSize: "1.2rem",
-                                    },
-                                    ["@media (max-width:780px)"]: {
-                                        // eslint-disable-line no-useless-computed-key
-                                        height: "45px",
-                                        width: "50%",
-                                        fontSize: "1.2rem",
-                                    },
-                                }}
-                                variant="outlined"
-                                startIcon={<PublicIcon />}
-                            >
-                                전체 공개
-                            </Button>
-                            <Button
-                                onClick={(e) => clickOpen(e, false)}
-                                sx={{
-                                    color: isOpen ? "#868e96" : "#f5f6f6",
-                                    border: isOpen
-                                        ? "1.5px solid #f5f6f6"
-                                        : "1.5px solid #1976d2",
-                                    backgroundColor: isOpen
-                                        ? "#ffffff"
-                                        : "#1976d2",
-                                    height: "50px",
-                                    width: "175px",
-                                    fontSize: "1.35rem",
-                                    "&:hover": {
-                                        backgroundColor: isOpen
-                                            ? "#ffffff"
-                                            : "#1976d2",
-                                        border: isOpen
-                                            ? "1.5px solid #f5f6f6"
-                                            : "1.5px solid #1976d2",
-                                        opacity: 0.9,
-                                    },
-                                    ["@media (max-width:1200px)"]: {
-                                        // eslint-disable-line no-useless-computed-key
-                                        height: "45px",
-                                        width: "150px",
-                                        fontSize: "1.2rem",
-                                    },
-                                    ["@media (max-width:780px)"]: {
-                                        // eslint-disable-line no-useless-computed-key
-                                        height: "45px",
-                                        width: "50%",
-                                        fontSize: "1.2rem",
-                                    },
-                                }}
-                                variant="contained"
-                                startIcon={<LockIcon />}
-                            >
-                                비공개
-                            </Button>
-                        </PreviewOpenSettingButtonWrapper>
-                    </PreviewOpenSettingWrapper>
-                    <PreviewPathWrapper>
-                        <PreviewPathTitle>URL 설정</PreviewPathTitle>
-                        <PreviewPathAndDefaultWrapper>
-                            <PreviewPathDefault>
-                                {defaultPath}
-                            </PreviewPathDefault>
-                            <PreviewPath
-                                onChange={handleChange}
-                                value={path}
-                                name="path"
-                                type="text"
-                            ></PreviewPath>
-                        </PreviewPathAndDefaultWrapper>
-                    </PreviewPathWrapper>
-                    <PreviewSavePositionWrapper>
-                        <PreviewSaveTitle>저장위치 설정</PreviewSaveTitle>
-                        <Button
-                            onClick={clickSave}
-                            sx={{
-                                height: "50px",
-                                fontSize: "1.35rem",
-                                ["@media (max-width:1200px)"]: {
-                                    // eslint-disable-line no-useless-computed-key
-                                    height: "45px",
-                                    fontSize: "1.2rem",
-                                },
-                            }}
-                            variant="outlined"
-                            fullWidth
-                            startIcon={<PlaylistAddIcon />}
-                        >
-                            저장위치 추가
-                        </Button>
-                    </PreviewSavePositionWrapper>
-                    <PreviewButtonWrapper>
+                                    저장위치 추가
+                                </Button>
+                            </PreviewSavePositionWrapper>
+                        </>
+                    )}
+                    <PreviewButtonWrapper isSave={isSave}>
                         <WriteExitButton
                             onClick={() => {
-                                props.setClick(false);
+                                isSave ? setSave(false) : props.setClick(false);
                             }}
                         >
                             {isSave ? "취소" : "나가기"}
                         </WriteExitButton>
-                        <WriteRegisterButton>출간하기</WriteRegisterButton>
+                        <Button
+                            variant="contained"
+                            size="small"
+                            sx={{
+                                width: "75px",
+                                height: "30px",
+                                backgroundColor: "#00a8ff",
+                                fontSize: "0.9rem",
+                                marginLeft: "1rem",
+                                "&:hover": {
+                                    backgroundColor: "#00a8ff",
+
+                                    opacity: 0.7,
+                                },
+                            }}
+                            disabled={isSave ? true : false}
+                        >
+                            출간하기
+                        </Button>
                     </PreviewButtonWrapper>
                 </PreviewRight>
             </PreviewContainer>

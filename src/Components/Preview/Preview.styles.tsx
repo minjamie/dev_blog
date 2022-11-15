@@ -3,7 +3,7 @@ import { media } from "Styles/media.styles";
 
 const PreviewPage = styled.div<{ click: boolean }>`
     bottom: 0px;
-    background-color: var(--main-background-color);
+    background-color: #f6f9fc;
     height: 100%;
     width: 100%;
     margin: 0;
@@ -14,8 +14,6 @@ const PreviewPage = styled.div<{ click: boolean }>`
     bottom: 0;
     transform: ${(props: any) =>
         props.click ? "translateY(0%)" : "translateY(100%)"};
-    ${media.tablet`  
-`}
 `;
 
 const PreviewContainer = styled.div`
@@ -86,21 +84,21 @@ const PreviewIntroduceCount = styled.span`
     display: flex;
     justify-content: flex-end;
 `;
-const PreviewRight = styled.div`
+const PreviewRight = styled.div<{ isFucus: boolean }>`
     display: flex;
     flex-direction: column;
-    height: 410px;
-    width: 380px;
+    height: ${(props: any) => (props.isFucus ? "500px" : "400px")};
+    width: 400px;
     border-left: 1px solid gray;
     padding-left: 2rem;
     ${media.laptop`  
-    height: 380px;
-    width: 350px;
+        height: 380px;
+        width: 350px;
     `}
     ${media.tablet`  
-    width: 100%;
-    padding-left: 0;
-    border-left:none
+        width: 100%;
+        padding-left: 0;
+        border-left:none
 `}
 `;
 const PreviewOpenSettingWrapper = styled.section`
@@ -108,11 +106,11 @@ const PreviewOpenSettingWrapper = styled.section`
 `;
 const PreviewPathWrapper = styled(PreviewOpenSettingWrapper)``;
 const PreviewSavePositionWrapper = styled(PreviewOpenSettingWrapper)``;
-const PreviewButtonWrapper = styled.div`
+const PreviewButtonWrapper = styled.div<{ isSave: boolean }>`
     display: flex;
     justify-content: flex-end;
-    align-items: flex-start;
-    padding-top: 2rem;
+    align-items: center;
+    padding-top: ${(props: any) => (props.isSave ? "1.5rem" : "2rem")};
 `;
 
 const PreviewOpenSettingTitle = styled.h5`
@@ -123,13 +121,6 @@ const PreviewOpenSettingTitle = styled.h5`
 
 const PreviewOpenSettingButtonWrapper = styled.div`
     display: flex;
-    ${media.laptop`  
-        &:nth-child(1) {
-        background-color: #f4f6f8;
-        }
-        &:nth-child(2) {
-        }
-    `}
 `;
 const PreviewSaveTitle = styled(PreviewOpenSettingTitle)``;
 const PreviewPathTitle = styled(PreviewOpenSettingTitle)``;
@@ -152,8 +143,70 @@ const PreviewPathDefault = styled.span`
     padding-left: 1rem;
     white-space: nowrap;
     color: #00a8ff;
-    top: 0.5rem;
-    left: 0.5rem;
+`;
+
+const PreviewSavePositionInputWrapper = styled.div<{ isFucus: boolean }>`
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: ${(props: any) => (props.isFucus ? "9rem" : "4rem")};
+`;
+
+const PreviewSavePosition = styled.input<{ isFucus: boolean }>`
+    width: 340px;
+    height: 32px;
+    padding: 1rem 1rem;
+    border: none;
+    outline: none;
+    margin-bottom: ${(props: any) => (props.isFucus ? "0.5rem" : 0)};
+`;
+
+const PreviewSavePositionPathContainer = styled.div`
+    width: 340px;
+`;
+
+const PreviewSavePositionPathWrapper = styled.div`
+    display: flex;
+    background-color: white;
+    animation-duration: 0.125s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    align-items: center;
+`;
+
+const PreviewSavePositionPathDefault = styled.span`
+    padding-left: 1rem;
+    white-space: nowrap;
+    color: #00a8ff;
+    background-color: white;
+`;
+
+const PreviewSavePositionPathDefaultInput = styled.input`
+    height: 32px;
+    border: none;
+    outline: none;
+`;
+
+const PreviewSavePositionButtonWrapper = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 0.5rem;
+`;
+const PreviewSavePositionCancelButton = styled.button`
+    background-color: #e9ecef;
+    border: none;
+    outline: none;
+`;
+const PreviewSavePositionRegisterButton = styled.button`
+    color: white;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.7rem;
+    background-color: #00a8ff;
 `;
 export {
     PreviewPage,
@@ -175,4 +228,13 @@ export {
     PreviewPathDefault,
     PreviewPathAndDefaultWrapper,
     PreviewOpenSettingButtonWrapper,
+    PreviewSavePositionInputWrapper,
+    PreviewSavePosition,
+    PreviewSavePositionPathWrapper,
+    PreviewSavePositionPathDefault,
+    PreviewSavePositionPathDefaultInput,
+    PreviewSavePositionButtonWrapper,
+    PreviewSavePositionPathContainer,
+    PreviewSavePositionCancelButton,
+    PreviewSavePositionRegisterButton,
 };

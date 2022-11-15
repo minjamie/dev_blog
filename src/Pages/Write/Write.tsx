@@ -1,10 +1,10 @@
-import Preview from "Components/Preview/Preview";
 import { Tooltip } from "@mui/material";
 import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight";
 import "@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css";
 import colorSyntax from "@toast-ui/editor-plugin-color-syntax";
 import "@toast-ui/editor/dist/toastui-editor.css";
 import { Editor } from "@toast-ui/react-editor";
+import Preview from "Components/Preview/Preview";
 import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import React, { useEffect, useRef, useState } from "react";

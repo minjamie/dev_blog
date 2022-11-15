@@ -55,6 +55,7 @@ const WriteButtonWrapper = styled.div`
     padding: 1rem 2rem;
     height: auto;
 `;
+
 const WriteRegisterButton = styled.button`
     background-color: #00a8ff;
     border: none;
@@ -64,7 +65,9 @@ const WriteRegisterButton = styled.button`
     border-radius: 0.25rem;
     padding: 0.2rem 0.7rem;
 `;
+
 const WriteSaveAndExitButtonWrapper = styled.div``;
+
 const WriteSaveButton = styled.button`
     background-color: #f6f9fc;
     border: none;
