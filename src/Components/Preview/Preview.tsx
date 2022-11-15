@@ -47,7 +47,7 @@ export default function Preview(props: any) {
     const [path, setPath] = useState("");
     const [isOpen, setOpen] = useState(true);
     const [isSave, setSave] = useState(false);
-    const [isFucus, setFocus] = useState(false);
+    const [isFucus, setFocus] = useState<boolean>(false);
     const [savePaths, setSavePaths] = useState<string[]>([
         "Save1",
         "Save2",
@@ -66,13 +66,26 @@ export default function Preview(props: any) {
     };
 
     const defaultPath = my.nickName.replace(/^/, "/@").replace(/$/, "/");
+    const defaultSavePath = defaultPath.replace(/$/, "Save/");
+    const reg = /[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/ ]/gim;
+
     const handleChange = (event: React.ChangeEvent): void => {
         const { value, name } = event.target as HTMLInputElement;
         if (name === "intro") {
             setIntro(value);
         } else if (name === "path") {
             setPath(value);
+        } else if (name === "savePath") {
+            setSavePath(value);
         }
+    };
+
+    const addSavePath = (): void => {
+        const arr = [...savePaths];
+        arr.push(savePath);
+        setSavePaths(arr);
+        setSavePath("");
+        setFocus(false);
     };
 
     const clickSave = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -147,28 +160,35 @@ export default function Preview(props: any) {
                                         "새로운 저장공간의 이름을 입력하세요"
                                     }
                                     onFocus={() => setFocus(true)}
-                                    onBlur={() => setFocus(false)}
                                     isFucus={isFucus}
+                                    value={savePath}
+                                    name="savePath"
+                                    onChange={handleChange}
                                 />
                                 {isFucus && (
                                     <PreviewSavePositionPathContainer>
                                         <PreviewSavePositionPathWrapper>
                                             <PreviewSavePositionPathDefault>
-                                                {defaultPath}
+                                                {defaultSavePath}
                                             </PreviewSavePositionPathDefault>
-                                            <PreviewSavePositionPathDefaultInput />
+                                            <PreviewSavePositionPathDefaultInput
+                                                defaultValue={savePath.replace(
+                                                    reg,
+                                                    ""
+                                                )}
+                                            />
                                         </PreviewSavePositionPathWrapper>
                                         <PreviewSavePositionButtonWrapper>
                                             <PreviewSavePositionCancelButton
                                                 onClick={() => {
-                                                    isSave
-                                                        ? setSave(false)
-                                                        : props.setClick(false);
+                                                    setFocus(false);
                                                 }}
                                             >
                                                 취소
                                             </PreviewSavePositionCancelButton>
-                                            <PreviewSavePositionRegisterButton>
+                                            <PreviewSavePositionRegisterButton
+                                                onClick={addSavePath}
+                                            >
                                                 저장공간 추가
                                             </PreviewSavePositionRegisterButton>
                                         </PreviewSavePositionButtonWrapper>

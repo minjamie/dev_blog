@@ -148,9 +148,12 @@ const PreviewPathDefault = styled.span`
 const PreviewSavePositionInputWrapper = styled.div<{ isFucus: boolean }>`
     background-color: #e9ecef;
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    padding-top: 1rem;
     align-items: center;
     flex-direction: column;
+    transition-property: height;
+    transition-duration: 0.5s;
     height: ${(props: any) => (props.isFucus ? "9rem" : "4rem")};
 `;
 
