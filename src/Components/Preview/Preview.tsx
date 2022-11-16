@@ -152,6 +152,14 @@ export default function Preview(props: any) {
                                 maxHeight: 400,
                                 maxWidth: 380,
                                 bgcolor: "background.paper",
+                                ["@media (max-width:1200px)"]: {
+                                    // eslint-disable-line no-useless-computed-key
+                                    maxWidth: 350,
+                                },
+                                ["@media (max-width:780px)"]: {
+                                    // eslint-disable-line no-useless-computed-key
+                                    maxWidth: 780,
+                                },
                             }}
                         >
                             <PreviewSavePositionInputWrapper isFucus={isFucus}>
@@ -366,7 +374,7 @@ export default function Preview(props: any) {
                             variant="contained"
                             size="small"
                             sx={{
-                                width: "75px",
+                                width: "80px",
                                 height: "30px",
                                 backgroundColor: "#00a8ff",
                                 fontSize: "0.9rem",

@@ -24,8 +24,8 @@ const PreviewContainer = styled.div`
     ${media.tablet`  
     padding: 1.5rem;
     justify-content: flex-start;
- flex-direction: column;
- `}
+    flex-direction: column;
+    `}
 `;
 const PreviewLeft = styled.div`
     display: flex;
@@ -89,11 +89,12 @@ const PreviewRight = styled.div<{ isFucus: boolean }>`
     flex-direction: column;
     height: ${(props: any) => (props.isFucus ? "500px" : "400px")};
     width: 400px;
+    height: 380px;
     border-left: 1px solid gray;
     padding-left: 2rem;
     ${media.laptop`  
         height: 380px;
-        width: 350px;
+        width: 380px;
     `}
     ${media.tablet`  
         width: 100%;
@@ -110,7 +111,7 @@ const PreviewButtonWrapper = styled.div<{ isSave: boolean }>`
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    padding-top: ${(props: any) => (props.isSave ? "1.5rem" : "2rem")};
+    padding-top: ${(props: any) => (props.isSave ? "0.9rem" : "2rem")};
 `;
 
 const PreviewOpenSettingTitle = styled.h5`
@@ -164,10 +165,23 @@ const PreviewSavePosition = styled.input<{ isFucus: boolean }>`
     border: none;
     outline: none;
     margin-bottom: ${(props: any) => (props.isFucus ? "0.5rem" : 0)};
+    ${media.laptop`  
+        width: 88%;
+    `}
+    ${media.tablet`  
+        width: 95%;
+    `}
 `;
 
 const PreviewSavePositionPathContainer = styled.div`
     width: 340px;
+    height: 32px;
+    ${media.laptop`  
+    width: 88%;
+    `}
+    ${media.tablet`  
+        width: 95%;
+    `}
 `;
 
 const PreviewSavePositionPathWrapper = styled.div`
@@ -190,6 +204,15 @@ const PreviewSavePositionPathDefaultInput = styled.input`
     height: 32px;
     border: none;
     outline: none;
+    width: 100%;
+    padding: 0.5rem 0;
+    ${media.laptop`  
+        width:100%;
+
+    `}
+    ${media.tablet`  
+        width: 90%;
+    `}
 `;
 
 const PreviewSavePositionButtonWrapper = styled.div`
