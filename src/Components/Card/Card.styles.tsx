@@ -57,7 +57,7 @@ const CardImage = styled.img<{
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(95% - 10px);
-    max-height: 217px;
+    height: 217px;
     width: ${(props) => (props.sectionCategory == "feature" ? "90%" : "100%")};
     max-height: ${(props) =>
         props.sectionCategory == "feature" ? "180px" : "217px"};
@@ -96,23 +96,26 @@ const CardContent = styled.div<{
     ${media.laptop`  
         {
             justify-content: ${(props: any) =>
-                props.sectionCategory === "highlight" && props.index === 2
+                props.sectionCategory === "highlight" && props.cardIndex === 2
                     ? "center"
                     : "start"}; 
             width: ${(props: any) =>
-                (props.sectionCategory === "highlight" && props.index === 2) ||
-                (props.sectionCategory === "post" && props.cardLength % 2 == 1)
+                (props.sectionCategory === "highlight" &&
+                    props.cardLength === 2) ||
+                (props.cardIndex === props.cardLength - 1 &&
+                    props.sectionCategory === "post" &&
+                    props.cardLength % 2 == 1)
                     ? "47.5%"
-                    : null};
+                    : "100%"};
             margin: ${(props: any) =>
-                props.sectionCategory === "highlight" && props.index === 2
+                props.sectionCategory === "highlight" && props.cardIndex === 2
                     ? "0"
                     : "2rem 0 4rem 0"}; 
             padding-left: 
             ${(props: any) =>
                 props.sectionCategory === "post" &&
                 props.cardLength % 2 == 1 &&
-                props.index === props.cardLength - 1
+                props.cardIndex === props.cardLength - 1
                     ? "0rem"
                     : "1rem"};
     `}

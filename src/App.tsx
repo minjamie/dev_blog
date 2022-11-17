@@ -1,7 +1,7 @@
-import Profile from "Pages/Profile/Profile";
 import People from "Pages/Culture/People/People";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
+import Profile from "Pages/Profile/Profile";
 import Write from "Pages/Write/Write";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";

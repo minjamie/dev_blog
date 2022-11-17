@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { media } from "Styles/media.styles";
 
 const FeatureArea = styled.section`
-    background-color: #011641;
+    background-color: var(--point1-background-color);
     padding: 4rem 0;
 `;
 

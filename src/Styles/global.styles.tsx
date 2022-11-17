@@ -16,7 +16,10 @@ export const GlobalStyle = createGlobalStyle`
     --font-color-subTitle: #7a7b85;
     --font-color-feature: white;
     --main-background-color: #f4f6f8;
+    --sub-background-color:#00a8ff;
+    --third-background-color: #1876d1;
+    --point1-background-color: #fbaf97;
+    --point2-background-color: #faad93;
+    --point3-background-color: #df8353;
   }
-
-  
 `;

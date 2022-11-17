@@ -212,7 +212,6 @@ Still, seeing how much MUI is used and how many GitHub stars it has, it’s one 
         githubFolks: "966",
         count: 0,
     },
-
     {
         id: 14,
         category: "Category",

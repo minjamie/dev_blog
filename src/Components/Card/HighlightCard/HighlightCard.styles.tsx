@@ -24,11 +24,11 @@ const HighlightCardLink = styled.article`
             justify-content: center;
             &:nth-child(3){
                 width: 100vw;
-
+                padding-left:1.5rem;
         }
     `}
 `;
-const HighlightCardImage = styled.img<{ index: number }>`
+const HighlightCardImage = styled.img<{ cardIndex: number }>`
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(95% - 10px);
@@ -44,7 +44,7 @@ const HighlightCardImage = styled.img<{ index: number }>`
     }
     ${media.laptop`  
         max-height: 257px;
-        width: ${(props: any) => (props.index === 2 ? "45vw" : null)};
+        width: ${(props: any) => (props.cardIndex === 2 ? "45vw" : null)};
    `}
     ${media.mobile`  
         width: 100%;
@@ -52,7 +52,7 @@ const HighlightCardImage = styled.img<{ index: number }>`
         max-height: 150px;
     `}
 `;
-const HighlightCardContent = styled.div<{ index: number }>`
+const HighlightCardContent = styled.div<{ cardIndex: number }>`
     margin: 2rem 0 4rem 0;
     padding-left: 1rem;
     display: flex;
@@ -62,9 +62,10 @@ const HighlightCardContent = styled.div<{ index: number }>`
     ${media.laptop`  
         {
         justify-content: ${(props: any) =>
-            props.index === 2 ? "center" : null}; 
-        width: ${(props: any) => (props.index === 2 ? "50vw" : null)};
-        padding-left: ${(props: any) => (props.index === 2 ? "3rem" : null)};
+            props.cardIndex === 2 ? "center" : null}; 
+        width: ${(props: any) => (props.cardIndex === 2 ? "50vw" : null)};
+        padding-left: ${(props: any) =>
+            props.cardIndex === 2 ? "3rem" : null};
         }
     `}
     ${media.mobile`  

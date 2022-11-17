@@ -1,13 +1,11 @@
-import React from "react";
 import { GlobalStyle } from "Styles/global.styles";
 import {
-    ProfilePage,
-    ProfileLeft,
-    ProfileRight,
-    ProfileImageWrapper,
     ProfileImage,
+    ProfileImageWrapper,
     ProfileInfoWrapper,
-    ProfileInfoEditorButton,
+    ProfileLeft,
+    ProfilePage,
+    ProfileRight,
 } from "./Profile.styles";
 
 export default function Profile() {
