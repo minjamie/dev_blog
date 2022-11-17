@@ -62,7 +62,9 @@ const Navbar: FC<any> = (props) => {
     const signIn = () => {
         setSignIn(true);
     };
-
+    const handleLogOut = () => {
+        setSignIn(false);
+    };
     useEffect(() => {
         window.onscroll = function () {
             if (window.scrollY > 10) {
@@ -137,7 +139,9 @@ const Navbar: FC<any> = (props) => {
                                 {matches ? (
                                     <AccountMenu my={my} sign={setSignIn} />
                                 ) : (
-                                    <NavBarMenuLink>Profile</NavBarMenuLink>
+                                    <NavBarMenuLink onClick={handleLogOut}>
+                                        Logout
+                                    </NavBarMenuLink>
                                 )}
                             </NavBarMenuItem>
                         </>

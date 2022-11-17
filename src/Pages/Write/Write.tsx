@@ -9,6 +9,7 @@ import Prism from "prismjs";
 import "prismjs/themes/prism.css";
 import React, { useEffect, useRef, useState } from "react";
 import { FiArrowLeft } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 import "tui-color-picker/dist/tui-color-picker.css";
 import fontSize from "tui-editor-plugin-font-size";
 import "tui-editor-plugin-font-size/dist/tui-editor-plugin-font-size.css";
@@ -105,11 +106,11 @@ export default function Write(props: any) {
 
     const handleWrite = () => {
         const editorIns = ref.current.getInstance();
-        // const contentHtml = editorIns.getHTML();
         const contentMark = editorIns.getMarkdown();
         setClick(!click);
         setContents(contentMark);
     };
+    const navigate = useNavigate();
 
     return (
         <WritePage>
@@ -171,7 +172,7 @@ export default function Write(props: any) {
                 height={`${size - tagSize}px`}
             />
             <WriteButtonWrapper>
-                <WriteExitButton type="submit">
+                <WriteExitButton type="submit" onClick={() => navigate(-1)}>
                     <FiArrowLeft className="Exit-Button" />
                     나가기
                 </WriteExitButton>

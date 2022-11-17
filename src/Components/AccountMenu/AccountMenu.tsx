@@ -11,6 +11,7 @@ import Tooltip from "@mui/material/Tooltip";
 import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import { AiFillCaretDown } from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 export default function AccountMenu(props: any) {
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -84,15 +85,20 @@ export default function AccountMenu(props: any) {
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
                 <MenuItem>My Posts</MenuItem>
-                <MenuItem>Temporary Posts</MenuItem>
-                <MenuItem>Liked Posts</MenuItem>
+                <MenuItem>Temporary List</MenuItem>
+                <MenuItem>Reading List</MenuItem>
                 <Divider />
-                <MenuItem>
-                    <ListItemIcon>
-                        <Settings fontSize="small" />
-                    </ListItemIcon>
-                    Settings
-                </MenuItem>
+                <Link
+                    to="/Profile"
+                    style={{ textDecoration: "none", color: "black" }}
+                >
+                    <MenuItem>
+                        <ListItemIcon>
+                            <Settings fontSize="small" />
+                        </ListItemIcon>
+                        Settings
+                    </MenuItem>
+                </Link>
                 <MenuItem onClick={handleLogOut}>
                     <ListItemIcon>
                         <Logout fontSize="small" />

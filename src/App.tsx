@@ -1,3 +1,4 @@
+import Profile from "Pages/Profile/Profile";
 import People from "Pages/Culture/People/People";
 import Main from "Pages/Main/Main";
 import Menu from "Pages/Menu/Menu";
@@ -32,6 +33,13 @@ function App() {
         { id: 2, name: "제품" },
         { id: 3, name: "채용" },
     ]);
+
+    const accountMenu = [
+        { id: 0, name: "MyPosts" },
+        { id: 1, name: "TemporaryPosts" },
+        { id: 2, name: "LikedPosts" },
+        { id: 3, name: "Setting" },
+    ];
     const state = useSelector((state: any) => state);
     const dispatch = useDispatch();
 
@@ -62,7 +70,13 @@ function App() {
                     path={`${category[2].name}`}
                     element={<Menu category={category[2]} />}
                 />
-                <Route path="/SignUp" element={<SignUp />} />
+
+                {/* <Route path={`${accountMenu[0].name}`} element={<Profile />} />
+                <Route path={`${accountMenu[1].name}`} element={<Profile />} />
+                <Route path={`${accountMenu[2].name}`} element={<Profile />} /> */}
+                <Route path={`${accountMenu[3].name}`} element={<Profile />} />
+
+                <Route path="SignUp" element={<SignUp />} />
                 <Route path={`${category[2].name}/:id`} element={<People />} />
                 <Route path={`${signCategory[0].name}`} element={<Write />} />
             </Routes>

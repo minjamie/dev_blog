@@ -8,8 +8,6 @@ const SignUpPage = styled.div`
     align-items: center;
     height: 100vh;
     background-color: var(--main-background-color);
-    ${media.tablet`  
- `};
 `;
 
 const SignUpWelcomeWrapper = styled.div`

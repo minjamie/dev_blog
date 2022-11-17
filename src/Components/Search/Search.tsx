@@ -1,4 +1,3 @@
-import { Button } from "Components/Button/Button";
 import React, { FC } from "react";
 import { SearchContainer, SearchFrom, SearchInput } from "./Search.styles";
 import { TfiSearch } from "react-icons/tfi";
