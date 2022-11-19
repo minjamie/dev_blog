@@ -30,14 +30,15 @@ export default function MainSkeletonCard(props: any) {
             />
             <Box
                 sx={{
-                    padding: "1rem 2rem 2rem 2rem",
+                    padding: "2.5rem 2rem 2rem 2rem",
                     textAlign: "left",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     maxWidth: "480px",
                     width: "35%",
-                    maxHeight: "569px",
+                    maxHeight: "589px",
+                    backgroundColor: "red",
                     height: "auto",
                     ["@media (max-width:768px)"]: {
                         // eslint-disable-line no-useless-computed-key
@@ -50,7 +51,6 @@ export default function MainSkeletonCard(props: any) {
                     width="60%"
                     sx={{
                         bgcolor: "grey.300",
-                        paddingBottom: "20px",
                         ["@media (max-width:1200px)"]: {
                             // eslint-disable-line no-useless-computed-key
                             paddingBottom: "0",
@@ -59,12 +59,10 @@ export default function MainSkeletonCard(props: any) {
                     }}
                 />
                 <Skeleton
-                    height={130}
+                    height={150}
                     width="100%"
                     sx={{
                         bgcolor: "grey.300",
-                        padding: "40px 0",
-                        marginBottom: "8px",
                         ["@media (max-width:1200px)"]: {
                             // eslint-disable-line no-useless-computed-key
                             padding: "0",
@@ -74,7 +72,7 @@ export default function MainSkeletonCard(props: any) {
                 />
                 <Skeleton
                     height={30}
-                    width="40%"
+                    width="60%"
                     sx={{
                         bgcolor: "grey.300",
                         ["@media (max-width:1200px)"]: {
