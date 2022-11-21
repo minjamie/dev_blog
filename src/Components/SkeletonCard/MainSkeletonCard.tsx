@@ -11,6 +11,7 @@ export default function MainSkeletonCard(props: any) {
                 paddingBottom: "2rem",
                 ["@media (max-width:768px)"]: {
                     flexDirection: "column",
+                    paddingBottom: "2rem",
                 },
             }}
         >
@@ -30,54 +31,68 @@ export default function MainSkeletonCard(props: any) {
             />
             <Box
                 sx={{
-                    padding: "2.5rem 2rem 2rem 2rem",
-                    textAlign: "left",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "center",
+                    padding: "0rem 2rem 2rem 2.5rem",
                     maxWidth: "480px",
                     width: "35%",
-                    maxHeight: "589px",
-                    backgroundColor: "red",
-                    height: "auto",
+                    height: "460px",
+                    display: "flex",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    ["@media (max-width:1200px)"]: {
+                        // eslint-disable-line no-useless-computed-key
+                        paddingLeft: "2rem",
+                    },
                     ["@media (max-width:768px)"]: {
                         // eslint-disable-line no-useless-computed-key
+                        padding: "1rem 2rem 2rem 2rem",
                         width: "100%",
+                        height: "auto",
                     },
                 }}
             >
                 <Skeleton
-                    height={50}
                     width="60%"
                     sx={{
+                        backgroundColor: "red",
                         bgcolor: "grey.300",
+                        height: "3rem",
+                        justifyItems: "flex-start",
                         ["@media (max-width:1200px)"]: {
                             // eslint-disable-line no-useless-computed-key
-                            paddingBottom: "0",
-                            marginBottom: "0",
+                            height: "1.9rem",
+                            marginBottom: "-0.35rem",
+                        },
+                        ["@media (max-width:768px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                            marginBottom: "0.2rem",
                         },
                     }}
                 />
                 <Skeleton
-                    height={150}
                     width="100%"
                     sx={{
+                        height: "9rem",
+                        marginTop: "0rem",
                         bgcolor: "grey.300",
                         ["@media (max-width:1200px)"]: {
                             // eslint-disable-line no-useless-computed-key
-                            padding: "0",
-                            marginBottom: "0",
+                            height: "5.5rem",
+                        },
+                        ["@media (max-width:768px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                            height: "3rem",
                         },
                     }}
                 />
                 <Skeleton
-                    height={30}
                     width="60%"
                     sx={{
+                        height: "2rem",
                         bgcolor: "grey.300",
+                        justifyItems: "center",
                         ["@media (max-width:1200px)"]: {
                             // eslint-disable-line no-useless-computed-key
-                            paddingBottom: "0",
+                            height: "1.7rem",
                         },
                     }}
                 />
