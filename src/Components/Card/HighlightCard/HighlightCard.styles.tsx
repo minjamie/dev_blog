@@ -33,7 +33,7 @@ const HighlightCardImage = styled.img<{ cardIndex: number }>`
     object-fit: contain;
     max-width: calc(95% - 10px);
     width: 100%;
-    max-height: 217px;
+    max-height: 257px;
     height: auto;
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));

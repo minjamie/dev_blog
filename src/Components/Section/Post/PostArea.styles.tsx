@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 const PostArea = styled.section`
     padding: 4rem 0 4rem 0;
-    background-color: #f4f6f8;
 `;
 
 const PostContainer = styled.div`

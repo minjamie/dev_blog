@@ -40,7 +40,7 @@ export default function SkeletonCard(props: any) {
                                 : props.sectionCategory === "post" &&
                                   props.cardLength % 2 == 1
                                 ? "1rem"
-                                : "0rem",
+                                : "0 0 0rem 1rem",
                     },
                 },
                 ["@media (max-width:600px)"]: {
@@ -50,6 +50,7 @@ export default function SkeletonCard(props: any) {
                     display: "flex",
                     flexDirection: "row-reverse",
                     justifyContent: "center",
+                    alignItems: "center",
                     "&:last-child": {
                         padding: "0 1.5rem",
                         width: "100vw",
@@ -62,17 +63,15 @@ export default function SkeletonCard(props: any) {
         >
             <Skeleton
                 variant="rectangular"
-                height={217}
+                height={1057}
                 sx={{
-                    width: props.sectionCategory == "feature" ? "90%" : "100%",
                     bgcolor: "grey.300",
                     maxWidth: `calc(100% - 10px)`,
                     maxHeight:
-                        props.sectionCategory == "feature" ? "180px" : "217px",
+                        props.sectionCategory == "feature" ? "217px" : "257px",
                     borderRadius: "20px",
                     ["@media (max-width:1200px)"]: {
                         // eslint-disable-line no-useless-computed-key
-                        maxHeight: "257px",
                         width:
                             props.sectionCategory === "highlight"
                                 ? "45vw"
@@ -91,7 +90,7 @@ export default function SkeletonCard(props: any) {
             />
             <Box
                 sx={{
-                    margin: "2rem 0 4rem 0",
+                    margin: "2rem 0 2rem 0",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "start",
@@ -116,7 +115,12 @@ export default function SkeletonCard(props: any) {
                             props.sectionCategory === "highlight" &&
                             props.cardIndex === 2
                                 ? "2.4rem"
-                                : null,
+                                : "0.3rem",
+                        margin:
+                            props.sectionCategory === "highlight" &&
+                            props.cardIndex === 2
+                                ? "0"
+                                : "3rem 0 3rem 0",
                     },
                     ["@media (max-width:600px)"]: {
                         // eslint-disable-line no-useless-computed-key

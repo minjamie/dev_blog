@@ -38,6 +38,7 @@ const CardLink = styled.article<{
             display: flex;
             flex-direction: row-reverse;
             justify-content: center;
+            align-items:center;
             &:last-child{
                 width: 100vw;
                 display: flex;
@@ -57,10 +58,9 @@ const CardImage = styled.img<{
     border-radius: 20px;
     object-fit: contain;
     max-width: calc(95% - 10px);
-    height: 217px;
     width: ${(props) => (props.sectionCategory == "feature" ? "90%" : "100%")};
-    max-height: ${(props) =>
-        props.sectionCategory == "feature" ? "180px" : "217px"};
+    height: ${(props) =>
+        props.sectionCategory == "feature" ? "217px" : "257px"};
     box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
     -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
     filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
@@ -75,7 +75,8 @@ const CardImage = styled.img<{
             props.index === props.cardLength - 1 &&
             props.cardLength % 2 == 1
                 ? "47.5%"
-                : "100%"}; 
+                : "100%"};
+
     `}
     ${media.mobile`  
     max-width: 150px;
@@ -87,7 +88,7 @@ const CardContent = styled.div<{
     index: number;
     cardLength: number;
 }>`
-    margin: 2rem 0 4rem 0;
+    margin: 2rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -110,7 +111,7 @@ const CardContent = styled.div<{
             margin: ${(props: any) =>
                 props.sectionCategory === "highlight" && props.cardIndex === 2
                     ? "0"
-                    : "2rem 0 4rem 0"}; 
+                    : "3rem 0 3rem 0"}; 
             padding-left: 
             ${(props: any) =>
                 props.sectionCategory === "post" &&
