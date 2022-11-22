@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 import { StoryProp } from "./StoryCard.interface";
 import {
     StoryDesc,
@@ -14,6 +14,7 @@ import {
 
 const StoryCard: FC<any> = (props: StoryProp) => {
     const { category, img, title, hasDoneInterview } = props.data;
+    const ref: React.MutableRefObject<any> = useRef<any>();
 
     return (
         <StoryLink cardLength={props.cardLength}>
@@ -30,7 +31,7 @@ const StoryCard: FC<any> = (props: StoryProp) => {
                     )}
                 </StoryDesc>
                 <StoryImageWrapper>
-                    <StoryImage src={img} />
+                    <StoryImage src={img} ref={ref} />
                 </StoryImageWrapper>
             </StoryItem>
         </StoryLink>

@@ -16,6 +16,7 @@ export default function StorySkeletonCard(props: any) {
                         // eslint-disable-line no-useless-computed-key
                         justifyContent: "center",
                         flexDirection: "row",
+                        alignContent: "center",
                     },
                 }}
             >
@@ -23,6 +24,13 @@ export default function StorySkeletonCard(props: any) {
                     sx={{
                         textAlign: "left",
                         padding: "0.1rem 0 1.9rem 1.3rem",
+                        ["@media (max-width:1200px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                        },
+                        ["@media (max-width:600px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                            padding: "0 2rem 0 0",
+                        },
                     }}
                 >
                     <Skeleton
@@ -32,6 +40,10 @@ export default function StorySkeletonCard(props: any) {
                             bgcolor: "grey.300",
                             ["@media (max-width:1200px)"]: {
                                 // eslint-disable-line no-useless-computed-key
+                            },
+                            ["@media (max-width:600px)"]: {
+                                // eslint-disable-line no-useless-computed-key
+                                padding: "0 1.5rem",
                             },
                         }}
                     />
@@ -43,21 +55,44 @@ export default function StorySkeletonCard(props: any) {
                             ["@media (max-width:1200px)"]: {
                                 // eslint-disable-line no-useless-computed-key
                             },
+                            ["@media (max-width:600px)"]: {
+                                // eslint-disable-line no-useless-computed-key
+                                padding: "0 3rem",
+                            },
                         }}
                     />
                 </Box>
                 <StoryImageWrapper>
                     <Skeleton
                         variant="rectangular"
-                        height={267}
                         sx={{
-                            width: "383px",
-                            height: "100%",
+                            maxWidth: `calc(100% - 10px)`,
+                            width: "400px",
+                            height: "270px",
                             ["@media (max-width:1200px)"]: {
                                 // eslint-disable-line no-useless-computed-key
-                                width: "350px",
-                                height: "50%",
-                                backgroundColor: "red",
+                                width: "98%",
+                                height: "287px",
+                            },
+                            ["@media screen and (max-width: 874px) and (min-width: 750px)"]:
+                                {
+                                    // eslint-disable-line no-useless-computed-key
+                                    height: "257px",
+                                },
+                            ["@media screen and (max-width: 749px) and (min-width: 601px)"]:
+                                {
+                                    // eslint-disable-line no-useless-computed-key
+                                    height: "237px",
+                                },
+                            ["@media screen and (max-width: 700px) and (min-width: 601px)"]:
+                                {
+                                    // eslint-disable-line no-useless-computed-key
+                                    height: "187px",
+                                },
+                            ["@media (max-width:600px)"]: {
+                                // eslint-disable-line no-useless-computed-key
+                                height: "140px",
+                                width: "150px",
                             },
                         }}
                     />

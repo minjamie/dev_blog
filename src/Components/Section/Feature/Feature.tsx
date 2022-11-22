@@ -16,7 +16,6 @@ export default function Feature(props: any) {
     const [data, setData] = useState(feature);
     const [loading, setLoading] = useState(1);
 
-    console.log(props.sectionCategory);
     useEffect(() => {
         setTimeout(() => {
             setLoading(0);

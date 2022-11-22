@@ -10,9 +10,9 @@ export default function Story(props: any) {
     const [loading, setLoading] = useState(1);
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setLoading(0);
-        // }, 500);
+        setTimeout(() => {
+            setLoading(0);
+        }, 500);
     });
     return (
         <StoryPage>

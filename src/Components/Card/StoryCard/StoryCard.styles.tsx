@@ -90,6 +90,7 @@ const StoryItem = styled.li`
 `;
 
 const StoryName = styled.h5`
+    white-space: nowrap;
     font-size: 1.5rem;
     font-weight: 700;
     color: black;
@@ -135,6 +136,7 @@ const StoryDesc = styled.div`
 `;
 
 const StoryTeam = styled.h1`
+    white-space: nowrap;
     color: #252e48;
     font-size: 1rem;
 `;
