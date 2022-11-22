@@ -8,7 +8,6 @@ const StoryLink = styled.a<{ cardLength: number }>`
     text-decoration: none;
     text-align: center;
     padding-bottom: 4rem;
-
     &:nth-child(6n + 4) {
         background-color: white;
     }
@@ -44,9 +43,9 @@ const StoryLink = styled.a<{ cardLength: number }>`
         }
         ${media.mobile` 
         transition: ease all 0.5s;
-padding-bottom: 0;
- border-top-left-radius: 3rem;
-    border-top-right-radius:3rem; 
+    padding-bottom: 0;
+    border-top-left-radius: 3rem;
+    border-top-right-radius: 3rem; 
     background-color: white;
     justify-content: center;
         &:nth-child(6n + 4) {
