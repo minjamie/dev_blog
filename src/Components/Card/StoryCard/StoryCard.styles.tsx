@@ -43,11 +43,13 @@ const StoryLink = styled.a<{ cardLength: number }>`
         }
         ${media.mobile` 
         transition: ease all 0.5s;
-    padding-bottom: 0;
-    border-top-left-radius: 3rem;
-    border-top-right-radius: 3rem; 
-    background-color: white;
-    justify-content: center;
+        padding-bottom: 0;
+        margin-bottom: 2.5rem;
+        border-top-left-radius: 3rem;
+        border-top-right-radius: 3rem; 
+        background-color: white;
+        justify-content: center;
+        width: 100%;
         &:nth-child(6n + 4) {
         background-color: white;
         }
@@ -57,8 +59,6 @@ const StoryLink = styled.a<{ cardLength: number }>`
         &:nth-child(6n + 6) {
             background-color: white
         } 
-            width: 100vw;
-            margin-bottom: 2.5rem;
         :hover {
         border-bottom: 2px solid #fbaf97;
     }
@@ -106,7 +106,7 @@ const StoryImageWrapper = styled.div`
     }
     ${media.mobile`  
     border-bottom: none;
-:hover {
+    :hover {
         border-bottom:none;
     }
     `}
@@ -116,7 +116,7 @@ const StoryImage = styled.img<{ src: string }>`
     max-width: calc(100% - 10px);
     object-fit: contain;
     width: 410px;
-    height: 100%;
+    height: 267px;
     src: src;
     filter: grayscale(100%);
     -webkit-filter: grayscale(100%);
@@ -124,9 +124,12 @@ const StoryImage = styled.img<{ src: string }>`
         filter: none;
         -webkit-filter: grayscale(0);
     }
+    ${media.laptop`  
+       max-width: 126%;
+ `}
     ${media.mobile`  
     max-width: 200px;
-    max-height: 250px;
+    max-height: 140px;
     `}
 `;
 

@@ -29,13 +29,13 @@ export default function StorySkeletonCard(props: any) {
                         },
                         ["@media (max-width:600px)"]: {
                             // eslint-disable-line no-useless-computed-key
-                            padding: "0 2rem 0 0",
+                            padding: "0 1rem",
                         },
                     }}
                 >
                     <Skeleton
-                        height={40}
-                        width="30%"
+                        height={42}
+                        width="3.5rem"
                         sx={{
                             bgcolor: "grey.300",
                             ["@media (max-width:1200px)"]: {
@@ -43,13 +43,12 @@ export default function StorySkeletonCard(props: any) {
                             },
                             ["@media (max-width:600px)"]: {
                                 // eslint-disable-line no-useless-computed-key
-                                padding: "0 1.5rem",
                             },
                         }}
                     />
                     <Skeleton
                         height={30}
-                        width="40%"
+                        width="5.5rem"
                         sx={{
                             bgcolor: "grey.300",
                             ["@media (max-width:1200px)"]: {
@@ -57,7 +56,6 @@ export default function StorySkeletonCard(props: any) {
                             },
                             ["@media (max-width:600px)"]: {
                                 // eslint-disable-line no-useless-computed-key
-                                padding: "0 3rem",
                             },
                         }}
                     />
@@ -66,33 +64,17 @@ export default function StorySkeletonCard(props: any) {
                     <Skeleton
                         variant="rectangular"
                         sx={{
+                            height: "267px",
                             maxWidth: `calc(100% - 10px)`,
-                            width: "400px",
-                            height: "270px",
+                            width: "410px",
                             ["@media (max-width:1200px)"]: {
                                 // eslint-disable-line no-useless-computed-key
-                                width: "98%",
-                                height: "287px",
+                                width: "126%",
                             },
-                            ["@media screen and (max-width: 874px) and (min-width: 750px)"]:
-                                {
-                                    // eslint-disable-line no-useless-computed-key
-                                    height: "257px",
-                                },
-                            ["@media screen and (max-width: 749px) and (min-width: 601px)"]:
-                                {
-                                    // eslint-disable-line no-useless-computed-key
-                                    height: "237px",
-                                },
-                            ["@media screen and (max-width: 700px) and (min-width: 601px)"]:
-                                {
-                                    // eslint-disable-line no-useless-computed-key
-                                    height: "187px",
-                                },
                             ["@media (max-width:600px)"]: {
                                 // eslint-disable-line no-useless-computed-key
                                 height: "140px",
-                                width: "150px",
+                                width: "200px",
                             },
                         }}
                     />
