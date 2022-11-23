@@ -1,3 +1,4 @@
+
 const story = [
     {
         id: 0,

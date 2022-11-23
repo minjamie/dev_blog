@@ -4,7 +4,8 @@ import Aside from "Components/Aside/Aside";
 import CultureCard from "Components/Card/CultureCard/CultureCard";
 import CategoryBar from "Components/CategoryBar/CategoryBar";
 import PaginationComponent from "Components/Pagination/Pagination";
-import { useState } from "react";
+import CultureSkeletonCard from "Components/SkeletonCard/CultureCard/CultureSkeletonCard";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import {
     CultureContainer,
@@ -18,13 +19,26 @@ import {
 
 export default function Culture(props: any) {
     const [data, setData] = useState(cultures);
+    const [loading, setLoading] = useState(1);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(0);
+        }, 500);
+    });
     return (
         <CulturePage>
             <CultureContainer>
                 <CultureWrapper>
                     <CultureList>
                         {cultures.map((a: any, index: any) => {
-                            return (
+                            return loading ? (
+                                <CultureSkeletonCard
+                                    key={index}
+                                    sectionCategory={props.sectionCategory}
+                                    cardIndex={index}
+                                />
+                            ) : (
                                 <Link
                                     style={{ textDecoration: "none" }}
                                     key={index}
