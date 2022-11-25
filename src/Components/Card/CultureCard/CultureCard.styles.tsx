@@ -11,8 +11,10 @@ const CultureItem = styled.div`
     background-color: white;
     height: auto;
     padding: 1rem 2rem;
+    max-width: 900px;
     ${media.laptop`
     padding-left: 2rem;
+    min-width: 1050px;
     `}
     ${media.tablet`
         display:block;
@@ -24,18 +26,23 @@ const CultureItem = styled.div`
 const CultureInfo = styled.div`
     display: flex;
     flex-direction: column;
+    width: 700px;
     ${media.tablet`
-        padding-top: 2rem;
+     min-width: 100%;
+     padding-top: 2rem;
     `}
 `;
 
 const CultureTitle = styled.h1`
     font-weight: 900;
     font-size: 35px;
+    margin-bottom: 20px;
 `;
 
 const CultureImageWrapper = styled.div`
-    padding-right: 2rem;
+    display: flex;
+    justify-content: center;
+    padding-right: 1rem;
     ${media.tablet`
     text-align: left;
     `}
@@ -52,7 +59,14 @@ const CultureText = styled.h1`
     color: #252e48;
     font-size: 18px;
     line-height: 24px;
-    white-space: normal;
+    width: 100%;
+    height: 240px;
+    word-wrap: break-word;
+    white-space: pre-line;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 10;
+    overflow: hidden;
 `;
 
 const CultureMeta = styled.ul`

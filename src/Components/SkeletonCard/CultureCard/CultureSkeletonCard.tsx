@@ -1,13 +1,10 @@
+import { CultureItem } from "Components/Card/CultureCard/CultureCard.styles";
 import { Box } from "@mui/material";
 import Skeleton from "@mui/material/Skeleton";
-import {
-    StoryImageWrapper,
-    StoryLink,
-} from "Components/Card/StoryCard/StoryCard.styles";
 
 export default function CultureSkeletonCard(props: any) {
     return (
-        <StoryLink cardLength={props.cardLength}>
+        <CultureItem>
             <Box
                 sx={{
                     display: "flex",
@@ -60,26 +57,24 @@ export default function CultureSkeletonCard(props: any) {
                         }}
                     />
                 </Box>
-                <StoryImageWrapper>
-                    <Skeleton
-                        variant="rectangular"
-                        sx={{
-                            height: "267px",
-                            maxWidth: `calc(100% - 10px)`,
-                            width: "410px",
-                            ["@media (max-width:1200px)"]: {
-                                // eslint-disable-line no-useless-computed-key
-                                width: "126%",
-                            },
-                            ["@media (max-width:600px)"]: {
-                                // eslint-disable-line no-useless-computed-key
-                                height: "140px",
-                                width: "200px",
-                            },
-                        }}
-                    />
-                </StoryImageWrapper>
+                <Skeleton
+                    variant="rectangular"
+                    sx={{
+                        height: "267px",
+                        maxWidth: `calc(100% - 10px)`,
+                        width: "410px",
+                        ["@media (max-width:1200px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                            width: "126%",
+                        },
+                        ["@media (max-width:600px)"]: {
+                            // eslint-disable-line no-useless-computed-key
+                            height: "140px",
+                            width: "200px",
+                        },
+                    }}
+                />
             </Box>
-        </StoryLink>
+        </CultureItem>
     );
 }
