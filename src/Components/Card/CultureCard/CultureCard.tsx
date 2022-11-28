@@ -26,6 +26,7 @@ const CultureCard: FC<any> = (props: CultureProp) => {
             setLoading(0);
         }, 1000);
     });
+
     return (
         <CultureItem>
             <CultureImageWrapper>
@@ -85,9 +86,10 @@ const CultureCard: FC<any> = (props: CultureProp) => {
                             <Skeleton
                                 key={index}
                                 variant="rectangular"
-                                width={"10%"}
+                                width={`calc(1.6% * ${tags[index].length})`}
                                 height={32.48}
                                 sx={{
+                                    padding: "2px 1rem",
                                     margin: "0.3rem",
                                 }}
                             />

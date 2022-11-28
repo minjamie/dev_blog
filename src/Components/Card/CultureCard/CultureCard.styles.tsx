@@ -104,6 +104,7 @@ const CultureTags = styled.div`
     white-space: pre;
     align-items: center;
     flex-wrap: wrap;
+    font-size: 1rem;
 `;
 const CultureTag = styled.span`
     text-decoration: none;

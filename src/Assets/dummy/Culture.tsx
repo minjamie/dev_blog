@@ -43,7 +43,15 @@ const cultures = [
         email: "minjae2246@gmail.com",
         date: "2022-10-21",
         count: 0,
-        tags: ["A", "BB", "CCC", "DDDD", "EEEEE", "DDDDDD", "GGGGGGG"],
+        tags: [
+            "가",
+            "가나",
+            "가나다",
+            "가나다라",
+            "가나다라마바",
+            "가나다라마바사아",
+            "가나다라마바사아자",
+        ],
     },
     {
         id: 2,
@@ -70,7 +78,15 @@ const cultures = [
         email: "minjae2246@ubcare.co.kr",
         date: "2022-10-23",
         count: 0,
-        tags: ["A", "BB", "CCC", "DDDD", "EEEEE", "DDDDDD", "GGGGGGG"],
+        tags: [
+            "가a",
+            "가aB",
+            "가나Cd",
+            "가나다Efg",
+            "EEEEE",
+            "DDDDDD",
+            "GGGGGGG",
+        ],
     },
     {
         id: 4,
@@ -99,7 +115,7 @@ const cultures = [
         email: "minjae2246@naver.com",
         date: "2022-10-25",
         count: 0,
-        tags: ["A", "BB", "CCC", "DDDD", "EEEEE", "DDDDDD", "GGGGGGG"],
+        tags: ["a", "bb", "ccc", "DDDD", "EEEEE", "DDDDDD", "GGGGGGG"],
     },
 ];
 

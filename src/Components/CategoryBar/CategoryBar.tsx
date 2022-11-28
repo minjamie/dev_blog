@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
     CategoryBarBottom,
     CategoryBarContainer,
@@ -23,8 +23,26 @@ export default function CategoryBar(props: any) {
         { title: "#SW 공학", count: 1 },
         { title: "#퍼블릭 클라우드", count: 1 },
     ];
+
+    const SideHash = [
+        { title: "#Data Analytics", count: 1 },
+        { title: "#시각화", count: 1 },
+        { title: "#Cloud", count: 1 },
+        { title: "#가상화", count: 1 },
+        { title: "#DB", count: 1 },
+        { title: "#OS", count: 1 },
+        { title: "#SW 공학", count: 1 },
+        { title: "#퍼블릭 클라우드", count: 1 },
+    ];
     const [click, setClick] = useState(false);
     const meta = { number: 13, category: props.category };
+    const [loading, setLoading] = useState(1);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(0);
+        }, 1000);
+    });
     return (
         <CategoryBarWrapper category={props.category}>
             <CategoryBarContainer category={props.category}>
@@ -32,18 +50,33 @@ export default function CategoryBar(props: any) {
                     {props.category ? meta.category : "Top Tag"}
                 </CategoryTitle>
                 <CategoryBarBottom>
-                    {hash.map((a, index) => {
-                        return (
-                            <CategoryHash
-                                active={click}
-                                key={index}
-                                category={props.category}
-                            >
-                                {hash[index].title}
-                                {hash[index].count && `(${hash[index].count})`}
-                            </CategoryHash>
-                        );
-                    })}
+                    {props.category
+                        ? hash.map((a, index) => {
+                              return (
+                                  <CategoryHash
+                                      active={click}
+                                      key={index}
+                                      category={props.category}
+                                  >
+                                      {hash[index].title}
+                                      {hash[index].count &&
+                                          `(${hash[index].count})`}
+                                  </CategoryHash>
+                              );
+                          })
+                        : SideHash.map((a, index) => {
+                              return (
+                                  <CategoryHash
+                                      active={click}
+                                      key={index}
+                                      category={props.category}
+                                  >
+                                      {SideHash[index].title}
+                                      {SideHash[index].count &&
+                                          `(${SideHash[index].count})`}
+                                  </CategoryHash>
+                              );
+                          })}
                 </CategoryBarBottom>
             </CategoryBarContainer>
         </CategoryBarWrapper>
