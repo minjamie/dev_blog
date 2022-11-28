@@ -8,7 +8,6 @@ import {
 } from "./CategoryBar.styles";
 
 export default function CategoryBar(props: any) {
-    console.log(props.category);
     const hash = [
         { title: "전체", count: null },
         { title: "#Application & Library", count: 1 },

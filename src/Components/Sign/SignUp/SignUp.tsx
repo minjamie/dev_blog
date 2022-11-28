@@ -56,7 +56,6 @@ export default function SignUp() {
 
             const currentValue = form[currentField].value;
 
-            console.log(currentValue);
             if (currentValue === "") {
                 newFormValues = {
                     ...newFormValues,

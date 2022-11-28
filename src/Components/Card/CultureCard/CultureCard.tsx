@@ -51,23 +51,50 @@ const CultureCard: FC<any> = (props: CultureProp) => {
                         variant="rectangular"
                         width={"99%"}
                         height={240}
-                        sx={{ marginBottom: "8px" }}
+                        sx={{ marginBottom: "16px" }}
                     />
                 ) : (
                     <CultureText>{content}</CultureText>
                 )}
-                <CultureMeta>
-                    <CultureEmail>{email}</CultureEmail>
-                    <CultureDate>등록일 | {date}</CultureDate>
-                    <CultureCount> 게시글 수 | {count}</CultureCount>
-                </CultureMeta>
+                {loading ? (
+                    <CultureMeta>
+                        <Skeleton
+                            variant="rectangular"
+                            sx={{
+                                width: "99%",
+                                height: "23px",
+                                ["@media (max-width:600px)"]: {
+                                    // eslint-disable-line no-useless-computed-key
+                                    height: "107px",
+                                    width: "70%",
+                                },
+                            }}
+                        />
+                    </CultureMeta>
+                ) : (
+                    <CultureMeta>
+                        <CultureEmail>{email}</CultureEmail>
+                        <CultureDate>등록일 | {date}</CultureDate>
+                        <CultureCount> 게시글 수 | {count}</CultureCount>
+                    </CultureMeta>
+                )}
                 <CultureTags>
                     <BsTags className="CultureTag" />
-                    {tags.map((a, index) => {
-                        return (
+                    {tags.map((a, index) =>
+                        loading ? (
+                            <Skeleton
+                                key={index}
+                                variant="rectangular"
+                                width={"10%"}
+                                height={32.48}
+                                sx={{
+                                    margin: "0.3rem",
+                                }}
+                            />
+                        ) : (
                             <CultureTag key={index}>{tags[index]}</CultureTag>
-                        );
-                    })}
+                        )
+                    )}
                 </CultureTags>
             </CultureInfo>
         </CultureItem>

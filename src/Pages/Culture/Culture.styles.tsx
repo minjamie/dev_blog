@@ -18,7 +18,7 @@ const CultureWrapper = styled.section`
     width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     ${media.laptop`
     flex-direction: column;
    `}

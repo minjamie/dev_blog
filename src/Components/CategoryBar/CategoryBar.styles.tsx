@@ -3,7 +3,7 @@ import { media } from "Styles/media.styles";
 
 const CategoryBarWrapper = styled.div<{ category: string }>`
     width: 100%;
-    max-width: 1150px;
+    max-width: 1180px;
     margin: 0 auto;
     background-color: #f4f6f8;
     padding-top: ${(props: any) => (props.category ? "82px" : null)};

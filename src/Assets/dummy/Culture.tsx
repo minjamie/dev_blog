@@ -48,13 +48,7 @@ const cultures = [
     {
         id: 2,
         title: "Material-UI",
-        content: `Material- UI is an open - source project that features React components that implement Google's Material Design.
-            Material- UI is an open - source project that features React components that implement Google's Material Design.
-            Material- UI is an open - source project that features React components that implement Google's Material Design.
-            Material- UI is an open - source project that features React components that implement Google's Material Design.
-            Material- UI is an open - source project that features React components that implement Google's Material Design.
-            Material- UI is an open - source project that features React components that implement Google's Material Design.
-            `,
+        content: `Material- UI is an open`,
         img: "https://mui.com/static/logo.png",
         email: "minjae2246@naver.com",
         date: "2022-10-25",
@@ -82,15 +76,6 @@ const cultures = [
         id: 4,
         title: "Semantic UI React",
         content: `Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
-            Semantic UI React is the official React integration for Semantic UI.
             `,
         img: "https://react.semantic-ui.com/logo.png",
         email: "minjae2246@gmail.com",

@@ -35,7 +35,7 @@ export default function StorySkeletonCard(props: any) {
                 >
                     <Skeleton
                         height={42}
-                        width="3.5rem"
+                        width="4rem"
                         sx={{
                             bgcolor: "grey.300",
                             ["@media (max-width:1200px)"]: {
@@ -48,7 +48,7 @@ export default function StorySkeletonCard(props: any) {
                     />
                     <Skeleton
                         height={30}
-                        width="5.5rem"
+                        width="6rem"
                         sx={{
                             bgcolor: "grey.300",
                             ["@media (max-width:1200px)"]: {
