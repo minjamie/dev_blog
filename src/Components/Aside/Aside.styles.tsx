@@ -27,8 +27,13 @@ const CultureAsideTitle = styled.h3`
 `;
 
 const CultureAsideNumber = styled.span`
-    font-size: 1.5rem;
-    padding-right: 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 25px;
+    width: 2rem;
+    height: 1.8rem;
+    margin-right: 0.5rem;
 `;
 
 const CultureAsideImage = styled.img<{ src: string }>`

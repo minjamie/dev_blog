@@ -1,3 +1,4 @@
+import { Skeleton } from "@mui/material";
 import { useEffect, useState } from "react";
 import {
     CategoryBarBottom,
@@ -51,8 +52,20 @@ export default function CategoryBar(props: any) {
                 </CategoryTitle>
                 <CategoryBarBottom>
                     {props.category
-                        ? hash.map((a, index) => {
-                              return (
+                        ? hash.map((a, index) =>
+                              loading ? (
+                                  <Skeleton
+                                      key={index}
+                                      variant="rectangular"
+                                      width={`calc(1.5 * ${hash[index].title.length}%)`}
+                                      height={30}
+                                      sx={{
+                                          padding: "2px 10px",
+                                          margin: "0.3rem",
+                                          display: "inline-block",
+                                      }}
+                                  />
+                              ) : (
                                   <CategoryHash
                                       active={click}
                                       key={index}
@@ -62,10 +75,22 @@ export default function CategoryBar(props: any) {
                                       {hash[index].count &&
                                           `(${hash[index].count})`}
                                   </CategoryHash>
-                              );
-                          })
-                        : SideHash.map((a, index) => {
-                              return (
+                              )
+                          )
+                        : SideHash.map((a, index) =>
+                              loading ? (
+                                  <Skeleton
+                                      key={index}
+                                      variant="rectangular"
+                                      width={`calc(5 * ${SideHash[index].title.length}%)`}
+                                      height={30}
+                                      sx={{
+                                          width: "fit-content",
+                                          padding: "2px 10px",
+                                          margin: "0.3rem",
+                                      }}
+                                  />
+                              ) : (
                                   <CategoryHash
                                       active={click}
                                       key={index}
@@ -75,8 +100,8 @@ export default function CategoryBar(props: any) {
                                       {SideHash[index].count &&
                                           `(${SideHash[index].count})`}
                                   </CategoryHash>
-                              );
-                          })}
+                              )
+                          )}
                 </CategoryBarBottom>
             </CategoryBarContainer>
         </CategoryBarWrapper>

@@ -52,7 +52,7 @@ const CultureCard: FC<any> = (props: CultureProp) => {
                         variant="rectangular"
                         width={"99%"}
                         height={240}
-                        sx={{ marginBottom: "16px" }}
+                        sx={{ marginBottom: "20px" }}
                     />
                 ) : (
                     <CultureText>{content}</CultureText>
@@ -63,7 +63,7 @@ const CultureCard: FC<any> = (props: CultureProp) => {
                             variant="rectangular"
                             sx={{
                                 width: "99%",
-                                height: "23px",
+                                height: "24px",
                                 ["@media (max-width:600px)"]: {
                                     // eslint-disable-line no-useless-computed-key
                                     height: "107px",
@@ -86,10 +86,10 @@ const CultureCard: FC<any> = (props: CultureProp) => {
                             <Skeleton
                                 key={index}
                                 variant="rectangular"
-                                width={`calc(1.6% * ${tags[index].length})`}
-                                height={32.48}
+                                width={`calc(1.7 * ${tags[index].length}%)`}
+                                height={30}
                                 sx={{
-                                    padding: "2px 1rem",
+                                    padding: "2px 10px",
                                     margin: "0.3rem",
                                 }}
                             />
