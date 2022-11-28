@@ -7,16 +7,16 @@ import {
     CultureAsideName,
     CultureAsideNumber,
     CultureAsideTitle,
-    CultureAsideWrapper,
+    CultureAsideWrapper
 } from "./Aside.styles";
 
 export default function Aside(props: any) {
     const [loading, setLoading] = useState(1);
 
     useEffect(() => {
-        // setTimeout(() => {
-        //     setLoading(0);
-        // }, 1000);
+        setTimeout(() => {
+            setLoading(0);
+        }, 1000);
     });
 
     return (

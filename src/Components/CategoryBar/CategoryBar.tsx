@@ -57,11 +57,11 @@ export default function CategoryBar(props: any) {
                                   <Skeleton
                                       key={index}
                                       variant="rectangular"
-                                      width={`calc(1.5 * ${hash[index].title.length}%)`}
-                                      height={30}
+                                      width={`calc(1.1 * ${hash[index].title.length}%)`}
+                                      height={31.98}
                                       sx={{
-                                          padding: "2px 10px",
-                                          margin: "0.3rem",
+                                          padding: "2px 5px",
+                                          margin: "0.15rem 3px",
                                           display: "inline-block",
                                       }}
                                   />
