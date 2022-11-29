@@ -21,9 +21,6 @@ import {
 import AccountMenu from "Components/AccountMenu/AccountMenu";
 
 const Navbar: FC<any> = (props) => {
-    const userData = {
-        src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
-    };
     const [SignIn, setSignIn] = useState(true);
     const [Authentication, setAuthentication] = useState(true);
     const [scroll, setScroll] = useState(false);
@@ -35,7 +32,10 @@ const Navbar: FC<any> = (props) => {
         isAuth: Authentication,
         isSignIn: SignIn,
         src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
-        nickName: "minjae2246",
+        nickName: "김신입",
+        email: "minjae2246@ubcare.co.kr",
+        point: 25,
+        visitCount: 5,
     };
 
     const dispatch = useDispatch();
