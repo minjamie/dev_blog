@@ -26,9 +26,11 @@ export default function MultipleSelect() {
                     top: "-0.6rem",
                     fontSize: "0.85rem",
                 }}
+                color="warning"
             >
                 {team === "" ? "소속팀을 선택하세요" : ""}
             </InputLabel>
+
             <Select
                 onChange={handleChange}
                 sx={{
@@ -37,6 +39,7 @@ export default function MultipleSelect() {
                     borderRadius: "0.5rem",
                 }}
                 value={team}
+                color="warning"
             >
                 {teams.map((a, index) => {
                     return (

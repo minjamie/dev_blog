@@ -1,8 +1,11 @@
-import { Button, Chip, FormHelperText } from "@mui/material";
+import { Button, Chip, FormHelperText, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import OutlinedInput from "@mui/material/OutlinedInput";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 import * as React from "react";
 import { GlobalStyle } from "Styles/global.styles";
 import {
@@ -11,24 +14,8 @@ import {
     SignUpWelcomeTitle,
     SignUpWelcomeWrapper,
 } from "./SignUp.styles";
-import MenuItem from "@mui/material/MenuItem";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
-import OutlinedInput from "@mui/material/OutlinedInput";
 
 export default function SignUp() {
-    const SignUpData = {
-        name: "김민재",
-        email: "minjae2246@gmail.com.kr",
-        nickName: "",
-        introduce: "",
-    };
-
-    const [submit, setSubmit] = React.useState(false);
-    const tech = [
-        "Software Engineering",
-        "Data Engineering",
-        "Software Architect",
-    ];
     const ITEM_HEIGHT = 48;
     const ITEM_PADDING_TOP = 8;
     const MenuProps = {
@@ -39,6 +26,17 @@ export default function SignUp() {
             },
         },
     };
+
+    const SignUpData = {
+        name: "김민재",
+        email: "minjae2246@gmail.com.kr",
+        nickName: "",
+        introduce: "",
+        tech: [],
+    };
+
+    const [submit, setSubmit] = React.useState(false);
+    const [etc, setEtc] = React.useState(false);
     const [form, setForm] = React.useState<any>({
         name: {
             value: "",
@@ -60,8 +58,12 @@ export default function SignUp() {
             error: false,
             errorMessage: "한 줄 소개가 비었습니다. 입력해주세요",
         },
+        tech: {
+            value: [],
+            error: false,
+            errorMessage: "기술 분야가 선택되지 않았습니다. 선택해주세요",
+        },
     });
-
     const handleSubmit = (event: any) => {
         event.preventDefault();
 
@@ -73,7 +75,7 @@ export default function SignUp() {
 
             const currentValue = form[currentField].value;
 
-            if (currentValue === "") {
+            if (currentValue === "" || currentValue.length === 0) {
                 newFormValues = {
                     ...newFormValues,
                     [currentField]: {
@@ -88,6 +90,12 @@ export default function SignUp() {
         setForm(newFormValues);
     };
 
+    const techs = [
+        "Software Engineering",
+        "Data Engineering",
+        "Software Architect",
+    ];
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setSubmit(false);
@@ -101,18 +109,24 @@ export default function SignUp() {
         });
     };
 
-    const [personName, setPersonName] = React.useState<string[]>([]);
+    const selectChange = (e: SelectChangeEvent<typeof form.tech.value>) => {
+        const { name, value } = e.target;
 
-    const addChange = (event: SelectChangeEvent<typeof personName>) => {
-        const {
-            target: { value },
-        } = event;
-        setPersonName(
-            // On autofill we get a stringified value.
-            typeof value === "string" ? value.split(",") : value
-        );
+        setForm({
+            ...form,
+            [name]: {
+                ...form[name],
+                value,
+                error: false,
+            },
+        });
     };
 
+    const handleClick = () => {
+        setEtc(true);
+    };
+
+    console.log(etc);
     return (
         <SignUpPage>
             <GlobalStyle />
@@ -126,6 +140,12 @@ export default function SignUp() {
                     width: "730px",
                     margin: "0 auto",
                     textAlign: "left",
+                    "& > :nth-of-type(7)": {
+                        marginTop: etc ? "2.5rem" : "",
+                    },
+                    "& > :nth-of-type(6)": {
+                        marginTop: "2.5rem",
+                    },
                 }}
                 noValidate
                 autoComplete="off"
@@ -184,11 +204,6 @@ export default function SignUp() {
                         }}
                     />
                 </FormControl>
-                <FormHelperText id="component-helper-text">
-                    {form.email.value.length === 0
-                        ? "이메일을 입력하세요."
-                        : null}
-                </FormHelperText>
                 <FormControl variant="standard" onSubmit={handleSubmit}>
                     <InputLabel
                         sx={{ fontSize: "1.2rem" }}
@@ -232,19 +247,32 @@ export default function SignUp() {
                     <FormHelperText id="component-helper-text">
                         {form.introduce.value.length === 0
                             ? "한 줄 소개를 입력하세요."
-                            : null}{" "}
+                            : null}
                     </FormHelperText>
                 </FormControl>
-                <FormControl sx={{ m: 1, width: 300 }}>
-                    <InputLabel id="demo-multiple-chip-label">
+
+                <FormControl sx={{ m: 1, width: 300, margin: "0" }}>
+                    <InputLabel color="warning" id="demo-multiple-chip-label">
                         기술분야
                     </InputLabel>
                     <Select
+                        sx={{
+                            "&.MuiOutlinedInput-root": {
+                                "& fieldset": {
+                                    border: form.tech.error
+                                        ? "0.15rem solid red"
+                                        : "",
+                                },
+                            },
+                        }}
+                        error={form.tech.error ? true : false}
+                        name="tech"
                         labelId="demo-multiple-chip-label"
                         id="demo-multiple-chip"
                         multiple
-                        value={personName}
-                        onChange={addChange}
+                        color="warning"
+                        value={form.tech.value}
+                        onChange={selectChange}
                         input={
                             <OutlinedInput
                                 id="select-multiple-chip"
@@ -266,16 +294,37 @@ export default function SignUp() {
                         )}
                         MenuProps={MenuProps}
                     >
-                        {tech.map((name: any) => (
+                        {techs.map((name: any) => (
                             <MenuItem key={name} value={name}>
                                 {name}
                             </MenuItem>
                         ))}
+                        <MenuItem
+                            value={"기타(직접 입력)"}
+                            onClick={handleClick}
+                        >
+                            기타(직접 입력)
+                        </MenuItem>
                     </Select>
-                    <FormHelperText id="component-helper-text">
-                        {form.email.value.length === 0 ? " 입력하세요." : null}
+                    <FormHelperText
+                        id="component-helper-text"
+                        sx={{ marginRight: 0, marginLeft: 0 }}
+                    >
+                        {form.tech.value.length === 0
+                            ? "기술 분야를 선택해주세요."
+                            : null}
                     </FormHelperText>
                 </FormControl>
+                {etc ? (
+                    <FormControl sx={{ m: 1, width: 300 }}>
+                        <TextField
+                            id="outlined-textarea"
+                            label="기타(직접 입력)"
+                            placeholder="직접입력"
+                            multiline
+                        />
+                    </FormControl>
+                ) : null}
                 <FormHelperText
                     id="component-helper-text"
                     sx={{
@@ -290,6 +339,8 @@ export default function SignUp() {
                         ? form.nickName.errorMessage
                         : form.introduce.error && submit
                         ? form.introduce.errorMessage
+                        : form.tech.error && submit
+                        ? form.tech.errorMessage
                         : null}
                 </FormHelperText>
                 <Box

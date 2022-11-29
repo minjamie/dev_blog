@@ -1,30 +1,28 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
+import Logout from "@mui/icons-material/Logout";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import PersonIcon from "@mui/icons-material/Person";
+import { Badge } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import Tooltip from "@mui/material/Tooltip";
-import Settings from "@mui/icons-material/Settings";
-import Logout from "@mui/icons-material/Logout";
-import { AiFillCaretDown } from "react-icons/ai";
-import { Link } from "react-router-dom";
-import { Badge } from "@mui/material";
-import CameraAltIcon from "@mui/icons-material/CameraAlt";
-import PopupState, { bindTrigger, bindMenu } from "material-ui-popup-state";
-import Button from "@mui/material/Button";
-import PersonIcon from "@mui/icons-material/Person";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Tooltip from "@mui/material/Tooltip";
+import PopupState, { bindMenu, bindTrigger } from "material-ui-popup-state";
+import * as React from "react";
+import { AiFillCaretDown } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { GlobalStyle } from "Styles/global.styles";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function AccountMenu(props: any) {
-    console.log({ props });
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
