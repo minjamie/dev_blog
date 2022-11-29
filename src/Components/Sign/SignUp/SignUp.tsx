@@ -1,4 +1,4 @@
-import { Button, FormHelperText } from "@mui/material";
+import { Button, Chip, FormHelperText } from "@mui/material";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import Input from "@mui/material/Input";
@@ -11,6 +11,9 @@ import {
     SignUpWelcomeTitle,
     SignUpWelcomeWrapper,
 } from "./SignUp.styles";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import OutlinedInput from "@mui/material/OutlinedInput";
 
 export default function SignUp() {
     const SignUpData = {
@@ -21,7 +24,21 @@ export default function SignUp() {
     };
 
     const [submit, setSubmit] = React.useState(false);
-
+    const tech = [
+        "Software Engineering",
+        "Data Engineering",
+        "Software Architect",
+    ];
+    const ITEM_HEIGHT = 48;
+    const ITEM_PADDING_TOP = 8;
+    const MenuProps = {
+        PaperProps: {
+            style: {
+                maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+                width: 250,
+            },
+        },
+    };
     const [form, setForm] = React.useState<any>({
         name: {
             value: "",
@@ -82,6 +99,18 @@ export default function SignUp() {
                 error: false,
             },
         });
+    };
+
+    const [personName, setPersonName] = React.useState<string[]>([]);
+
+    const addChange = (event: SelectChangeEvent<typeof personName>) => {
+        const {
+            target: { value },
+        } = event;
+        setPersonName(
+            // On autofill we get a stringified value.
+            typeof value === "string" ? value.split(",") : value
+        );
     };
 
     return (
@@ -204,6 +233,47 @@ export default function SignUp() {
                         {form.introduce.value.length === 0
                             ? "한 줄 소개를 입력하세요."
                             : null}{" "}
+                    </FormHelperText>
+                </FormControl>
+                <FormControl sx={{ m: 1, width: 300 }}>
+                    <InputLabel id="demo-multiple-chip-label">
+                        기술분야
+                    </InputLabel>
+                    <Select
+                        labelId="demo-multiple-chip-label"
+                        id="demo-multiple-chip"
+                        multiple
+                        value={personName}
+                        onChange={addChange}
+                        input={
+                            <OutlinedInput
+                                id="select-multiple-chip"
+                                label="기술분야"
+                            />
+                        }
+                        renderValue={(selected) => (
+                            <Box
+                                sx={{
+                                    display: "flex",
+                                    flexWrap: "wrap",
+                                    gap: 0.5,
+                                }}
+                            >
+                                {selected.map((value: any) => (
+                                    <Chip key={value} label={value} />
+                                ))}
+                            </Box>
+                        )}
+                        MenuProps={MenuProps}
+                    >
+                        {tech.map((name: any) => (
+                            <MenuItem key={name} value={name}>
+                                {name}
+                            </MenuItem>
+                        ))}
+                    </Select>
+                    <FormHelperText id="component-helper-text">
+                        {form.email.value.length === 0 ? " 입력하세요." : null}
                     </FormHelperText>
                 </FormControl>
                 <FormHelperText
