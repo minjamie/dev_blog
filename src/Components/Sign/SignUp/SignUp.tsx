@@ -94,6 +94,7 @@ export default function SignUp() {
         "Software Engineering",
         "Data Engineering",
         "Software Architect",
+        "기타(직접 입력)",
     ];
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -112,21 +113,39 @@ export default function SignUp() {
     const selectChange = (e: SelectChangeEvent<typeof form.tech.value>) => {
         const { name, value } = e.target;
 
-        setForm({
-            ...form,
-            [name]: {
-                ...form[name],
-                value,
-                error: false,
-            },
-        });
+        if (value.includes("기타(직접 입력)")) {
+            if (value.findIndex((v: string) => v == "기타(직접 입력)") === 0) {
+                // value.slice(0, -1);
+            } else {
+                value.length === 1;
+                setForm({
+                    ...form,
+                    [name]: {
+                        value: ["기타(직접 입력)"],
+                        error: false,
+                    },
+                });
+            }
+        } else {
+            setForm({
+                ...form,
+                [name]: {
+                    ...form[name],
+                    value,
+                    error: false,
+                },
+            });
+        }
     };
 
-    const handleClick = () => {
-        setEtc(true);
+    const handleClick = (e: React.MouseEvent<HTMLLIElement>, value: string) => {
+        if (value === "기타(직접 입력)") {
+            setEtc(!etc);
+        }
     };
 
-    console.log(etc);
+    console.log(form);
+
     return (
         <SignUpPage>
             <GlobalStyle />
@@ -287,24 +306,41 @@ export default function SignUp() {
                                     gap: 0.5,
                                 }}
                             >
-                                {selected.map((value: any) => (
-                                    <Chip key={value} label={value} />
-                                ))}
+                                {selected === "기타(직접 입력)" ? (
+                                    <Chip
+                                        key={selected}
+                                        label={selected}
+                                        sx={{
+                                            height: 23,
+                                        }}
+                                    />
+                                ) : (
+                                    selected.map((value: any) => {
+                                        return (
+                                            <Chip
+                                                key={value}
+                                                label={value}
+                                                sx={{
+                                                    height: 23,
+                                                }}
+                                            />
+                                        );
+                                    })
+                                )}
                             </Box>
                         )}
                         MenuProps={MenuProps}
                     >
                         {techs.map((name: any) => (
-                            <MenuItem key={name} value={name}>
+                            <MenuItem
+                                key={name}
+                                value={name}
+                                onClick={(e) => handleClick(e, name)}
+                                sx={{}}
+                            >
                                 {name}
                             </MenuItem>
                         ))}
-                        <MenuItem
-                            value={"기타(직접 입력)"}
-                            onClick={handleClick}
-                        >
-                            기타(직접 입력)
-                        </MenuItem>
                     </Select>
                     <FormHelperText
                         id="component-helper-text"
@@ -312,7 +348,7 @@ export default function SignUp() {
                     >
                         {form.tech.value.length === 0
                             ? "기술 분야를 선택해주세요."
-                            : null}
+                            : " "}
                     </FormHelperText>
                 </FormControl>
                 {etc ? (
