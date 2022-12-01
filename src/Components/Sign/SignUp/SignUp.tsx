@@ -111,7 +111,6 @@ export default function SignUp() {
 
     const selectChange = (e: SelectChangeEvent<typeof form.tech.value>) => {
         const { name, value } = e.target;
-
         setForm({
             ...form,
             [name]: {
@@ -126,7 +125,8 @@ export default function SignUp() {
         setEtc(true);
     };
 
-    console.log(etc);
+    console.log(form);
+
     return (
         <SignUpPage>
             <GlobalStyle />
