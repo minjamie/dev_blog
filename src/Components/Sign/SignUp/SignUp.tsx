@@ -94,8 +94,7 @@ export default function SignUp() {
         "Software Engineering",
         "Data Engineering",
         "Software Architect",
-        "기타(직접 입력)",
-    ]);
+    ];
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -117,21 +116,37 @@ export default function SignUp() {
     const selectChange = (e: SelectChangeEvent<typeof form.tech.value>) => {
         const { name, value } = e.target;
 
-        setForm({
-            ...form,
-            [name]: {
-                ...form[name],
-                value,
-                error: false,
-            },
-        });
+        if (value.includes("기타(직접 입력)")) {
+            if (value.findIndex((v: string) => v == "기타(직접 입력)") === 0) {
+                // value.slice(0, -1);
+            } else {
+                value.length === 1;
+                setForm({
+                    ...form,
+                    [name]: {
+                        value: ["기타(직접 입력)"],
+                        error: false,
+                    },
+                });
+            }
+        } else {
+            setForm({
+                ...form,
+                [name]: {
+                    ...form[name],
+                    value,
+                    error: false,
+                },
+            });
+        }
     };
     console.log(form);
 
     const handleClick = () => {
-        setEtc(!etc);
+        setEtc(true);
     };
 
+    console.log(etc);
     return (
         <SignUpPage>
             <GlobalStyle />
@@ -293,28 +308,23 @@ export default function SignUp() {
                                 }}
                             >
                                 {selected.map((value: any) => (
-                                    <Chip
-                                        key={value}
-                                        label={
-                                            value == "기타(직접 입력)"
-                                                ? techs[techs.length - 1]
-                                                : value
-                                        }
-                                    />
+                                    <Chip key={value} label={value} />
                                 ))}
                             </Box>
                         )}
                         MenuProps={MenuProps}
                     >
                         {techs.map((name: any) => (
-                            <MenuItem
-                                key={name}
-                                value={name}
-                                onClick={handleClick}
-                            >
+                            <MenuItem key={name} value={name}>
                                 {name}
                             </MenuItem>
                         ))}
+                        <MenuItem
+                            value={"기타(직접 입력)"}
+                            onClick={handleClick}
+                        >
+                            기타(직접 입력)
+                        </MenuItem>
                     </Select>
                     <FormHelperText
                         id="component-helper-text"
@@ -322,7 +332,7 @@ export default function SignUp() {
                     >
                         {form.tech.value.length === 0
                             ? "기술 분야를 선택해주세요."
-                            : null}
+                            : " "}
                     </FormHelperText>
                 </FormControl>
                 {etc ? (
