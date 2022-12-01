@@ -90,15 +90,20 @@ export default function SignUp() {
         setForm(newFormValues);
     };
 
-    const techs = [
+    const [techs, setTechs] = React.useState([
         "Software Engineering",
         "Data Engineering",
         "Software Architect",
-    ];
+        "기타(직접 입력)",
+    ]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setSubmit(false);
+        if (name === "text") {
+            const copy = [...techs];
+            copy[techs.length - 1] = value;
+            setTechs(copy);
+        }
         setForm({
             ...form,
             [name]: {
@@ -111,6 +116,7 @@ export default function SignUp() {
 
     const selectChange = (e: SelectChangeEvent<typeof form.tech.value>) => {
         const { name, value } = e.target;
+
         setForm({
             ...form,
             [name]: {
@@ -120,12 +126,11 @@ export default function SignUp() {
             },
         });
     };
+    console.log(form);
 
     const handleClick = () => {
-        setEtc(true);
+        setEtc(!etc);
     };
-
-    console.log(form);
 
     return (
         <SignUpPage>
@@ -288,23 +293,28 @@ export default function SignUp() {
                                 }}
                             >
                                 {selected.map((value: any) => (
-                                    <Chip key={value} label={value} />
+                                    <Chip
+                                        key={value}
+                                        label={
+                                            value == "기타(직접 입력)"
+                                                ? techs[techs.length - 1]
+                                                : value
+                                        }
+                                    />
                                 ))}
                             </Box>
                         )}
                         MenuProps={MenuProps}
                     >
                         {techs.map((name: any) => (
-                            <MenuItem key={name} value={name}>
+                            <MenuItem
+                                key={name}
+                                value={name}
+                                onClick={handleClick}
+                            >
                                 {name}
                             </MenuItem>
                         ))}
-                        <MenuItem
-                            value={"기타(직접 입력)"}
-                            onClick={handleClick}
-                        >
-                            기타(직접 입력)
-                        </MenuItem>
                     </Select>
                     <FormHelperText
                         id="component-helper-text"
@@ -322,6 +332,8 @@ export default function SignUp() {
                             label="기타(직접 입력)"
                             placeholder="직접입력"
                             multiline
+                            onChange={handleChange}
+                            name="text"
                         />
                     </FormControl>
                 ) : null}
