@@ -100,9 +100,10 @@ export default function Preview(props: any) {
     };
 
     const handleListItemClick = (
-        event: React.MouseEvent<HTMLDivElement, MouseEvent>,
+        event: React.MouseEvent<any>,
         index: number
     ) => {
+        console.log(event.currentTarget);
         setSelectedIndex(index);
     };
 
