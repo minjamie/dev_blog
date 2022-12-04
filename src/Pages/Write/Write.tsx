@@ -43,6 +43,11 @@ export default function Write(props: any) {
     const [tags, setTags] = useState<string[]>([]);
     const [contents, setContents] = useState("");
     const [click, setClick] = useState(false);
+    const previewProps = {
+        click,
+        title,
+    };
+
     const [tooltipIsOpen, setTooltipIsOpen] = React.useState(false);
     const [matches, setMatches] = useState(
         window.matchMedia("(min-width: 1200px)").matches
@@ -183,7 +188,7 @@ export default function Write(props: any) {
                     </WriteRegisterButton>
                 </WriteSaveAndExitButtonWrapper>
             </WriteButtonWrapper>
-            <Preview props={click} setClick={setClick} />
+            <Preview props={previewProps} setClick={setClick} />
         </WritePage>
     );
 }

@@ -1,7 +1,8 @@
 import LockIcon from "@mui/icons-material/Lock";
 import PlaylistAddIcon from "@mui/icons-material/PlaylistAdd";
 import PublicIcon from "@mui/icons-material/Public";
-import { Button } from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
+import { Button, InputAdornment, TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -58,9 +59,7 @@ export default function Preview(props: any) {
     ]);
     const [savePath, setSavePath] = useState<string>("");
 
-    const [selectedIndex, setSelectedIndex] = React.useState<number | null>(
-        null
-    );
+    const [selectedIndex, setSelectedIndex] = React.useState<number>(-1);
 
     const my = {
         src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
@@ -88,6 +87,7 @@ export default function Preview(props: any) {
         setSavePaths(arr);
         setSavePath("");
         setFocus(false);
+        setSelectedIndex(arr.length - 1);
     };
 
     const clickSave = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -108,8 +108,50 @@ export default function Preview(props: any) {
         setSelectedIndex(index);
     };
 
+    const clickCancel = (): void => {
+        setSelectedIndex(-1);
+        setSave(false);
+    };
+
+    const clickSubmit = (e: React.MouseEvent<HTMLButtonElement>): void => {
+        if (isSave && selectedIndex >= 0) {
+            setSave(false);
+            setSavePath(savePaths[selectedIndex]);
+        }
+        if (!isSave && !props.props.title) {
+            alert("제목을 입력해주세요");
+        }
+    };
+
+    const [form, setForm] = React.useState<any>({
+        name: {
+            value: "",
+            error: false,
+            errorMessage: "제목이 비었습니다. 입력해주세요",
+        },
+        email: {
+            value: "minjae2246@ubacare.co.kr",
+            error: false,
+            errorMessage: "이메일이 비었습니다. 입력해주세요",
+        },
+        nickName: {
+            value: "",
+            error: false,
+            errorMessage: "닉네임이 비었습니다. 입력해주세요",
+        },
+        introduce: {
+            value: "",
+            error: false,
+            errorMessage: "한 줄 소개가 비었습니다. 입력해주세요",
+        },
+        tech: {
+            value: [],
+            error: false,
+            errorMessage: "기술 분야가 선택되지 않았습니다. 선택해주세요",
+        },
+    });
     return (
-        <PreviewPage click={props.props}>
+        <PreviewPage click={props.props.click}>
             <GlobalStyle></GlobalStyle>
             <PreviewContainer>
                 <PreviewLeft>
@@ -133,6 +175,7 @@ export default function Preview(props: any) {
                             />
                         </Button>
                     </PreviewThumbnail>
+                    {props.props.title}
                     <PreviewIntroduce
                         maxLength={149}
                         value={intro}
@@ -344,30 +387,61 @@ export default function Preview(props: any) {
                                 <PreviewSaveTitle>
                                     저장위치 설정
                                 </PreviewSaveTitle>
-                                <Button
-                                    onClick={clickSave}
-                                    sx={{
-                                        height: "50px",
-                                        fontSize: "1.35rem",
-                                        ["@media (max-width:1200px)"]: {
-                                            // eslint-disable-line no-useless-computed-key
-                                            height: "45px",
-                                            fontSize: "1.2rem",
-                                        },
-                                    }}
-                                    variant="outlined"
-                                    fullWidth
-                                    startIcon={<PlaylistAddIcon />}
-                                >
-                                    저장위치 추가
-                                </Button>
+                                {selectedIndex >= 0 ? (
+                                    <TextField
+                                        fullWidth
+                                        sx={{}}
+                                        id="outlined-read-only-input"
+                                        defaultValue={savePaths[selectedIndex]}
+                                        InputProps={{
+                                            style: {
+                                                padding: 0,
+                                            },
+                                            readOnly: true,
+                                            endAdornment: (
+                                                <InputAdornment
+                                                    position="end"
+                                                    sx={{
+                                                        cursor: "pointer",
+                                                    }}
+                                                >
+                                                    <SettingsIcon
+                                                        sx={{
+                                                            backgroundColor:
+                                                                "#00a8ff",
+                                                            fontSize: "2rem",
+                                                        }}
+                                                    />
+                                                </InputAdornment>
+                                            ),
+                                        }}
+                                    />
+                                ) : (
+                                    <Button
+                                        onClick={clickSave}
+                                        sx={{
+                                            height: "50px",
+                                            fontSize: "1.35rem",
+                                            ["@media (max-width:1200px)"]: {
+                                                // eslint-disable-line no-useless-computed-key
+                                                height: "45px",
+                                                fontSize: "1.2rem",
+                                            },
+                                        }}
+                                        variant="outlined"
+                                        fullWidth
+                                        startIcon={<PlaylistAddIcon />}
+                                    >
+                                        저장위치 추가
+                                    </Button>
+                                )}
                             </PreviewSavePositionWrapper>
                         </>
                     )}
                     <PreviewButtonWrapper isSave={isSave}>
                         <WriteExitButton
                             onClick={() => {
-                                isSave ? setSave(false) : props.setClick(false);
+                                isSave ? clickCancel() : props.setClick(false);
                             }}
                         >
                             {isSave ? "취소" : "나가기"}
@@ -387,9 +461,14 @@ export default function Preview(props: any) {
                                     opacity: 0.7,
                                 },
                             }}
-                            disabled={isSave ? true : false}
+                            disabled={
+                                isSave && selectedIndex < 0 ? true : false
+                            }
+                            onClick={clickSubmit}
                         >
-                            {selectedIndex ? "선택하기" : "출간하기"}
+                            {isSave && selectedIndex >= 0
+                                ? "선택하기"
+                                : "출간하기"}
                         </Button>
                     </PreviewButtonWrapper>
                 </PreviewRight>
