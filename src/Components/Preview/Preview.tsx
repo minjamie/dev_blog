@@ -58,7 +58,9 @@ export default function Preview(props: any) {
     ]);
     const [savePath, setSavePath] = useState<string>("");
 
-    const [selectedIndex, setSelectedIndex] = React.useState(1);
+    const [selectedIndex, setSelectedIndex] = React.useState<number | null>(
+        null
+    );
 
     const my = {
         src: "https://velog.velcdn.com/images/minj9_6/profile/f8889f8f-fa44-4ef3-984c-616c55410ad5/P20200203_225352227_66B88E27-7A21-4EC5-987F-0B0457A4AA0C.jpeg",
@@ -103,7 +105,6 @@ export default function Preview(props: any) {
         event: React.MouseEvent<any>,
         index: number
     ) => {
-        console.log(event.currentTarget);
         setSelectedIndex(index);
     };
 
@@ -388,7 +389,7 @@ export default function Preview(props: any) {
                             }}
                             disabled={isSave ? true : false}
                         >
-                            출간하기
+                            {selectedIndex ? "선택하기" : "출간하기"}
                         </Button>
                     </PreviewButtonWrapper>
                 </PreviewRight>
